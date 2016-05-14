@@ -1,27 +1,30 @@
 import React, {View}  from 'react-native'
 import Svg,{
-    Circle as circle,
-    Ellipse as ellipse,
-    G as g,
-    LinearGradient as lineargradient,
-    RadialGradient as radialgradient,
-    Line as line,
-    Path as path,
-    Polygon as polygon,
-    Polyline as polyline,
-    Rect as rect,
-    Symbol as symbol,
-    Text as text,
-    Use as use,
-    Defs as defs,
-    Stop as stop
+    Circle,
+    Ellipse,
+    G,
+    LinearGradient,
+    RadialGradient,
+    Line,
+    Path,
+    Polygon,
+    Polyline,
+    Rect,
+    Symbol,
+    Text,
+    Use,
+    Defs,
+    Stop
 } from 'react-native-svg'
-import _ from 'lodash';
-import fontAdapt from '../fontAdapter.js';
+import Colors from '../pallete/colors';
+import Options from '../component/options'
+import fontAdapt from '../fontAdapter'
+import _ from 'lodash'
 
-var Path = require('paths-js/path');
+var Pathjs = require('paths-js/path');
 
 class AxisStruct {
+
     constructor(scale, options, chartArea, horizontal) {
         this.scale = scale;
         this.options = options;
@@ -29,7 +32,6 @@ class AxisStruct {
         this.margin = chartArea.margin;
         this.horizontal = horizontal;
     }
-
 
     static calcStepSize(range, targetSteps)
     {
@@ -55,7 +57,6 @@ class AxisStruct {
     }
 
     static getTickValues(axis, tickCount) {
-        //var tickStep = Math.round((axis.maxValue - axis.minValue) / tickCount, 0);
         var tickStep = AxisStruct.calcStepSize((axis.maxValue - axis.minValue),tickCount);
         return _.range(axis.minValue, axis.maxValue + 1,tickStep);
     }
@@ -63,17 +64,12 @@ class AxisStruct {
     axis() {
 
         var horizontal = this.horizontal;
-
         var xAxis = this.chartArea.x;
         var yAxis = this.chartArea.y;
         var currentAxis = horizontal?xAxis:yAxis;
-
         var tickInterval = this.options.tickCount || 10;
-
         var ticks = this.options.tickValues !== undefined && this.options.tickValues.length !== 0? _.map(this.options.tickValues,function(v){return v.value }):AxisStruct.getTickValues(currentAxis, tickInterval);
-
         var fixed = this.options.zeroAxis?this.scale(0):horizontal?yAxis.min:xAxis.min;
-
         var start = {x: horizontal?xAxis.min:fixed, y: horizontal?fixed:yAxis.min};
         var end = {x:horizontal?xAxis.max:fixed,y: horizontal?fixed:yAxis.max};
 
@@ -91,11 +87,11 @@ class AxisStruct {
 
         return {
             item: currentAxis,
-            path: Path().moveto(start).lineto(end).closepath(),
+            path: Pathjs().moveto(start).lineto(end).closepath(),
             ticks: ticks,
             lines: _.map(ticks, function (c) {
                 var lineStart = {x: horizontal ? this.scale(c) : xAxis.min, y: horizontal ? yAxis.min : this.scale(c)};
-                return Path().moveto(lineStart).lineto(horizontal ? lineStart.x : xAxis.max, horizontal ? yAxis.max : lineStart.y);
+                return Pathjs().moveto(lineStart).lineto(horizontal ? lineStart.x : xAxis.max, horizontal ? yAxis.max : lineStart.y);
             },this)
         };
     }
@@ -105,20 +101,12 @@ export default class Axis extends React.Component {
     constructor(props){
         super(props)
     }
-    render(){
-        var chartArea = this.props.chartArea;
-        var options = this.props.options;
-        var scale = this.props.scale;
+    render() {
+        let { chartArea, options, scale } = this.props
         var horizontal = options.orient ==="top" || options.orient ==="bottom";
 
-        var axis = new AxisStruct(this.props.scale,this.props.options,chartArea,horizontal).axis();
+        var axis = new AxisStruct(scale,options,chartArea,horizontal).axis();
 
-        var translate = function(c) {
-            var pair = horizontal?[scale(c),chartArea.y.min]:[chartArea.x.min,scale(c)];
-            return "translate(" + pair[0] + "," + pair[1] + ")";
-        };
-
-        var transparent = {opacity: 0.5};
         var textAnchor = "start";
         if (options.orient === "top" || options.orient === "bottom") textAnchor = "middle";
         if (options.orient === "left") textAnchor = "end";
@@ -126,33 +114,60 @@ export default class Axis extends React.Component {
 
         var xy = [0,0];
         if (options.orient === "top")  xy = [0,-5];
-        if (options.orient === "bottom") xy = [0,20];
-        if (options.orient === "left")  xy = [-5,0];
-        if (options.orient === "right")  xy = [5,0];
-
-        var textTransform  = "translate(" + xy[0] + "," + xy[1] + ")";
+        if (options.orient === "bottom") xy = [0,5];
+        if (options.orient === "left")  xy = [-5,-10];
+        if (options.orient === "right")  xy = [5,5];
 
         var textStyle = fontAdapt(options.label);
 
         var ticks =_.map(axis.ticks, function (c, i) {
-            var label = options.labelComponent !== undefined? React.cloneElement(options.labelComponent,{value:c}):c;
-            return (<g key={ i } transform={translate(c)}>
-                {options.showTicks ? <circle r="2" cx="0" cy="0" stroke="grey" fill="grey"/> : null}
-                {options.showLabels ?
-                    <text transform={textTransform} style={textStyle} textAnchor={textAnchor}>{label}</text> : null}
-            </g>)
+            var label = options.labelComponent !== undefined? React.cloneElement(options.labelComponent,{value:c}) : c;
+            let gxy = horizontal ? [scale(c),chartArea.y.min]:[chartArea.x.min,scale(c)];
+
+            let returnValue = <G key={i} x={gxy[0]} y={gxy[1]}>
+
+                {options.showTicks &&
+                  <Circle r="2" cx="0" cy="0" stroke="grey" fill="grey" />
+                }
+
+                {options.showLabels &&
+                  <Text x={xy[0]} y={xy[1]}
+                        fontFamily={textStyle.fontFamily}
+                        fontSize={textStyle.fontSize}
+                        fontWeight={textStyle.fontWeight}
+                        fontStyle={textStyle.fontStyle}
+                        fill={textStyle.fill}
+                        textAnchor={textAnchor}>
+                        {label.toString()}
+                  </Text>}
+            </G>;
+
+            return returnValue;
         });
 
 
         var gridLines = options.showLines ? _.map(axis.lines, function (c, i) {
-            return (<path key={"gridLines" + i} d={c.print()} style={ transparent } stroke="#3E90F0" fill="none"/>)
+            return (
+               <Path key={"gridLines" + i} d={c.print()} strokeOpacity={0.5} stroke="#3E90F0" fill="none"/>
+            )
         }) : [];
 
-        return(<g>
-                {options.showAxis?<path d={axis.path.print()} style={ transparent } stroke="#3E90F0" strokeWidth={3} fill="none"/> : null}
-                {ticks}
+        let offset = {
+          x: chartArea.margin.left * -1,
+          y: chartArea.margin.top * -1
+        }
+
+        let returnV = <G>
+              <G x={offset.x} y={offset.y}>
+                {options.showAxis ? <Path d={axis.path.print()} strokeOpacity={0.5} stroke="#3E90F0" strokeWidth={3} fill="none"/> : null}
+              </G>
+              {ticks}
+              <G x={offset.x} y={offset.y}>
                 {gridLines}
-            </g>);
+              </G>
+            </G>;
+
+        return returnV;
 
     }
 }

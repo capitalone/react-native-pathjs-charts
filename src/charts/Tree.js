@@ -1,24 +1,26 @@
 import React, {View}  from 'react-native'
 import Svg,{
-    Circle as circle,
-    Ellipse as ellipse,
-    G as g,
-    LinearGradient as lineargradient,
-    RadialGradient as radialgradient,
-    Line as line,
-    Path as path,
-    Polygon as polygon,
-    Polyline as polyline,
-    Rect as rect,
-    Symbol as symbol,
-    Text as text,
-    Use as use,
-    Defs as defs,
-    Stop as stop
+    Circle,
+    Ellipse,
+    G,
+    LinearGradient,
+    RadialGradient,
+    Line,
+    Path,
+    Polygon,
+    Polyline,
+    Rect,
+    Symbol,
+    Text,
+    Use,
+    Defs,
+    Stop
 } from 'react-native-svg'
-import _ from 'lodash';
-import Options from '../component/Options.js';
-import fontAdapt from '../fontAdapter.js';
+import Colors from '../pallete/colors';
+import Options from '../component/options'
+import fontAdapt from '../fontAdapter'
+import Axis from '../component/Axis'
+import _ from 'lodash'
 import styleSvg from '../styleSvg';
 var Tree = require('paths-js/tree');
 
@@ -33,16 +35,13 @@ function children(x) {
 export default class TreeChart extends React.Component {
     constructor(props){
         super(props);
-        this.state = {finished:true};
     }
     render() {
         var noDataMsg = this.props.noDataMessage || "No data available";
-        if (this.props.data === undefined) return (<span>{noDataMsg}</span>);
+        if (this.props.data === undefined) return (<Text>{noDataMsg}</Text>);
 
         var options = new Options(this.props);
         var that = this;
-
-
         var tree = Tree({
             data: this.props.data,
             children: children,
@@ -51,46 +50,38 @@ export default class TreeChart extends React.Component {
         });
         var colors = styleSvg({},options);
         var curves = _.map(tree.curves,function (c,i) {
-            return <path  key={"curves_" + i} d={ c.connector.path.print() } fill="none" stroke={colors.stroke} strokeOpacity={colors.strokeOpacity} />
+            return <Path key={"curves_" + i} d={ c.connector.path.print() } fill="none" stroke={colors.stroke} strokeOpacity={colors.strokeOpacity} />
         });
 
-        var sec = options.animate.fillTransition || 0;
-        var fillOpacityStyle = {fillOpacity:this.state.finished?1:0,transition: this.state.finished?'fill-opacity ' + sec + 's':''};
-
+        var fillOpacityStyle = 1;
         var textStyle = fontAdapt(options.label);
-
-
-
         var r = options.r || 5;
         var nodes = _.map(tree.nodes,function (n,index) {
-            var position = "translate(" + n.point[0] + "," + n.point[1] + ")";
-
-            function toggle() {
-                n.item.collapsed = !n.item.collapsed;
-                that.forceUpdate();
-            };
 
             if (children(n.item).length > 0) {
-                var text = <text style={textStyle} transform="translate(-10,0)" textAnchor="end">{ n.item.name }</text>;
+                var text = <Text style={textStyle} x={-10} y={-10} textAnchor="end">{ n.item.name }</Text>;
             } else {
-                var text = <text style={textStyle} transform="translate(10,0)" textAnchor="start">{ n.item.name }</text>;
+                var text = <Text style={textStyle} x={10} y={-10} textAnchor="start">{ n.item.name }</Text>;
             }
 
             return (
-                <g key={"tree_" + index} transform={ position }>
-                    <circle  style={fillOpacityStyle} {...colors} r={r} cx="0" cy="0" onClick={ toggle }/>
+                <G key={"tree_" + index} x={n.point[0]} y={n.point[1]}>
+                    <Circle fillOpacity={fillOpacityStyle} {...colors} r={r} cx="0" cy="0" />
                     { text }
-                </g>
+                </G>
             )
         });
 
         return (
-            <svg ref="vivus"  width={options.width} height={options.height}>
-                <g transform={"translate(" + options.margin.left + "," + options.margin.top + ")"}>
+            <Svg width={options.width} height={options.height}>
+                <G x={options.margin.left} y={options.margin.top}>
+                    <G x={0} y={0}>
                     { curves }
+
                     { nodes }
-                </g>
-            </svg>
+                    </G>
+                </G>
+            </Svg>
         )
     }
 }

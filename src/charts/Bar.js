@@ -1,29 +1,12 @@
-import {Component, View}  from 'react-native'
-import Svg,{
-    Circle as circle,
-    Ellipse as ellipse,
-    G as g,
-    LinearGradient as lineargradient,
-    RadialGradient as radialgradient,
-    Line as line,
-    Path as path,
-    Polygon as polygon,
-    Polyline as polyline,
-    Rect as rect,
-    Symbol as symbol,
-    Text as text,
-    Use as use,
-    Defs as defs,
-    Stop as stop
-} from 'react-native-svg'
-import Colors from '../pallete/Colors.js';
-import _ from 'lodash';
-import Options from '../component/Options.js';
-import fontAdapt from '../fontAdapter.js';
+import React, {Component, View}  from 'react-native'
+import Svg,{ G, Line, Path, Text } from 'react-native-svg'
+import Colors from '../pallete/colors';
+import Options from '../component/options'
+import fontAdapt from '../fontAdapter'
+import Axis from '../component/Axis'
+import _ from 'lodash'
 
 var Bar = require('paths-js/bar');
-
-var Axis = require('../component/Axis');
 
 function cyclic(coll, i) {
     return coll[i % coll.length];
@@ -72,7 +55,7 @@ export default class BarChart extends Component
     //}
     render() {
         var noDataMsg = this.props.noDataMessage || "No data available";
-        if (this.props.data === undefined) return (<span>{noDataMsg}</span>);
+        if (this.props.data === undefined) return (<Text>{noDataMsg}</Text>);
 
         var options = new Options(this.props);
         var accessor = this.props.accessor || identity(this.props.accessorKey);
@@ -89,10 +72,11 @@ export default class BarChart extends Component
             return accessor(curve.item);
         });
 
-        var chartArea = {x: {minValue: 0, maxValue: 200, min: 0, max: options.chartWidth}, y: this.getMaxAndMin(values, chart.scale)};
+        var chartArea = {x: {minValue: 0, maxValue: 200, min: 0, max: options.chartWidth}, y: this.getMaxAndMin(values, chart.scale),
+          margin:options.margin};
 
-        var sec = options.animate.fillTransition || 0;
-        var fillOpacityStyle = {fillOpacity:this.state.finished?1:0,transition: this.state.finished?'fill-opacity ' + sec + 's':''};
+        // var sec = options.animate.fillTransition || 0;
+        // var fillOpacityStyle = {fillOpacity:this.state.finished?1:0,transition: this.state.finished?'fill-opacity ' + sec + 's':''};
 
         var textStyle = fontAdapt(options.axisX.label);
 
@@ -100,23 +84,31 @@ export default class BarChart extends Component
             var color = this.color(i % 3);
             var stroke = Colors.darkenColor(color);
             return (
-                <g key={"lines" + i}>
-                    <path  d={ c.line.path.print() } style={fillOpacityStyle} stroke={stroke} fill={ color }/>
+                <G key={"lines" + i}>
+                    <Path  d={ c.line.path.print() } stroke={stroke} fill={color}/>
                     {options.axisX.showLabels ?
-                        <text style={textStyle} transform={"translate(" + c.line.centroid[0] +  "," +  (chartArea.y.min + 25) + ")rotate(45)"} textAnchor="middle">{c.item.name}</text>
+                        <G x={options.margin.left} y={options.margin.top}>
+                        <Text fontFamily={textStyle.fontFamily}
+                        fontSize={textStyle.fontSize} fontWeight={textStyle.fontWeight} fontStyle={textStyle.fontStyle}
+                        fill={textStyle.fill} x={c.line.centroid[0]} y={chartArea.y.min + 25} rotate={45} textAnchor="middle">{c.item.name}</Text></G>
                         :null}
-                </g>
+                </G>
             )
         }, this);
 
-        return (<svg width={options.width} height={options.height}>
-                    <g transform={"translate(" + options.margin.left + "," + options.margin.top + ")"}>
-                        <Axis scale ={chart.scale} options={options.axisY} chartArea={chartArea} />
-                        {lines}
-                    </g>
-                </svg>)
+        let returnValue = <Svg width={options.width} height={options.height}>
+                            <G x={options.margin.left} y={options.margin.top}>
+                              <Axis scale={chart.scale} options={options.axisY} chartArea={chartArea} />
+                              <G x={options.margin.left * -1 } y={options.margin.top * -1}>
+                              {lines}
+                              </G>
+                            </G>
+                          </Svg>;
+
+        return returnValue
     }
 };
+
 BarChart.defaultProps ={
     accessorKey:'',
     options: {

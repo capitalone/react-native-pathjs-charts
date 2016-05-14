@@ -8,7 +8,6 @@ export default class StockLineChart extends LineChart {
     }
 }
 
-
 StockLineChart.defaultProps =   {
     options: {
         width: 600,

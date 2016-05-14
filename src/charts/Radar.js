@@ -1,25 +1,27 @@
 import React, {View}  from 'react-native'
 import Svg,{
-    Circle as circle,
-    Ellipse as ellipse,
-    G as g,
-    LinearGradient as lineargradient,
-    RadialGradient as radialgradient,
-    Line as line,
-    Path as path,
-    Polygon as polygon,
-    Polyline as polyline,
-    Rect as rect,
-    Symbol as symbol,
-    Text as text,
-    Use as use,
-    Defs as defs,
-    Stop as stop
+    Circle,
+    Ellipse,
+    G,
+    LinearGradient,
+    RadialGradient,
+    Line,
+    Path,
+    Polygon,
+    Polyline,
+    Rect,
+    Symbol,
+    Text,
+    Use,
+    Defs,
+    Stop
 } from 'react-native-svg'
-import _ from 'lodash';
-import Options from '../component/Options.js';
-import fontAdapt from '../fontAdapter.js';
-import styleSvg from '../styleSvg.js';
+import Colors from '../pallete/colors';
+import Options from '../component/options'
+import fontAdapt from '../fontAdapter'
+import Axis from '../component/Axis'
+import _ from 'lodash'
+import styleSvg from '../styleSvg';
 
 var Radar = require('paths-js/radar');
 
@@ -41,11 +43,10 @@ export default class RadarChart extends React.Component
 {
     constructor(props){
         super(props)
-        this.state = {finished:true};
     }
     render() {
         var noDataMsg = this.props.noDataMessage || "No data available";
-        if (this.props.data === undefined) return (<span>{noDataMsg}</span>);
+        if (this.props.data === undefined) return (<Text>{noDataMsg}</Text>);
 
         var options = new Options(this.props);
 
@@ -66,42 +67,40 @@ export default class RadarChart extends React.Component
         var self = this;
         var colors = styleSvg({}, self.props.options);
         var curves = chart.curves.map(function (c, i) {
-            return (<path key={ i } d={ c.polygon.path.print()} fill={ colors.fill } fillOpacity={colors.fillOpacity}/>)
+            return (<Path key={i} d={c.polygon.path.print()} fill={colors.fill} fillOpacity={colors.fillOpacity}/>)
         });
 
-        //var rings = chart.rings.map(function(r, i) {
-        //    return (<path key={ i } d={ r.path.print() } stroke={ self.props.stroke } />)
-        //});
         var length = chart.rings.length;
-
         var rings = chart.rings.map(function (r, i) {
-            if (i !== length - 1) {
-                return (<path key={ "rings" + i } d={ r.path.print() } stroke={ colors.stroke } strokeOpacity={colors.strokeOpacity}/>)
+            if (i !== length - 1 ){
+                return (<Path key={"rings"+i} d={r.path.print()} stroke={colors.stroke} strokeOpacity={colors.strokeOpacity} />)
             }
         });
-        //
+
         var textStyle = fontAdapt(options.label);
 
         var labels = chart.rings[length - 1].path.points().map(function (p, i) {
             return (
-                <g  key={"label" + i}>
-                    <line x1={p[0]} y1={p[1]} x2={center[0]} y2={center[1]}  stroke={ colors.stroke } strokeOpacity={colors.strokeOpacity}/>
-                    <text style={textStyle} textAnchor="middle" transform={"translate(" + Math.floor( p[0]) + "," + Math.floor( p[1]) + ")"}>{keys[i]}</text>
-                </g>
+              <G key={"label" + i}>
+                  <Line x1={p[0]} y1={p[1]} x2={center[0]} y2={center[1]} stroke={colors.stroke} strokeOpacity={colors.strokeOpacity}/>
+                  <Text style={textStyle} textAnchor="middle" x={Math.floor(p[0])} y={Math.floor(p[1])}>{keys[i]}</Text>
+              </G>
             )
         });
-        return (<svg ref="vivus" width={options.width} height={options.height}>
-                    <g transform={"translate(" + options.margin.left + "," + options.margin.top + ")"}>
+
+        let returnValue = <Svg width={options.width} height={options.height}>
+                    <G x={options.margin.left} y={options.margin.top}>
                         {labels}
-                        <g fill="none" stroke="none">
+                        <G fill="none" stroke="none">
                             { rings }
-                            <g opacity="0.6">
-                                {this.state.finished?curves:null}
-                            </g>
-                        </g>
-                    </g>
-                </svg>
-        )
+                            <G opacity="0.6">
+                                {curves}
+                            </G>
+                        </G>
+                    </G>
+                </Svg>;
+
+        return returnValue
     }
 };
 

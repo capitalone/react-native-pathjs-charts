@@ -1,28 +1,10 @@
 import React, {View}  from 'react-native'
-import Svg,{
-    Circle as circle,
-    Ellipse as ellipse,
-    G as g,
-    LinearGradient as lineargradient,
-    RadialGradient as radialgradient,
-    Line as line,
-    Path as path,
-    Polygon as polygon,
-    Polyline as polyline,
-    Rect as rect,
-    Symbol as symbol,
-    Text as text,
-    Use as use,
-    Defs as defs,
-    Stop as stop
-} from 'react-native-svg'
+import Svg,{ G, Line, Path, Text } from 'react-native-svg'
+import Colors from '../pallete/colors';
+import Options from '../component/options'
+import fontAdapt from '../fontAdapter'
+import Axis from '../component/Axis'
 import _ from 'lodash'
-import Colors from '../pallete/Colors.js'
-import Options from '../component/Options.js'
-import fontAdapt from '../fontAdapter.js'
-
-var Axis = require('../component/Axis')
-var Path = require('paths-js/path')
 
 function cyclic(coll, i) { return coll[i % coll.length]; }
 
@@ -30,7 +12,6 @@ export default class LineChart extends React.Component {
     constructor(props, chartType) {
         super(props);
         this.chartType = chartType;
-        this.state = {finished: true};
     }
     getMaxAndMin(chart, key,scale) {
         var maxValue;
@@ -86,23 +67,29 @@ export default class LineChart extends React.Component {
             margin:options.margin
         };
 
-        var transparent = {opacity: 0.5};
-
         var lines = _.map(chart.curves, function (c, i) {
-            return <path key={'lines' + i} d={ c.line.path.print() } stroke={ this.color(i) } fill="none"/>
+            return <Path key={'lines' + i} d={ c.line.path.print() } stroke={ this.color(i) } fill="none"/>
         }.bind(this));
         var areas = _.map(chart.curves, function (c, i) {
-            //var transparent = { opacity: 0.5 };
-            return <path key={'areas' + i} d={ c.area.path.print() } style={ transparent } stroke="none" fill={ this.color(i) }/>
+            return <Path key={'areas' + i} d={ c.area.path.print() } fillOpacity={0.5} stroke="none" fill={ this.color(i) }/>
         }.bind(this));
 
-        return <svg width={options.width} height={options.height}>
-            <g transform={"translate(" + options.margin.left + "," + options.margin.top + ")"}>
-                { this.state.finished ? areas : null }
-                { lines }
-                <Axis key="x" scale ={chart.xscale} options={options.axisX} chartArea={chartArea} />
-                <Axis key="y" scale ={chart.yscale} options={options.axisY} chartArea={chartArea} />
-            </g>
-        </svg>
+        let offset = {
+          x: chartArea.margin.left * -1,
+          y: chartArea.margin.top * -1
+        }
+
+        let returnValue = <Svg width={options.width} height={options.height}>
+                  <G x={options.margin.left} y={options.margin.top}>
+                      <G x={offset.x} y={offset.y}>
+                        { areas }
+                        { lines }
+                      </G>
+                      <Axis key="x" scale={chart.xscale} options={options.axisX} chartArea={chartArea} />
+                      <Axis key="y" scale={chart.yscale} options={options.axisY} chartArea={chartArea} />
+                  </G>
+              </Svg>;
+
+        return returnValue;
     }
 }

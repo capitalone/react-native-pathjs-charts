@@ -1,27 +1,26 @@
 import React, {View}  from 'react-native'
 import Svg,{
-    Circle as circle,
-    Ellipse as ellipse,
-    G as g,
-    LinearGradient as lineargradient,
-    RadialGradient as radialgradient,
-    Line as line,
-    Path as path,
-    Polygon as polygon,
-    Polyline as polyline,
-    Rect as rect,
-    Symbol as symbol,
-    Text as text,
-    Use as use,
-    Defs as defs,
-    Stop as stop
+    Circle,
+    Ellipse,
+    G,
+    LinearGradient,
+    RadialGradient,
+    Line,
+    Path,
+    Polygon,
+    Polyline,
+    Rect,
+    Symbol,
+    Text,
+    Use,
+    Defs,
+    Stop
 } from 'react-native-svg'
-import Colors from '../pallete/Colors.js';
-import Animate from '../animate.js';
-import _ from 'lodash';
-import Options from '../component/Options.js'
-import fontAdapt from '../fontAdapter.js';
-
+import Colors from '../pallete/colors';
+import Options from '../component/options'
+import fontAdapt from '../fontAdapter'
+import Axis from '../component/Axis'
+import _ from 'lodash'
 var Pie = require('paths-js/pie');
 
 function cyclic(coll, i) { return coll[i % coll.length]; }
@@ -30,55 +29,20 @@ function color(key) { return function (x) {return x[key];}};
 
 export default class PieChart extends React.Component
 {
-    constructor(props)
-    {
-        super(props);
-        this.animateState = Animate.Mixin.animateState;
-        this.state = {
-            expanded:this.defaultRange,
-            finished:true
-        };
-    }
-    get defaultRange() {
-        return _.map(Array(this.props.data && this.props.data.length),function(){return 0});
-    }
-    translate(p) { return "translate(" + p[0] + "," + p[1] + ")" }
-
-    move(point, perc) {
-        return this.translate([point[0] * perc / 3, point[1] * perc / 3]);
-    }
-    //
-    //grad(i) { return "grad-" + i }
-    //
-    //fill(i) { return "url(#grad-" + i  +")" }
-
     color(i) {
         var color = this.props.options.color;
-        if (!_.isString(this.props.options.color)) color = color.color;
+        if (color && !_.isString(color)) color = color.color;
         var pallete = this.props.pallete || Colors.mix(color || '#9ac7f7');
         return Colors.string(cyclic(pallete, i)); }
 
-    lighten(i) {
-        var color = this.props.options.color;
-        if (!_.isString(this.props.options.color)) color = color.color;
-        var pallete = this.props.pallete || Colors.mix(color || '#9ac7f7');
-        return Colors.string(Colors.lighten(cyclic(pallete, i))); }
 
-
-    expand(i) {
-        var self = this;
-
-        return function() {
-            var target = self.defaultRange;
-            target[i] = 1;
-            self.animateState({ expanded: target });
-            //self.setState({ expanded: target });
-        };
+    get defaultRange() {
+        return _.map(Array(this.props.data && this.props.data.length),function(){return 0});
     }
 
     render() {
         var noDataMsg = this.props.noDataMessage || "No data available";
-        if (this.props.data === undefined) return (<span>{noDataMsg}</span>);
+        if (this.props.data === undefined) return (<Text>{noDataMsg}</Text>);
 
         var options = new Options(this.props);
 
@@ -96,9 +60,6 @@ export default class PieChart extends React.Component
         });
 
         var self = this;
-        var coefficients = this.state.expanded;
-        var sec = options.animate.fillTransition || 0;
-        var fillOpacityStyle = {fillOpacity:this.state.finished?1:0,transition: this.state.finished?'fill-opacity ' + sec + 's':''};
 
         var textStyle = fontAdapt(options.label);
 
@@ -106,36 +67,22 @@ export default class PieChart extends React.Component
             var fill = self.color(i);
             var stroke = Colors.darkenColor(fill);
             return (
-                <g key={ i } transform={ self.move(c.sector.centroid, coefficients[i]) }>
-                    <path onClick={ self.expand(i) } style={fillOpacityStyle} d={ c.sector.path.print() } stroke={stroke} fill={fill} />
-                    <text style={textStyle} textAnchor="middle" transform={ self.translate(c.sector.centroid) }>{ c.item.name }</text>
-                </g>
+                <G key={ i } x={c.sector.centroid[0] * this.defaultRange / 3} y={c.sector.centroid[1] * this.defaultRange / 3}>
+                    <Path fillOpacity={1} d={ c.sector.path.print() } stroke={stroke} fill={fill} />
+                    <Text fontSize={textStyle.fontSize} fontWeight={textStyle.fontWeight} fontStyle={textStyle.fontStyle}
+                    fill={textStyle.fill}  textAnchor="middle" x={c.sector.centroid[0]} y={c.sector.centroid[1]}>{ c.item.name }</Text>
+                </G>
             )
         });
-        var selected = _.find(this.props.data, function(c, i) {
-            return coefficients[i] === 1;
-        });
 
-        var legendClassName = "legend " + options.legendPosition;
+        let returnValue = <Svg width={options.width} height={options.height}>
+            <G x={options.margin.left + x} y={options.margin.top + y}>
+                { slices }
+            </G>
+          </Svg>;
 
-        var table = selected ?
-            <div className={legendClassName}>
-                <h4>{ selected.name }</h4>
-                <p><span className="label label-info">{ selected.population }</span></p>
-            </div> : null
-
-
-
-        return(
-            <div className="pie">
-                <svg ref="vivus" width={options.width} height={options.height}>
-                    <g transform={"translate(" + (options.margin.left + x) + "," + (options.margin.top + y) + ")"}>
-                        { slices }
-                    </g>
-                </svg>
-            { table }
-            </div>
-        )}
+        return returnValue
+    }
 };
 PieChart.defaultProps = {
     options: {

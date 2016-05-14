@@ -21,7 +21,7 @@ export default class ChartOptions {
     get axisX() {return  this.options.axisX || {};}
     get axisY() {return  this.options.axisY || {};}
     get margin(){return this.options.margin || {};}
-    
+
     get stroke(){return this.options.stroke;}
     get fill(){return this.options.fill;}
     get r(){return this.options.r;}

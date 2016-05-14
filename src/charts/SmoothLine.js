@@ -1,4 +1,4 @@
-import LineChart from './Line.js';
+import LineChart from './Line';
 
 var SmoothLine = require('paths-js/smooth-line');
 

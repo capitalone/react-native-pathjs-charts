@@ -1,34 +1,33 @@
 import React, {View}  from 'react-native'
 import Svg,{
-    Circle as circle,
-    Ellipse as ellipse,
-    G as g,
-    LinearGradient as lineargradient,
-    RadialGradient as radialgradient,
-    Line as line,
-    Path as path,
-    Polygon as polygon,
-    Polyline as polyline,
-    Rect as rect,
-    Symbol as symbol,
-    Text as text,
-    Use as use,
-    Defs as defs,
-    Stop as stop
+    Circle,
+    Ellipse,
+    G,
+    LinearGradient,
+    RadialGradient,
+    Line,
+    Path,
+    Polygon,
+    Polyline,
+    Rect,
+    Symbol,
+    Text,
+    Use,
+    Defs,
+    Stop
 } from 'react-native-svg'
-import _ from 'lodash';
-import Options from '../component/Options.js';
-import fontAdapt from '../fontAdapter.js';
+import Colors from '../pallete/colors';
+import Options from '../component/options'
+import fontAdapt from '../fontAdapter'
+import Axis from '../component/Axis'
+import _ from 'lodash'
 import styleSvg from '../styleSvg';
 
-var Stock  = require('paths-js/stock');
-var Axis = require('../component/Axis');
-var Path = require('paths-js/path');
+var Stock = require('paths-js/stock');
 
 export default class Scatterplot extends React.Component {
     constructor(props) {
         super(props);
-        this.state = {finished:true};
     }
     getMaxAndMin(chart, key,scale) {
         var maxValue;
@@ -61,7 +60,7 @@ export default class Scatterplot extends React.Component {
 
     render() {
         var noDataMsg = this.props.noDataMessage || "No data available";
-        if (this.props.data === undefined) return (<span>{noDataMsg}</span>);
+        if (this.props.data === undefined) return (<Text>{noDataMsg}</Text>);
 
         var options = new Options(this.props);
 
@@ -86,31 +85,30 @@ export default class Scatterplot extends React.Component {
             margin:options.margin
         };
 
-
-        var sec = options.animate.fillTransition || 0;
-        var fillOpacityStyle = {fillOpacity:this.state.finished?1:0,transition: this.state.finished?'fill-opacity ' + sec + 's':''};
-
         var textStyle = fontAdapt(options.label);
-
-
         var colors = styleSvg({},options);
+
+        // {item.selected?<text style={textStyle} transform="translate(15, 5)" text-anchor="start">{item.title}</text>:null}
+
         var points = _.map(chart.curves, function (c, i) {
             return _.map(c.line.path.points(),function(p,j) {
                 var item = c.item[j];
-                return (<g key={'k' + j} transform={"translate(" + p[0] + "," + p[1] + ")"}>
-                    <circle {...colors}  cx={0} cy={0} r={options.r || 5} style={fillOpacityStyle}  onMouseEnter={this.onEnter.bind(this,j)} onMouseLeave={this.onLeave.bind(this,j)}/>
-                    {item.selected?<text style={textStyle} transform="translate(15, 5)" text-anchor="start">{item.title}</text>:null}
-                </g>)
+
+                let render = <G key={'k' + j} x={p[0]} y={p[1]}>
+                    <Circle {...colors} cx={0} cy={0} r={options.r || 5} fillOpacity={1} />
+                </G>;
+
+                return render
             },this)
         },this);
 
-        return (<svg ref="vivus" width={options.width} height={options.height}>
-            <g transform={"translate(" + options.margin.left + "," + options.margin.top + ")"}>
+        return (<Svg width={options.width} height={options.height}>
+            <G x={options.margin.left} y={options.margin.top}>
                 { points }
-                <Axis scale ={chart.xscale} options={options.axisX} chartArea={chartArea} />
-                <Axis scale ={chart.yscale} options={options.axisY} chartArea={chartArea} />
-            </g>
-        </svg>);
+                <Axis scale={chart.xscale} options={options.axisX} chartArea={chartArea} />
+                <Axis scale={chart.yscale} options={options.axisY} chartArea={chartArea} />
+            </G>
+        </Svg>);
     }
 }
 
