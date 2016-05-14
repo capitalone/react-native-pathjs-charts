@@ -24,8 +24,8 @@ export default sampleData = {
             }]
         ],
         options: {
-            width: 325,
-            height: 325,
+            width: 300,
+            height: 300,
             margin: {
                 top: 20,
                 left: 25,
