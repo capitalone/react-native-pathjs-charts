@@ -1,4 +1,3 @@
-import React, {StyleSheet}  from 'react-native'
 import _ from 'lodash'
 
 export default function fontAdapt(fontProps) {

@@ -1,4 +1,5 @@
-import React, {View}  from 'react-native'
+import React from 'react' 
+import {View}  from 'react-native'
 import Svg,{
     Circle,
     Ellipse,
@@ -89,7 +90,7 @@ class AxisStruct {
             item: currentAxis,
             path: Pathjs().moveto(start).lineto(end).closepath(),
             ticks: ticks,
-            lines: _.map(ticks, function (c) {
+            lines: ticks.map(c => {
                 var lineStart = {x: horizontal ? this.scale(c) : xAxis.min, y: horizontal ? yAxis.min : this.scale(c)};
                 return Pathjs().moveto(lineStart).lineto(horizontal ? lineStart.x : xAxis.max, horizontal ? yAxis.max : lineStart.y);
             },this)

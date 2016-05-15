@@ -1,4 +1,5 @@
-import React, {Component, View}  from 'react-native'
+import React from 'react'
+import {View}  from 'react-native'
 import Svg,{ G, Line, Path, Text } from 'react-native-svg'
 import Colors from '../pallete/colors';
 import Options from '../component/options'
@@ -22,7 +23,7 @@ function color(key) {
     }
 };
 
-export default class BarChart extends Component
+export default class BarChart extends React.Component
 {
     constructor(props){
         super(props);

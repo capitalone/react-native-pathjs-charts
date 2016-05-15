@@ -1,4 +1,5 @@
-import React, {View}  from 'react-native'
+import React from 'react'
+import {View}  from 'react-native'
 import Svg,{ G, Line, Path, Text } from 'react-native-svg'
 import Colors from '../pallete/colors';
 import Options from '../component/options'
