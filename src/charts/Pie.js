@@ -1,5 +1,5 @@
-import React from 'react' 
-import {View}  from 'react-native'
+import React from 'react'
+import {View, Text as ReactText}  from 'react-native'
 import Svg,{
     Circle,
     Ellipse,
@@ -43,7 +43,7 @@ export default class PieChart extends React.Component
 
     render() {
         var noDataMsg = this.props.noDataMessage || "No data available";
-        if (this.props.data === undefined) return (<Text>{noDataMsg}</Text>);
+        if (this.props.data === undefined) return (<ReactText>{noDataMsg}</ReactText>);
 
         var options = new Options(this.props);
 
@@ -60,24 +60,29 @@ export default class PieChart extends React.Component
             accessor: this.props.accessor || identity(this.props.accessorKey)
         });
 
-        var self = this;
-
         var textStyle = fontAdapt(options.label);
 
-        var slices = chart.curves.map(function(c, i) {
-            var fill = self.color(i);
+        var slices = chart.curves.map( (c, i) => {
+            var fill = this.color(i);
             var stroke = Colors.darkenColor(fill);
             return (
-                <G key={ i } x={c.sector.centroid[0] * this.defaultRange / 3} y={c.sector.centroid[1] * this.defaultRange / 3}>
-                    <Path fillOpacity={1} d={ c.sector.path.print() } stroke={stroke} fill={fill} />
-                    <Text fontSize={textStyle.fontSize} fontWeight={textStyle.fontWeight} fontStyle={textStyle.fontStyle}
-                    fill={textStyle.fill}  textAnchor="middle" x={c.sector.centroid[0]} y={c.sector.centroid[1]}>{ c.item.name }</Text>
+                <G key={ i } x={x - options.margin.left} y={y - options.margin.top}>
+                    <Path d={c.sector.path.print() } stroke={stroke} fill={fill} fillOpacity={1}  />
+                    <G x={options.margin.left} y={options.margin.top}>
+                      <Text fontSize={textStyle.fontSize}
+                            fontWeight={textStyle.fontWeight}
+                            fontStyle={textStyle.fontStyle}
+                            fill={textStyle.fill}
+                            textAnchor="middle"
+                            x={c.sector.centroid[0]}
+                            y={c.sector.centroid[1]}>{ c.item.name }</Text>
+                    </G>
                 </G>
             )
         });
 
         let returnValue = <Svg width={options.width} height={options.height}>
-            <G x={options.margin.left + x} y={options.margin.top + y}>
+            <G x={options.margin.left} y={options.margin.top}>
                 { slices }
             </G>
           </Svg>;
