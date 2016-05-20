@@ -13,8 +13,8 @@ export default class LineChart extends Component {
   }
 
   getMaxAndMin(chart, key,scale) {
-    let maxValue = 0
-    let minValue = 0
+    let maxValue
+    let minValue
     _.each(chart.curves, function (serie) {
       let values = _.map(serie.item, function (item) {
         return item[key]
