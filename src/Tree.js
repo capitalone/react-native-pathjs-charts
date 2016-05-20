@@ -1,7 +1,7 @@
 import React, {Component} from 'react'
 import {Text as ReactText}  from 'react-native'
 import Svg,{ Circle, G, Path, Text } from 'react-native-svg'
-import { Options, styleSvg, fontAdapt } from '../util'
+import { Options, styleSvg, fontAdapt } from './util'
 import _ from 'lodash'
 const Tree = require('paths-js/tree')
 

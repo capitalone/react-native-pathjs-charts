@@ -1,10 +1,10 @@
-import Pie from './charts/Pie'
-import Tree from './charts/Tree'
-import Radar from './charts/Radar'
-import Bar from './charts/Bar'
-import SmoothLine from './charts/SmoothLine'
-import StockLine from './charts/StockLine'
-import Scatterplot from './charts/Scatterplot.js'
+import Pie from './Pie'
+import Tree from './Tree'
+import Radar from './Radar'
+import Bar from './Bar'
+import SmoothLine from './SmoothLine'
+import StockLine from './StockLine'
+import Scatterplot from './Scatterplot.js'
 
 export {
   Pie,

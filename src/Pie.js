@@ -1,7 +1,7 @@
 import React, {Component} from 'react'
 import {Text as ReactText}  from 'react-native'
 import Svg,{ G, Path, Text} from 'react-native-svg'
-import { Colors, Options, cyclic, identity, fontAdapt } from '../util'
+import { Colors, Options, cyclic, identity, fontAdapt } from './util'
 import _ from 'lodash'
 const Pie = require('paths-js/pie')
 

@@ -1,8 +1,8 @@
 import React, {Component} from 'react'
 import {Text as ReactText}  from 'react-native'
 import Svg,{ Circle, G } from 'react-native-svg'
-import { Options, styleSvg } from '../util'
-import Axis from '../component/Axis'
+import { Options, styleSvg } from './util'
+import Axis from './Axis'
 import _ from 'lodash'
 
 const Stock = require('paths-js/stock')

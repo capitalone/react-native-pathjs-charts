@@ -1,8 +1,8 @@
 import React,{Component} from 'react'
 import {Text as ReactText}  from 'react-native'
 import Svg,{ G, Path } from 'react-native-svg'
-import { Colors, Options, cyclic } from '../util'
-import Axis from '../component/Axis'
+import { Colors, Options, cyclic } from './util'
+import Axis from './Axis'
 import _ from 'lodash'
 
 export default class LineChart extends Component {

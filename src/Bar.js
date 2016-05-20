@@ -1,9 +1,9 @@
 import React,{Component} from 'react'
 import {Text as ReactText}  from 'react-native'
 import Svg,{ G, Path, Text } from 'react-native-svg'
-import { Colors, Options, fontAdapt, cyclic, color, identity } from '../util'
+import { Colors, Options, fontAdapt, cyclic, color, identity } from './util'
 import _ from 'lodash'
-import Axis from '../component/Axis'
+import Axis from './Axis'
 const Bar = require('paths-js/bar')
 
 export default class BarChart extends Component {
