@@ -1,8 +1,8 @@
 {
   "name": "react-native-pathjs-chart",
-  "version": "0.0.11",
+  "version": "0.0.15",
   "private": false,
-  "main": "src/Chart.js",
+  "main": "src/index.js",
   "scripts": {
     "start": "node_modules/react-native/packager/packager.sh"
   },

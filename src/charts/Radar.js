@@ -1,129 +1,98 @@
-import React from 'react' 
-import {View}  from 'react-native'
-import Svg,{
-    Circle,
-    Ellipse,
-    G,
-    LinearGradient,
-    RadialGradient,
-    Line,
-    Path,
-    Polygon,
-    Polyline,
-    Rect,
-    Symbol,
-    Text,
-    Use,
-    Defs,
-    Stop
-} from 'react-native-svg'
-import Colors from '../pallete/colors';
-import Options from '../component/options'
-import fontAdapt from '../fontAdapter'
-import Axis from '../component/Axis'
-import _ from 'lodash'
-import styleSvg from '../styleSvg';
+import React, {Component} from 'react'
+import {Text as ReactText}  from 'react-native'
+import Svg,{ G, Path, Line, Text} from 'react-native-svg'
+import { Options, identity, styleSvg, fontAdapt } from '../util'
+const Radar = require('paths-js/radar')
 
-var Radar = require('paths-js/radar');
-
-function identity(key) {
-    return function (x) {
-        return x[key];
-    }
-};
 function accessKeys(keys) {
-    var a = {};
-    for (var i in keys) {
-        var key = keys[i];
-        a[key] = identity(key);
-    }
-    return a;
+  let a = {}
+  for (let i in keys) {
+    let key = keys[i]
+    a[key] = identity(key)
+  }
+  return a
 }
 
-export default class RadarChart extends React.Component
+export default class RadarChart extends Component
 {
-    constructor(props){
-        super(props)
+
+  static defaultProps = {
+    options: {
+      width: 600,
+      height: 600,
+      margin: {top: 20, left: 20, right: 20, bottom: 20},
+      r: 300,
+      max: 150,
+      fill: '#2980B9',
+      stroke: '#2980B9',
+      animate: {
+        type: 'oneByOne',
+        duration: 200,
+        fillTransition:3
+      },
+      label: {
+        fontFamily: 'Arial',
+        fontSize: 14,
+        bold: true,
+        color: '#34495E'
+      }
     }
-    render() {
-        var noDataMsg = this.props.noDataMessage || "No data available";
-        if (this.props.data === undefined) return (<Text>{noDataMsg}</Text>);
+  }
 
-        var options = new Options(this.props);
+  render() {
+    const noDataMsg = this.props.noDataMessage || 'No data available'
+    if (this.props.data === undefined) return (<ReactText>{noDataMsg}</ReactText>)
 
-        var x = options.chartWidth / 2;
-        var y = options.chartHeight / 2;
-        var radius = Math.min(x, y);
+    const options = new Options(this.props)
 
-        var center = this.props.center || [x, y];
+    const x = options.chartWidth / 2
+    const y = options.chartHeight / 2
+    const radius = Math.min(x, y)
 
-        var keys = Object.keys(this.props.data[0]);
-        var chart = Radar({
-            center: this.props.center || [x, y],
-            r: this.props.options.r || radius,
-            data: this.props.data,
-            accessor: this.props.accessor || accessKeys(keys),
-            max: this.props.options.max
-        });
-        var self = this;
-        var colors = styleSvg({}, self.props.options);
-        var curves = chart.curves.map(function (c, i) {
-            return (<Path key={i} d={c.polygon.path.print()} fill={colors.fill} fillOpacity={colors.fillOpacity}/>)
-        });
+    const center = this.props.center || [x, y]
 
-        var length = chart.rings.length;
-        var rings = chart.rings.map(function (r, i) {
-            if (i !== length - 1 ){
-                return (<Path key={"rings"+i} d={r.path.print()} stroke={colors.stroke} strokeOpacity={colors.strokeOpacity} />)
-            }
-        });
+    const keys = Object.keys(this.props.data[0])
+    const chart = Radar({
+      center: this.props.center || [x, y],
+      r: this.props.options.r || radius,
+      data: this.props.data,
+      accessor: this.props.accessor || accessKeys(keys),
+      max: this.props.options.max
+    })
+    const self = this
+    const colors = styleSvg({}, self.props.options)
+    const curves = chart.curves.map(function (c, i) {
+      return (<Path key={i} d={c.polygon.path.print()} fill={colors.fill} fillOpacity={colors.fillOpacity}/>)
+    })
 
-        var textStyle = fontAdapt(options.label);
+    const length = chart.rings.length
+    const rings = chart.rings.map(function (r, i) {
+      if (i !== length - 1 ){
+        return (<Path key={'rings'+i} d={r.path.print()} stroke={colors.stroke} strokeOpacity={colors.strokeOpacity} />)
+      }
+    })
 
-        var labels = chart.rings[length - 1].path.points().map(function (p, i) {
-            return (
-              <G key={"label" + i}>
+    const textStyle = fontAdapt(options.label)
+
+    const labels = chart.rings[length - 1].path.points().map(function (p, i) {
+      return (
+              <G key={'label' + i}>
                   <Line x1={p[0]} y1={p[1]} x2={center[0]} y2={center[1]} stroke={colors.stroke} strokeOpacity={colors.strokeOpacity}/>
                   <Text style={textStyle} textAnchor="middle" x={Math.floor(p[0])} y={Math.floor(p[1])}>{keys[i]}</Text>
               </G>
             )
-        });
+    })
 
-        let returnValue = <Svg width={options.width} height={options.height}>
-                    <G x={options.margin.left} y={options.margin.top}>
-                        {labels}
-                        <G fill="none" stroke="none">
-                            { rings }
-                            <G opacity="0.6">
-                                {curves}
-                            </G>
+    return (<Svg width={options.width} height={options.height}>
+                <G x={options.margin.left} y={options.margin.top}>
+                    {labels}
+                    <G fill="none" stroke="none">
+                        { rings }
+                        <G opacity="0.6">
+                            {curves}
                         </G>
                     </G>
-                </Svg>;
-
-        return returnValue
-    }
-};
-
-RadarChart.defaultProps =    {
-    options: {
-        width: 600,
-        height: 600,
-        margin: {top: 20, left: 20, right: 20, bottom: 20},
-        r: 300,
-        max: 150,
-        fill: "#2980B9",
-        stroke: "#2980B9",
-        animate: {
-            type: 'oneByOne',
-            duration: 200,
-            fillTransition:3
-        },
-        label: {
-            fontFamily: 'Arial',
-            fontSize: 14,
-            bold: true,
-            color: '#34495E'
-        }
-    }
+                </G>
+            </Svg>)
+  }
 }

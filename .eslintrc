@@ -55,6 +55,7 @@
   },
   "plugins": [
     "react",
-    "react-native"
+    "react-native",
+    "babel"
   ]
 }
