@@ -76,11 +76,10 @@ export default class TreeChart extends Component {
     return (
             <Svg width={options.width} height={options.height}>
                 <G x={options.margin.left} y={options.margin.top}>
-                    <G x={0} y={0}>
-                    { curves }
-
-                    { nodes }
+                    <G x={options.margin.left * -1} y={options.margin.top * -1}>
+                      { curves }
                     </G>
+                    { nodes }
                 </G>
             </Svg>
         )
