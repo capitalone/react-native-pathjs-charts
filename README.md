@@ -31,6 +31,7 @@ To run the example application (from a cloned repo):
 ```
 cd example
 npm install
+rnpm link
 react-native run-ios
 # or
 react-native run-android
@@ -42,6 +43,7 @@ To add the library to your React Native project:
 
 ```
 npm install react-native-pathjs-charts --save
+rnpm link
 ```
 
 ## Usage
