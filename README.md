@@ -1,11 +1,16 @@
 react-native-pathjs-charts
 =======================
 
-This library is a cross-platform (iOS/Android) library of charts/graphs using [react-native-svg](https://github.com/magicismight/react-native-svg) and [paths-js](https://github.com/andreaferretti/paths-js) based on the excellent work done by Roman Samec in the [react-pathjs-chart](https://github.com/rsamec/react-pathjs-chart) library. The project is an early attempt at providing a ubiquitous solution for charts & graphs for React Native that offer a unified view across devices. 
+[![](https://img.shields.io/badge/cofi-r&d-brightgreen.svg)](https://pulse.kdc.capitalone.com/groups/research-development-guild/blog) [![](https://img.shields.io/badge/react--native-v0.24.0--rc2-blue.svg)](https://facebook.github.io/react-native/)
+[![](https://img.shields.io/badge/android--ff69b4.svg)](http://developer.android.com/sdk/index.html)
+[![](https://img.shields.io/badge/ios--red.svg)](https://developer.apple.com/xcode/)
+[![](https://img.shields.io/badge/license-MIT-brightgreen.svg)](https://opensource.org/licenses/MIT)
 
-Components include Pie charts, Bar charts, Smoothline charts, Stockline charts, Scatterplots, Tree graphs and Radar graphs. Since Paths-Js makes no assumptions about rendering, this library is perfect for using SVG path objects to render custom charts easily. 
+This library is a cross-platform (iOS/Android) library of charts/graphs using [react-native-svg](https://github.com/magicismight/react-native-svg) and [paths-js](https://github.com/andreaferretti/paths-js) based on the excellent work done by Roman Samec in the [react-pathjs-chart](https://github.com/rsamec/react-pathjs-chart) library. The project is an early attempt at providing a ubiquitous solution for charts & graphs for React Native that offer a unified view across devices.
 
-This library is in its early stages, but I welcome contributors who would like to help make this the charting solution for React Native. Many of our mobile experiences need to create dashboards. Up to now, we've only been seeing libraries that are native bridges. Wouldn't it be great to have a cross platform solution that just worked? 
+Components include Pie charts, Bar charts, Smoothline charts, Stockline charts, Scatterplots, Tree graphs and Radar graphs. Since Paths-Js makes no assumptions about rendering, this library is perfect for using SVG path objects to render custom charts easily.
+
+This library is in its early stages, but I welcome contributors who would like to help make this the charting solution for React Native. Many of our mobile experiences need to create dashboards. Up to now, we've only been seeing libraries that are native bridges. Wouldn't it be great to have a cross platform solution that just worked?
 
 ## Current Features
 
@@ -44,34 +49,34 @@ render() {
     return (   
       <ScrollView style={{flex:1,backgroundColor:'#F5FCFF'}}          
                   contentContainerStyle={{justifyContent:'center',alignItems:'center'}}>
-        <Bar 
-            data={sampleData.bar.data} 
-            options={sampleData.bar.options} 
+        <Bar
+            data={sampleData.bar.data}
+            options={sampleData.bar.options}
             accessorKey='v'/>
         <Pie
             data={sampleData.pie.data}
             options={sampleData.pie.options}
             accessorKey="population" />
-        <StockLine 
-            data={sampleData.stockLine.data} 
-            options={sampleData.stockLine.options} 
-            xKey='x' 
+        <StockLine
+            data={sampleData.stockLine.data}
+            options={sampleData.stockLine.options}
+            xKey='x'
             yKey='y' />
-        <SmoothLine 
-            data={sampleData.smoothLine.data} 
-            options={sampleData.smoothLine.options} 
-            xKey='x' 
+        <SmoothLine
+            data={sampleData.smoothLine.data}
+            options={sampleData.smoothLine.options}
+            xKey='x'
             yKey='y' />
-        <Scatterplot 
-            data={sampleData.scatterplot.data} 
-            options={sampleData.scatterplot.options} 
-            xKey="episode" 
+        <Scatterplot
+            data={sampleData.scatterplot.data}
+            options={sampleData.scatterplot.options}
+            xKey="episode"
             yKey="rating" />
-        <Radar 
-            data={sampleData.radar.data} 
+        <Radar
+            data={sampleData.radar.data}
             options={sampleData.radar.options} />
-        <Tree 
-            data={sampleData.tree.data} 
+        <Tree
+            data={sampleData.tree.data}
             options={sampleData.tree.options}  />
       </ScrollView>)
   }
@@ -82,7 +87,7 @@ render() {
 
 +   data - chart data to visualize (Format in JSON)
 +   accessor - the accessor is a string that defines property names in data that represent axis/chart-data (for example, if I have "income" in my data that I want on the x-axis of my StockLine chart, I will set `xKey='income'`
-    +   Pie, Bar - __accessorKey__ 
+    +   Pie, Bar - __accessorKey__
     +   SmoothLine,StockLine,Scatterplot - __xKey__, __yKey__
 +   options - visual configuration of chart, enables to configure  formats, labels, colors, axis, ticks, lines
 +   noDataMessage - message to show if no data or empty data are specified
@@ -978,8 +983,3 @@ export default sampleData = {
     }
 }
 ```
-
-
-
-
-
