@@ -1,11 +1,36 @@
 {
   "name": "react-native-pathjs-chart",
   "version": "0.0.18",
-  "private": false,
+  "description": "Cross platform React Native charting library based on path-js and react-native-svg",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/capitalone/react-native-pathjs-chart"
+  },
   "main": "src/index.js",
   "scripts": {
-    "start": "node_modules/react-native/packager/packager.sh"
+    "start": "node_modules/react-native/packager/packager.sh",
+    "eslint": "eslint src/; exit 0;"
   },
+  "keywords": [
+    "react-native",
+    "react-native-svg",
+    "paths-js",
+    "react-pathjs-chart",
+    "ios",
+    "android"
+  ],
+  "author": {
+    "name": "Cale Hoopes",
+    "email": "caledh@gmail.com",
+    "url": "https://github.com/capitalone"
+  },
+  "license": "Apache-2.0",
+  "maintainers": [
+    {
+      "name": "caledhwa",
+      "email": "caledh@gmail.com"
+    }
+  ],
   "dependencies": {
     "lodash": "^4.12.0",
     "paths-js": "^0.3.4",
