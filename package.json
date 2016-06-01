@@ -9,7 +9,7 @@
   "main": "src/index.js",
   "scripts": {
     "start": "node_modules/react-native/packager/packager.sh",
-    "eslint": "eslint src/; exit 0;"
+    "lint": "eslint --ext .js,.jsx src"
   },
   "keywords": [
     "react-native",
