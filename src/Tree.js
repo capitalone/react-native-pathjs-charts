@@ -77,9 +77,15 @@ export default class TreeChart extends Component {
       let text
 
       if (children(n.item).length > 0) {
-        text = <Text style={textStyle} x={-10} y={-10} textAnchor="end">{ n.item.name }</Text>
+        text = <Text fontFamily={textStyle.fontFamily}
+              fontSize={textStyle.fontSize}
+              fontWeight={textStyle.fontWeight}
+              fontStyle={textStyle.fontStyle}  x={-10} y={-10} textAnchor="end">{ n.item.name }</Text>
       } else {
-        text = <Text style={textStyle} x={10} y={-10} textAnchor="start">{ n.item.name }</Text>
+        text = <Text fontFamily={textStyle.fontFamily}
+              fontSize={textStyle.fontSize}
+              fontWeight={textStyle.fontWeight}
+              fontStyle={textStyle.fontStyle} x={10} y={-10} textAnchor="start">{ n.item.name }</Text>
       }
 
       return (<G key={'tree_' + index} x={n.point[0]} y={n.point[1]}>

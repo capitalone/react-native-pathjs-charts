@@ -84,7 +84,8 @@ export default class PieChart extends Component {
                 <G key={ i } x={x - options.margin.left} y={y - options.margin.top}>
                     <Path d={c.sector.path.print() } stroke={stroke} fill={fill} fillOpacity={1}  />
                     <G x={options.margin.left} y={options.margin.top}>
-                      <Text fontSize={textStyle.fontSize}
+                      <Text fontFamily={textStyle.fontFamily}
+                            fontSize={textStyle.fontSize}
                             fontWeight={textStyle.fontWeight}
                             fontStyle={textStyle.fontStyle}
                             fill={textStyle.fill}
