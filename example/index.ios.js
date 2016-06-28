@@ -15,7 +15,7 @@ See the License for the specific language governing permissions and limitations 
 
 import React from 'react'
 import {AppRegistry, ScrollView, View } from 'react-native'
-import {Bar,StockLine,SmoothLine,Scatterplot,Radar,Tree,Pie} from 'react-native-pathjs-chart'
+import {Bar,StockLine,SmoothLine,Scatterplot,Radar,Tree,Pie} from 'react-native-pathjs-charts'
 import sampleData from './data'
 
 class example extends React.Component {

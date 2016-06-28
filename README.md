@@ -1,7 +1,7 @@
 react-native-pathjs-charts
 =======================
 
-[![](https://img.shields.io/badge/cofi-r&d-brightgreen.svg)](https://pulse.kdc.capitalone.com/groups/research-development-guild/blog) [![](https://img.shields.io/badge/react--native-v0.24.1-blue.svg)](https://facebook.github.io/react-native/)
+[![](https://img.shields.io/badge/cofi-r&d-brightgreen.svg)] [![](https://img.shields.io/badge/react--native-v0.24.1-blue.svg)](https://facebook.github.io/react-native/)
 [![](https://img.shields.io/badge/android--ff69b4.svg)](http://developer.android.com/sdk/index.html)
 [![](https://img.shields.io/badge/ios--red.svg)](https://developer.apple.com/xcode/)
 [![](https://img.shields.io/badge/license-Apache%202.0-blue.svg)](http://www.apache.org/licenses/LICENSE-2.0)
