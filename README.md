@@ -1,7 +1,7 @@
 react-native-pathjs-charts
 =======================
 
-![](https://img.shields.io/badge/cofi-r&d-brightgreen.svg) [![](https://img.shields.io/badge/react--native-v0.24.1-blue.svg)](https://facebook.github.io/react-native/)
+[![](https://img.shields.io/badge/npm-v0.0.20-brightgreen.svg)](https://www.npmjs.com/package/react-native-pathjs-charts) [![](https://img.shields.io/badge/react--native--svg-3.1.1-blue.svg)](https://www.npmjs.com/package/react-native-svg)  [![](https://img.shields.io/badge/react--native-0.30-orange.svg)](https://facebook.github.io/react-native/)
 [![](https://img.shields.io/badge/android--ff69b4.svg)](http://developer.android.com/sdk/index.html)
 [![](https://img.shields.io/badge/ios--red.svg)](https://developer.apple.com/xcode/)
 [![](https://img.shields.io/badge/license-Apache%202.0-blue.svg)](http://www.apache.org/licenses/LICENSE-2.0)
@@ -31,7 +31,7 @@ To run the example application (from a cloned repo):
 ```
 cd example
 npm install
-rnpm link
+react-native link react-native-svg
 react-native run-ios
 # or
 react-native run-android
@@ -43,7 +43,7 @@ To add the library to your React Native project:
 
 ```
 npm install react-native-pathjs-charts --save
-rnpm link
+react-native link react-native-svg
 ```
 
 ## Usage
