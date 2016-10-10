@@ -83,12 +83,17 @@ export default class LineChart extends Component {
       margin:options.margin
     }
 
+    let showAreas = typeof(this.props.options.showAreas) != 'undefined' ? this.props.options.showAreas : true;
     let lines = _.map(chart.curves, function (c, i) {
       return <Path key={'lines' + i} d={ c.line.path.print() } stroke={ this.color(i) } fill="none"/>
     }.bind(this))
-    let areas = _.map(chart.curves, function (c, i) {
-      return <Path key={'areas' + i} d={ c.area.path.print() } fillOpacity={0.5} stroke="none" fill={ this.color(i) }/>
-    }.bind(this))
+    let areas = null;
+
+    if(showAreas){
+      areas = _.map(chart.curves, function (c, i) {
+        return <Path key={'areas' + i} d={ c.area.path.print() } fillOpacity={0.5} stroke="none" fill={ this.color(i) }/>
+      }.bind(this)) 
+    }
 
     let offset = {
       x: chartArea.margin.left * -1,
