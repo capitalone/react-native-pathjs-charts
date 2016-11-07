@@ -1,0 +1,15 @@
+dependencies:
+  pre:
+    - echo -e "$NPM_USER\n$NPM_PASS\n$NPM_EMAIL" | npm login
+
+test:
+  override:
+    - echo "Dummy echo for test success"
+    - npm owner ls
+
+deployment:
+  explore-circleci:
+    branch: explore-circleci
+    commands:
+      - echo "Dummy echo for simulating deployment"
+      - npm owner ls
