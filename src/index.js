@@ -20,6 +20,7 @@ import Bar from './Bar'
 import SmoothLine from './SmoothLine'
 import StockLine from './StockLine'
 import Scatterplot from './Scatterplot.js'
+import AssetDebtBarChart from './Bar/AssetDebtBarChart'
 
 export {
   Pie,
@@ -28,5 +29,6 @@ export {
   SmoothLine,
   StockLine,
   Scatterplot,
-  Radar
+  Radar,
+  AssetDebtBarChart
 }

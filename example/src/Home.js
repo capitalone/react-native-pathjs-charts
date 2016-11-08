@@ -13,9 +13,19 @@ WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
 See the License for the specific language governing permissions and limitations under the License.
 */
 
-'use strict';
+'use strict'
 
-import React, { AppRegistry } from 'react-native';
-import App from './src/App';
+import React, { Component } from 'react';
+import { Text, View } from 'react-native'
 
-AppRegistry.registerComponent('example', () => App);
+class Home extends Component {
+  render() {
+    return (
+      <View>
+        <Text>Swipe from left to view menu of examples</Text>
+      </View>
+    );
+  }
+}
+
+export default Home;
