@@ -4,12 +4,12 @@ dependencies:
 
 test:
   override:
-    - echo "Dummy echo for test success"
+    - echo "Verifying login successful prior to npm publish..."
     - npm owner ls
 
 deployment:
-  explore-circleci:
-    branch: explore-circleci
+  release:
+    branch: master
+    tag: /[0-9]+(\.[0-9]+)*/
     commands:
-      - echo "Dummy echo for simulating deployment"
-      - npm owner ls
+      - npm publish
