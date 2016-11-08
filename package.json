@@ -27,8 +27,12 @@
   "license": "Apache-2.0",
   "maintainers": [
     {
-      "name": "caledhwa",
-      "email": "caledh@gmail.com"
+      "name": "marzolfb",
+      "email": "marzolfb@gmail.com"
+    },
+    {
+      "name": "katscott",
+      "email": "reineskat@gmail.com"
     }
   ],
   "dependencies": {
