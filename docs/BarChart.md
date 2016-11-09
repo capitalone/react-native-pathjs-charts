@@ -97,8 +97,9 @@ const chartProperties = {
 ```
 
 #### Scale
-You can change the maximum value and increment of the scale if you want it to be set to a specific value.
+You can change the maximum value and increment of the scale if you want it to be set to a specific value. You can also specific an array for specific scale points. The scaleIncrement value would be ignored if scale is used.
 
+**scaleMax/scaleIncrement**
 ```jsx
 const chartProperties = {
   data: chartData,
@@ -106,6 +107,17 @@ const chartProperties = {
   scaleMax: 550, //This is the max value of the scale
   scaleIncrement: 250, //This is the increment amount. The scale will increment in this interval until it reaches the scale max (less than comparison). This example would be 0, 250 then 500. If scale max was 500, it would only be up 0 and 250.
 }
+```
+
+**scale/scaleMax**
+```jsx
+const chartProperties = {
+  data: chartData,
+  width: 250,
+  scale: [-300,-200,-100,0,100,200,300], //Specific scale points
+  scaleMax: 400, //This is the max value of the scale
+}
+
 ```
 
 #### Scale Label Format

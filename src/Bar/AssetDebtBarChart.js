@@ -55,6 +55,7 @@ const propTypes = {
   barGap: PropTypes.number,
   barMinWidth: PropTypes.number,
   barLabelFontSize: PropTypes.number,
+  scale: PropTypes.array,
   scaleMax: PropTypes.number,
   scaleIncrement: PropTypes.number,
   scaleLabelFormat: PropTypes.func,
@@ -73,6 +74,7 @@ const defaultProps = {
   barGap: 10,
   barMinWidth: 2,
   barLabelFontSize: 12,
+  scale: [],
   scaleMax: 0,
   scaleIncrement: 0,
   scaleLabelFormat: defaultScaleLabelFormat,
@@ -117,6 +119,10 @@ class AssetDebtBarChart extends Component {
   }
 
   getScale() {
+    if (this.props.scale.length > 0) {
+      return this.props.scale;
+    }
+
     var scale = new Array()
     var scaleValue = 0
     var scaleMax = this.getScaleMax(true)
