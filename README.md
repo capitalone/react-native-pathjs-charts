@@ -988,6 +988,14 @@ export default sampleData = {
     }
 }
 ```
+
+## Developing and Testing With The Example App
+
+Please see the [util/watchman-update-example-src/README.md](util/watchman-update-example-src/README.md) for information on how to setup a [Watchman](https://facebook.github.io/watchman/)-based file watch that automates source file copying between [project source](src) and the [example app](example) to make manual testing easier
+
+
+## Contributing
+
 Contributors:
 We welcome your interest in Capital One’s Open Source Projects (the “Project”). Any Contributor to the project must accept and sign a CLA indicating agreement to the license terms. Except for the license granted in this CLA to Capital One and to recipients of software distributed by Capital One, you reserve all right, title, and interest in and to your contributions; this CLA does not impact your rights to use your own contributions for any other purpose.
 
