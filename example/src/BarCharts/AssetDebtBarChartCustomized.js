@@ -45,7 +45,7 @@ class AssetDebtBarChartCustomized extends Component {
       },
       {
         label: "Debt2",
-        value: 1,
+        value: -1,
         color: "#F00"
       },
     ]
