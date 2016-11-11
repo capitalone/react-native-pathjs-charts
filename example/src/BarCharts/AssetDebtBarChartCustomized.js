@@ -43,6 +43,11 @@ class AssetDebtBarChartCustomized extends Component {
         value: 150,
         color: "#00F"
       },
+      {
+        label: "Debt2",
+        value: 1,
+        color: "#F00"
+      },
     ]
 
     const chartProperties = {
@@ -50,7 +55,8 @@ class AssetDebtBarChartCustomized extends Component {
       width: 250,
       barHeight: 20,
       barGap: 15,
-      barMinWidth: 5,
+      barMinVisibleWidth: 1,
+      barMinValueForBarVisibility: 50,
       scaleMax: 550,
       scaleIncrement: 250,
       scaleLabelFormat: (value) => {

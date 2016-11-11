@@ -92,7 +92,8 @@ const chartProperties = {
   width: 250,
   barHeight: 20, //This is the height of the bar
   barGap: 15, //This is the space between bars
-  barMinWidth: 5, //This is the minimum width for a bar (i.e. if you have a 0 value)
+  barMinVisibleWidth: 1, //This is the minimum width for a bar it works with the minimum value for visiblity
+  barMinValueForBarVisibility: 50, //This sets what value you want to use minimum width if it falls below it
 }
 ```
 

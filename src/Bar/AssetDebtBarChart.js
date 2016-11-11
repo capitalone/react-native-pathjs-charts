@@ -53,7 +53,8 @@ const propTypes = {
   negativeColors: PropTypes.array,
   barHeight: PropTypes.number,
   barGap: PropTypes.number,
-  barMinWidth: PropTypes.number,
+  barMinVisibleWidth: PropTypes.number,
+  barMinValueForBarVisibility: PropTypes.number,
   barLabelFontSize: PropTypes.number,
   scale: PropTypes.array,
   scaleMax: PropTypes.number,
@@ -72,7 +73,8 @@ const defaultProps = {
   negativeColors: ['#F00','#A00','#600'],
   barHeight: 15,
   barGap: 10,
-  barMinWidth: 2,
+  barMinVisibleWidth: 0,
+  barMinValueForBarVisibility: 0,
   barLabelFontSize: 12,
   scale: [],
   scaleMax: 0,
@@ -180,8 +182,8 @@ class AssetDebtBarChart extends Component {
       }
       let percent = Math.abs(value)/scaleMax
       let barWidth = Math.round((halfWidth-1)*percent)
-      if (barWidth < options.barMinWidth) {
-        barWidth = options.barMinWidth
+      if (Math.abs(value) <= options.barMinValueForBarVisibility && barWidth < options.barMinVisibleWidth) {
+        barWidth = options.barMinVisibleWidth
       }
 
       let color = (value >= 0) ? options.positiveColors[index%options.positiveColors.length] : options.negativeColors[index%options.negativeColors.length]
