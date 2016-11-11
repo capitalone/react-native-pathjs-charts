@@ -28,3 +28,5 @@ example/dist
 *.sublime-*
 .idea/
 *.DS_Store
+
+util/watchman-update-example-src/watchman-update-example-src.sh
