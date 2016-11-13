@@ -113,7 +113,8 @@ export default sampleData = {
             },
             width: 600,
             height: 600,
-            color: '#2980B9',
+            color: '#2980B9', // Depricated
+            colors: ['#FF0000', '#00FF00', '#0000EE', '#2980B9'],
             r: 100,
             R: 200,
             legendPosition: 'topLeft',

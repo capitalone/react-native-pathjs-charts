@@ -27,7 +27,8 @@ export default class PieChart extends Component {
       margin: {top: 20, left: 20, right: 20, bottom: 20},
       width: 600,
       height: 600,
-      color: '#2980B9',
+      color: '#2980B9', // Depricated
+      colors: ['#2980B9'],
       r: 100,
       R: 200,
       legendPosition: 'topLeft',
@@ -46,11 +47,19 @@ export default class PieChart extends Component {
   }
 
   color(i) {
-    let color = this.props.options.color
+    let colors = this.props.options.colors;
+    let color = this.props.options.color // for Backward compability
+    if (colors) {
+      if (colors[i]) {
+        return colors[i]
+      } else {
+        color = colors[colors.length - 1]
+      }
+    }
     if (color && !_.isString(color)) color = color.color
     let pallete = this.props.pallete || Colors.mix(color || '#9ac7f7')
-    return Colors.string(cyclic(pallete, i)) }
-
+    return Colors.string(cyclic(pallete, i))
+  }
 
   get defaultRange() {
     return _.map(Array(this.props.data && this.props.data.length),function(){return 0})
