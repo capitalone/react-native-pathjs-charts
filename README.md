@@ -215,7 +215,7 @@ export default sampleData = {
             width: 600,
             height: 600,
             center: [300, 300],
-            color: '#2980B9', // Depricated
+            color: '#2980B9', // Deprecated
             colors: ['#FF0000', '#00FF00', '#0000EE', '#2980B9'],
             r: 100,
             R: 200,
