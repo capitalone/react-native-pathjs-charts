@@ -27,6 +27,7 @@ export default class PieChart extends Component {
       margin: {top: 20, left: 20, right: 20, bottom: 20},
       width: 600,
       height: 600,
+      center: [300, 300],
       color: '#2980B9', // Depricated
       colors: ['#2980B9'],
       r: 100,
