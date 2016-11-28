@@ -62,16 +62,21 @@ class AxisStruct {
     const fixed = this.options.zeroAxis?this.scale(0):horizontal?yAxis.min:xAxis.min
     const start = {x: horizontal?xAxis.min:fixed, y: horizontal?fixed:yAxis.min}
     const end = {x:horizontal?xAxis.max:fixed,y: horizontal?fixed:yAxis.max}
+    const tailLength = this.options.tailLength || 10
 
     const margin = this.margin
     if (margin !== undefined){
       if (horizontal){
-        start.x -= margin.left || 0
-        end.x += margin.right || 0
+        start.x += (margin.left - tailLength) || 0
+        start.y += margin.top || 0
+        end.x += (margin.left) || 0
+        end.y += margin.top || 0
       }
       else {
-        start.y += margin.bottom || 0
-        end.y -= margin.top || 0
+        start.x += margin.left || 0
+        start.y += (margin.top + tailLength) || 0
+        end.x += margin.left || 0
+        end.y += (margin.top - tailLength)  || 0
       }
     }
 
@@ -80,8 +85,8 @@ class AxisStruct {
       path: Pathjs().moveto(start).lineto(end).closepath(),
       ticks: ticks,
       lines: ticks.map(c => {
-        const lineStart = {x: horizontal ? this.scale(c) : xAxis.min, y: horizontal ? yAxis.min : this.scale(c)}
-        return Pathjs().moveto(lineStart).lineto(horizontal ? lineStart.x : xAxis.max, horizontal ? yAxis.max : lineStart.y)
+        const lineStart = {x: horizontal ? this.scale(c) + margin.left : xAxis.min + margin.left, y: horizontal ? yAxis.min + margin.top : this.scale(c) + margin.top}
+        return Pathjs().moveto(lineStart).lineto(horizontal ? lineStart.x : xAxis.max + margin.left, horizontal ? yAxis.max + (margin.top - tailLength) : lineStart.y)
       },this)
     }
   }
@@ -143,6 +148,8 @@ export default class Axis extends Component {
     let offset = {
       x: chartArea.margin.left * -1,
       y: chartArea.margin.top * -1
+      // x: 0,
+      // y: 0
     }
 
     let returnV = <G>

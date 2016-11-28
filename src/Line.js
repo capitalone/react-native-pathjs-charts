@@ -92,20 +92,13 @@ export default class LineChart extends Component {
     if(showAreas){
       areas = _.map(chart.curves, function (c, i) {
         return <Path key={'areas' + i} d={ c.area.path.print() } fillOpacity={0.5} stroke="none" fill={ this.color(i) }/>
-      }.bind(this)) 
-    }
-
-    let offset = {
-      x: chartArea.margin.left * -1,
-      y: chartArea.margin.top * -1
+      }.bind(this))
     }
 
     let returnValue = <Svg width={options.width} height={options.height}>
                   <G x={options.margin.left} y={options.margin.top}>
-                      <G x={offset.x} y={offset.y}>
                         { areas }
                         { lines }
-                      </G>
                       <Axis key="x" scale={chart.xscale} options={options.axisX} chartArea={chartArea} />
                       <Axis key="y" scale={chart.yscale} options={options.axisY} chartArea={chartArea} />
                   </G>
