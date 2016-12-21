@@ -15,7 +15,9 @@ Components include Pie charts, Bar charts, Smoothline charts, Stockline charts, 
 This library is in its early stages, but I welcome contributors who would like to help make this the charting solution for React Native. Many of our mobile experiences need to create dashboards. Up to now, we've only been seeing libraries that are native bridges. Wouldn't it be great to have a cross platform solution that just worked?
 
 ## Demo
-![](screenshots/rnpc-demo.gif)
+<p align="center">
+  <img src="screenshots/rnpc-demo.gif" alt="demo video">
+</p>
 
 ## Installation
 
