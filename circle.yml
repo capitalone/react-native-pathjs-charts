@@ -4,8 +4,7 @@ dependencies:
 
 test:
   override:
-    - echo "Verifying login successful prior to npm publish..."
-    - npm owner ls
+    - npm test
 
 deployment:
   release:
