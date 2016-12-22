@@ -16,7 +16,7 @@ See the License for the specific language governing permissions and limitations 
 'use strict'
 
 import React, { Component } from 'react';
-import { ScrollView, Text, Navigator } from 'react-native';
+import { View, Text, Navigator } from 'react-native';
 
 import { Pie } from 'react-native-pathjs-charts'
 
@@ -64,7 +64,7 @@ class PieChartBasic extends Component {
     }
 
     return (
-      <View horizontal={true} style={{flex:1,backgroundColor:'#F5FCFF'}} contentContainerStyle={{justifyContent:'center',alignItems:'center'}}>
+      <View>
         <Pie data={data}
           options={options}
           accessorKey="population"
@@ -90,7 +90,7 @@ class PieChartBasic extends Component {
             color: '#ECF0F1'
           }}
           />
-      <View>
+      </View>
     )
   }
 }
