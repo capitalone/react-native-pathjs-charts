@@ -64,7 +64,7 @@ class PieChartBasic extends Component {
     }
 
     return (
-      <ScrollView horizontal={true} style={{flex:1,backgroundColor:'#F5FCFF'}} contentContainerStyle={{justifyContent:'center',alignItems:'center'}}>
+      <View horizontal={true} style={{flex:1,backgroundColor:'#F5FCFF'}} contentContainerStyle={{justifyContent:'center',alignItems:'center'}}>
         <Pie data={data}
           options={options}
           accessorKey="population"
@@ -90,7 +90,7 @@ class PieChartBasic extends Component {
             color: '#ECF0F1'
           }}
           />
-      </ScrollView>
+      <View>
     )
   }
 }
