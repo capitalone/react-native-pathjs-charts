@@ -108,19 +108,21 @@ export const Colors = new colours()
 export class Options {
 
   constructor(props) {
+    this.props = props
     this.options =  props.options || {}
-    this.chartWidth = this.options.width || 400
-    this.chartHeight = this.options.height || 400
+    this.chartWidth = props.width || this.options.width || 400
+    this.chartHeight = props.height || this.options.height || 400
     this.width = this.chartWidth + (this.margin.right || 0) +  (this.margin.left || 0)
     this.height = this.chartHeight + (this.margin.top || 0) + (this.margin.bottom || 0)
   }
-  get legendPosition(){ return this.options.legendPosition || 'topLeft'}
-  get axisX() {return  this.options.axisX || {}}
-  get axisY() {return  this.options.axisY || {}}
-  get margin(){return this.options.margin || {}}
-  get stroke(){return this.options.stroke}
-  get fill(){return this.options.fill}
-  get r(){return this.options.r}
-  get label(){return this.options.label || {}}
-  get animate() {return this.options.animate || {}}
+  get legendPosition(){ return this.props.legendPosition || (this.props.options && this.props.options.legendPosition) || 'topLeft'}
+  get axisX() {return this.props.axisX || (this.props.options && this.props.options.axisX) || {}}
+  get axisY() {return this.props.axisY || (this.props.options && this.props.options.axisY) || {}}
+  get margin(){return this.props.margin || (this.props.options && this.props.options.margin) || {}}
+  get stroke(){return this.props.stroke || (this.props.options && this.props.options.stroke)}
+  get fill(){return this.props.fill || (this.props.options && this.props.options.fill)}
+  get r(){return this.props.r || (this.props.options && this.props.options.r)}
+  get R(){return this.props.R || (this.props.options && this.props.options.R)}
+  get label(){return this.props.label || (this.props.options && this.props.options.label) || {}}
+  get animate() {return this.props.animate || (this.props.options && this.props.options.animate) || {}}
 }

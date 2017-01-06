@@ -9,7 +9,8 @@
   "main": "src/index.js",
   "scripts": {
     "start": "node_modules/react-native/packager/packager.sh",
-    "lint": "eslint --ext .js,.jsx src"
+    "lint": "eslint --ext .js,.jsx src",
+    "test": "jest"
   },
   "keywords": [
     "react-native",
@@ -41,7 +42,16 @@
     "react-native-svg": "^4.4.1"
   },
   "devDependencies": {
+    "babel-jest": "*",
+    "babel-preset-react-native": "^1.9.0",
+    "diff": "^3.1.0",
+    "jest": "^18.0.0",
+    "jest-react-native": "*",
     "react": "~15.4.1",
-    "react-native": "^0.38.1"
+    "react-native": "^0.38.1",
+    "react-test-renderer": "*"
+  },
+  "jest": {
+    "preset": "jest-react-native"
   }
 }

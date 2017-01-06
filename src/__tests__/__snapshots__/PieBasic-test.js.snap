@@ -1,0 +1,209 @@
+exports[`test renders using flattened properties correctly 1`] = `
+<view
+  mockedComponent="svg-component">
+  <view
+    mockedComponent="svg-G">
+    <view
+      mockedComponent="svg-G">
+      <view
+        d="M NaN NaN A 150 150 0 0 1 NaN NaN L NaN NaN A 10 10 0 0 0 NaN NaN Z "
+        fill="#3199de"
+        fillOpacity={1}
+        mockedComponent="svg-Path"
+        stroke="#277ab1" />
+      <view
+        mockedComponent="svg-G">
+        <view
+          fill="#ECF0F1"
+          fontFamily="Arial"
+          fontSize={8}
+          fontStyle="normal"
+          fontWeight="bold"
+          mockedComponent="svg-Text"
+          textAnchor="middle"
+          x={NaN}
+          y={NaN}>
+          Washington
+        </view>
+      </view>
+    </view>
+    <view
+      mockedComponent="svg-G">
+      <view
+        d="M NaN NaN A 150 150 0 0 1 NaN NaN L NaN NaN A 10 10 0 0 0 NaN NaN Z "
+        fill="#2980b9"
+        fillOpacity={1}
+        mockedComponent="svg-Path"
+        stroke="#206694" />
+      <view
+        mockedComponent="svg-G">
+        <view
+          fill="#ECF0F1"
+          fontFamily="Arial"
+          fontSize={8}
+          fontStyle="normal"
+          fontWeight="bold"
+          mockedComponent="svg-Text"
+          textAnchor="middle"
+          x={NaN}
+          y={NaN}>
+          Oregon
+        </view>
+      </view>
+    </view>
+    <view
+      mockedComponent="svg-G">
+      <view
+        d="M NaN NaN A 150 150 0 0 1 NaN NaN L NaN NaN A 10 10 0 0 0 NaN NaN Z "
+        fill="#df9a14"
+        fillOpacity={1}
+        mockedComponent="svg-Path"
+        stroke="#b27b10" />
+      <view
+        mockedComponent="svg-G">
+        <view
+          fill="#ECF0F1"
+          fontFamily="Arial"
+          fontSize={8}
+          fontStyle="normal"
+          fontWeight="bold"
+          mockedComponent="svg-Text"
+          textAnchor="middle"
+          x={NaN}
+          y={NaN}>
+          Minnesota
+        </view>
+      </view>
+    </view>
+    <view
+      mockedComponent="svg-G">
+      <view
+        d="M NaN NaN A 150 150 0 0 1 NaN NaN L NaN NaN A 10 10 0 0 0 NaN NaN Z "
+        fill="#2473a5"
+        fillOpacity={1}
+        mockedComponent="svg-Path"
+        stroke="#1c5c84" />
+      <view
+        mockedComponent="svg-G">
+        <view
+          fill="#ECF0F1"
+          fontFamily="Arial"
+          fontSize={8}
+          fontStyle="normal"
+          fontWeight="bold"
+          mockedComponent="svg-Text"
+          textAnchor="middle"
+          x={NaN}
+          y={NaN}>
+          Alaska
+        </view>
+      </view>
+    </view>
+  </view>
+</view>
+`;
+
+exports[`test renders using options property correctly 1`] = `
+<view
+  mockedComponent="svg-component">
+  <view
+    mockedComponent="svg-G">
+    <view
+      mockedComponent="svg-G">
+      <view
+        d="M NaN NaN A 150 150 0 0 1 NaN NaN L NaN NaN A 50 50 0 0 0 NaN NaN Z "
+        fill="#3199de"
+        fillOpacity={1}
+        mockedComponent="svg-Path"
+        stroke="#277ab1" />
+      <view
+        mockedComponent="svg-G">
+        <view
+          fill="#ECF0F1"
+          fontFamily="Arial"
+          fontSize={8}
+          fontStyle="normal"
+          fontWeight="bold"
+          mockedComponent="svg-Text"
+          textAnchor="middle"
+          x={NaN}
+          y={NaN}>
+          Washington
+        </view>
+      </view>
+    </view>
+    <view
+      mockedComponent="svg-G">
+      <view
+        d="M NaN NaN A 150 150 0 0 1 NaN NaN L NaN NaN A 50 50 0 0 0 NaN NaN Z "
+        fill="#2980b9"
+        fillOpacity={1}
+        mockedComponent="svg-Path"
+        stroke="#206694" />
+      <view
+        mockedComponent="svg-G">
+        <view
+          fill="#ECF0F1"
+          fontFamily="Arial"
+          fontSize={8}
+          fontStyle="normal"
+          fontWeight="bold"
+          mockedComponent="svg-Text"
+          textAnchor="middle"
+          x={NaN}
+          y={NaN}>
+          Oregon
+        </view>
+      </view>
+    </view>
+    <view
+      mockedComponent="svg-G">
+      <view
+        d="M NaN NaN A 150 150 0 0 1 NaN NaN L NaN NaN A 50 50 0 0 0 NaN NaN Z "
+        fill="#df9a14"
+        fillOpacity={1}
+        mockedComponent="svg-Path"
+        stroke="#b27b10" />
+      <view
+        mockedComponent="svg-G">
+        <view
+          fill="#ECF0F1"
+          fontFamily="Arial"
+          fontSize={8}
+          fontStyle="normal"
+          fontWeight="bold"
+          mockedComponent="svg-Text"
+          textAnchor="middle"
+          x={NaN}
+          y={NaN}>
+          Minnesota
+        </view>
+      </view>
+    </view>
+    <view
+      mockedComponent="svg-G">
+      <view
+        d="M NaN NaN A 150 150 0 0 1 NaN NaN L NaN NaN A 50 50 0 0 0 NaN NaN Z "
+        fill="#2473a5"
+        fillOpacity={1}
+        mockedComponent="svg-Path"
+        stroke="#1c5c84" />
+      <view
+        mockedComponent="svg-G">
+        <view
+          fill="#ECF0F1"
+          fontFamily="Arial"
+          fontSize={8}
+          fontStyle="normal"
+          fontWeight="bold"
+          mockedComponent="svg-Text"
+          textAnchor="middle"
+          x={NaN}
+          y={NaN}>
+          Alaska
+        </view>
+      </view>
+    </view>
+  </view>
+</view>
+`;

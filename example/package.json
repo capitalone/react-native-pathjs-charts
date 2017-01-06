@@ -3,12 +3,16 @@
   "version": "0.0.1",
   "private": true,
   "scripts": {
-    "start": "node node_modules/react-native/local-cli/cli.js start"
+    "start": "node node_modules/react-native/local-cli/cli.js start",
+    "sync-rnpc": "rm -rf ./node_modules/react-native-pathjs-charts; sane '/usr/bin/rsync -v -a --exclude .git --exclude example --exclude node_modules ../ ./node_modules/react-native-pathjs-charts/' .. --glob='{**/*.json,**/*.js}'"
   },
   "dependencies": {
     "react": "^15.4.1",
     "react-native": "^0.38.1",
     "react-native-pathjs-charts": "file:../",
     "react-native-side-menu": "^0.20.1"
+  },
+  "devDependencies": {
+    "sane": "^1.4.1"
   }
 }

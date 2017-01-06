@@ -53,8 +53,12 @@ react-native run-android
 
 ### Developing and Testing With The Example App
 
-Please see the [util/watchman-update-example-src/README.md](util/watchman-update-example-src/README.md) for information on how to setup a [Watchman](https://facebook.github.io/watchman/)-based file watch that automates source file copying between [project source](src) and the [example app](example) to make manual testing easier
+As you are working on changing src files in this library and testing those changes against the example app, it is necessary to copy files to example/node_modules/react-native-pathjs-charts each time a change is made. To automate this, a `sync-rnpc` script has been added that will create a background process to watch for src file changes and automatically copy them. To enable this:
 
+```
+cd example
+npm run sync-rnpc
+```
 
 ## Todo
 
