@@ -42,15 +42,18 @@ export default class PieChart extends Component {
         bold: true,
         color: '#ECF0F1'
       }
-    },
+    }
   }
 
   color(i) {
-    let color = this.props.color || (this.props.options && this.props.options.color)
-    if (color && !_.isString(color)) color = color.color
-    let pallete = this.props.pallete || (this.props.options && this.props.options.pallete) || Colors.mix(color || '#9ac7f7')
-    return Colors.string(cyclic(pallete, i))
-  }
+    let color = this.props.options.color
+    if (Array.isArray(color)) {
+        return color[i];
+    } else {
+      if (color && !_.isString(color)) color = color.color
+      let pallete = this.props.pallete || Colors.mix(color || '#9ac7f7')
+      return Colors.string(cyclic(pallete, i)) }
+    }
 
 
   get defaultRange() {
@@ -69,9 +72,9 @@ export default class PieChart extends Component {
     let radius = Math.min(x, y)
 
     let chart = Pie({
-      center: this.props.center || (this.props.options && this.props.options.center) || [0,0] ,
-      r: this.props.r || (this.props.options && this.props.options.r) || radius /2,
-      R: this.props.R || (this.props.options && this.props.options.R) || radius,
+      center: this.props.options.center || [0,0],
+      r: this.props.options.r || radius /2,
+      R: this.props.options.R || radius,
       data: this.props.data,
       accessor: this.props.accessor || identity(this.props.accessorKey)
     })
@@ -79,8 +82,8 @@ export default class PieChart extends Component {
     let textStyle = fontAdapt(options.label)
 
     let slices = chart.curves.map( (c, i) => {
-      let fill = (c.item.color && Colors.string(c.item.color)) || this.color(i)
-      let stroke = Colors.darkenColor(fill)
+      let fill = this.color(i)
+      let stroke = typeof fill === 'string' ? fill : Colors.darkenColor(fill)
       return (
                 <G key={ i } x={x - options.margin.left} y={y - options.margin.top}>
                     <Path d={c.sector.path.print() } stroke={stroke} fill={fill} fillOpacity={1}  />
