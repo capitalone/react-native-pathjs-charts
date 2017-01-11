@@ -1,12 +1,9 @@
 /*
 Copyright 2016 Capital One Services, LLC
-
 Licensed under the Apache License, Version 2.0 (the "License");
 you may not use this file except in compliance with the License.
 You may obtain a copy of the License at
-
     http://www.apache.org/licenses/LICENSE-2.0
-
 Unless required by applicable law or agreed to in writing, software
 distributed under the License is distributed on an "AS IS" BASIS,
 WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
@@ -47,9 +44,17 @@ export default class PieChart extends Component {
 
   color(i) {
     let color = this.props.color || (this.props.options && this.props.options.color)
-    if (color && !_.isString(color)) color = color.color
-    let pallete = this.props.pallete || (this.props.options && this.props.options.pallete) || Colors.mix(color || '#9ac7f7')
-    return Colors.string(cyclic(pallete, i))
+    if (Array.isArray(color)) {
+      if (i >= color.length) {
+        const pallete = Colors.mix(color[i % color.length])
+        return Colors.string(cyclic(pallete, i))
+      }
+      return color[i];
+    } else {
+      if (color && !_.isString(color)) color = color.color
+      let pallete = this.props.pallete || (this.props.options && this.props.options.pallete) || Colors.mix(color || '#9ac7f7')
+      return Colors.string(cyclic(pallete, i))
+    }
   }
 
 
@@ -80,7 +85,7 @@ export default class PieChart extends Component {
 
     let slices = chart.curves.map( (c, i) => {
       let fill = (c.item.color && Colors.string(c.item.color)) || this.color(i)
-      let stroke = Colors.darkenColor(fill)
+      let stroke = typeof fill === 'string' ? fill : Colors.darkenColor(fill)
       return (
                 <G key={ i } x={x - options.margin.left} y={y - options.margin.top}>
                     <Path d={c.sector.path.print() } stroke={stroke} fill={fill} fillOpacity={1}  />
