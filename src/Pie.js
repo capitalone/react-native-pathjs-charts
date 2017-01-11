@@ -1,12 +1,9 @@
 /*
 Copyright 2016 Capital One Services, LLC
-
 Licensed under the Apache License, Version 2.0 (the "License");
 you may not use this file except in compliance with the License.
 You may obtain a copy of the License at
-
     http://www.apache.org/licenses/LICENSE-2.0
-
 Unless required by applicable law or agreed to in writing, software
 distributed under the License is distributed on an "AS IS" BASIS,
 WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
@@ -42,18 +39,23 @@ export default class PieChart extends Component {
         bold: true,
         color: '#ECF0F1'
       }
-    }
+    },
   }
 
   color(i) {
-    let color = this.props.options.color
+    let color = this.props.color || (this.props.options && this.props.options.color)
     if (Array.isArray(color)) {
-        return color[i];
+      if (i >= color.length) {
+        const pallete = Colors.mix(color[i % color.length])
+        return Colors.string(cyclic(pallete, i))
+      }
+      return color[i];
     } else {
       if (color && !_.isString(color)) color = color.color
-      let pallete = this.props.pallete || Colors.mix(color || '#9ac7f7')
-      return Colors.string(cyclic(pallete, i)) }
+      let pallete = this.props.pallete || (this.props.options && this.props.options.pallete) || Colors.mix(color || '#9ac7f7')
+      return Colors.string(cyclic(pallete, i))
     }
+  }
 
 
   get defaultRange() {
@@ -72,9 +74,9 @@ export default class PieChart extends Component {
     let radius = Math.min(x, y)
 
     let chart = Pie({
-      center: this.props.options.center || [0,0],
-      r: this.props.options.r || radius /2,
-      R: this.props.options.R || radius,
+      center: this.props.center || (this.props.options && this.props.options.center) || [0,0] ,
+      r: this.props.r || (this.props.options && this.props.options.r) || radius /2,
+      R: this.props.R || (this.props.options && this.props.options.R) || radius,
       data: this.props.data,
       accessor: this.props.accessor || identity(this.props.accessorKey)
     })
@@ -82,7 +84,7 @@ export default class PieChart extends Component {
     let textStyle = fontAdapt(options.label)
 
     let slices = chart.curves.map( (c, i) => {
-      let fill = this.color(i)
+      let fill = (c.item.color && Colors.string(c.item.color)) || this.color(i)
       let stroke = typeof fill === 'string' ? fill : Colors.darkenColor(fill)
       return (
                 <G key={ i } x={x - options.margin.left} y={y - options.margin.top}>
