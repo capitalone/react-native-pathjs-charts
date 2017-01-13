@@ -10,7 +10,7 @@ exports[`test renders using flattened properties correctly 1`] = `
         fill="#3199de"
         fillOpacity={1}
         mockedComponent="svg-Path"
-        stroke="#277ab1" />
+        stroke="#3199de" />
       <view
         mockedComponent="svg-G">
         <view
@@ -34,7 +34,7 @@ exports[`test renders using flattened properties correctly 1`] = `
         fill="#2980b9"
         fillOpacity={1}
         mockedComponent="svg-Path"
-        stroke="#206694" />
+        stroke="#2980b9" />
       <view
         mockedComponent="svg-G">
         <view
@@ -58,7 +58,7 @@ exports[`test renders using flattened properties correctly 1`] = `
         fill="#df9a14"
         fillOpacity={1}
         mockedComponent="svg-Path"
-        stroke="#b27b10" />
+        stroke="#df9a14" />
       <view
         mockedComponent="svg-G">
         <view
@@ -82,7 +82,7 @@ exports[`test renders using flattened properties correctly 1`] = `
         fill="#2473a5"
         fillOpacity={1}
         mockedComponent="svg-Path"
-        stroke="#1c5c84" />
+        stroke="#2473a5" />
       <view
         mockedComponent="svg-G">
         <view
@@ -115,7 +115,7 @@ exports[`test renders using options property correctly 1`] = `
         fill="#3199de"
         fillOpacity={1}
         mockedComponent="svg-Path"
-        stroke="#277ab1" />
+        stroke="#3199de" />
       <view
         mockedComponent="svg-G">
         <view
@@ -139,7 +139,7 @@ exports[`test renders using options property correctly 1`] = `
         fill="#2980b9"
         fillOpacity={1}
         mockedComponent="svg-Path"
-        stroke="#206694" />
+        stroke="#2980b9" />
       <view
         mockedComponent="svg-G">
         <view
@@ -163,7 +163,7 @@ exports[`test renders using options property correctly 1`] = `
         fill="#df9a14"
         fillOpacity={1}
         mockedComponent="svg-Path"
-        stroke="#b27b10" />
+        stroke="#df9a14" />
       <view
         mockedComponent="svg-G">
         <view
@@ -187,7 +187,7 @@ exports[`test renders using options property correctly 1`] = `
         fill="#2473a5"
         fillOpacity={1}
         mockedComponent="svg-Path"
-        stroke="#1c5c84" />
+        stroke="#2473a5" />
       <view
         mockedComponent="svg-G">
         <view
