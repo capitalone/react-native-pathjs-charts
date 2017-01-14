@@ -1,6 +1,8 @@
 dependencies:
   pre:
     - echo -e "$NPM_USER\n$NPM_PASS\n$NPM_EMAIL" | npm login
+    - npm --version
+    - node --version
 
 test:
   override:
