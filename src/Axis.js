@@ -125,7 +125,7 @@ export default class Axis extends Component {
                 }
 
                 {options.showLabels &&
-                  <Text x={xy[0]} y={xy[1]} key={'textme' + i}
+                  <Text x={xy[0]} y={xy[1]}
                         fontFamily={textStyle.fontFamily}
                         fontSize={textStyle.fontSize}
                         fontWeight={textStyle.fontWeight}
