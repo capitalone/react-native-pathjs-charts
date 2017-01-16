@@ -1,5 +1,6 @@
 import 'react-native'
 import React from 'react'
+import Axis from '../../Axis'
 import Scatterplot from '../../Scatterplot'
 import renderer from 'react-test-renderer'
 

@@ -18,6 +18,12 @@ export const Rect = (props) => {
   )
 }
 
+export const Circle = (props) => {
+  return (
+    <view mockedComponent="svg-Rect" {...props} />
+  )
+}
+
 export const Path = (props) => {
   return (
     <view mockedComponent="svg-Path" {...props} >
