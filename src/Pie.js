@@ -12,7 +12,7 @@ See the License for the specific language governing permissions and limitations 
 
 import React, {Component} from 'react'
 import {Text as ReactText}  from 'react-native'
-import Svg,{ G, Path, Text, Circle} from 'react-native-svg'
+import Svg,{ G, Path, Text} from 'react-native-svg'
 import { Colors, Options, cyclic, identity, fontAdapt } from './util'
 import _ from 'lodash'
 const Pie = require('paths-js/pie')
@@ -57,6 +57,7 @@ export default class PieChart extends Component {
     }
   }
 
+
   get defaultRange() {
     return _.map(Array(this.props.data && this.props.data.length),function(){return 0})
   }
@@ -67,72 +68,40 @@ export default class PieChart extends Component {
 
     let options = new Options(this.props)
 
-    let x = (options.chartWidth / 2) - options.margin.left
-    let y = (options.chartHeight / 2) - options.margin.top
+    let x = options.chartWidth / 2
+    let y = options.chartHeight / 2
 
     let radius = Math.min(x, y)
 
-    let r = this.props.r
-    r = (isNaN(r) ? (this.props.options && this.props.options.r) : r)
-    r = (isNaN(r) ? (radius / 2) : r)
-
-    let R = this.props.R
-    R = (R || (this.props.options && this.props.options.R))
-    R = (R || radius)
-
     let chart = Pie({
       center: this.props.center || (this.props.options && this.props.options.center) || [0,0] ,
-      r,
-      R,
+      r: this.props.r || (this.props.options && this.props.options.r) || radius /2,
+      R: this.props.R || (this.props.options && this.props.options.R) || radius,
       data: this.props.data,
       accessor: this.props.accessor || identity(this.props.accessorKey)
     })
 
     let textStyle = fontAdapt(options.label)
 
-    let slices
-
-    if (this.props.data.length === 1) {
-      let item = this.props.data[0]
-      let outerFill = (item.color && Colors.string(item.color)) || this.color(0)
-      let innerFill = this.props.monoItemInnerFillColor || '#fff'
-      let stroke = typeof fill === 'string' ? outerFill : Colors.darkenColor(outerFill)
-      slices = (
-        <G>
-          <Circle r={R} cx={x} cy={y} stroke={stroke} fill={outerFill}/>
-          <Circle r={r} cx={x} cy={y} stroke={stroke} fill={innerFill}/>
-          <Text fontFamily={textStyle.fontFamily}
-                fontSize={textStyle.fontSize}
-                fontWeight={textStyle.fontWeight}
-                fontStyle={textStyle.fontStyle}
-                fill={textStyle.fill}
-                textAnchor="middle"
-                x={x}
-                y={y - R + ((R-r)/2)}>{item.name}</Text>
-        </G>
-      )
-    }
-    else {
-      slices = chart.curves.map( (c, i) => {
-        let fill = (c.item.color && Colors.string(c.item.color)) || this.color(i)
-        let stroke = typeof fill === 'string' ? fill : Colors.darkenColor(fill)
-        return (
-                  <G key={ i } x={x} y={y}>
-                      <Path d={c.sector.path.print() } stroke={stroke} fill={fill} fillOpacity={1}  />
-                      <G x={options.margin.left} y={options.margin.top}>
-                        <Text fontFamily={textStyle.fontFamily}
-                              fontSize={textStyle.fontSize}
-                              fontWeight={textStyle.fontWeight}
-                              fontStyle={textStyle.fontStyle}
-                              fill={textStyle.fill}
-                              textAnchor="middle"
-                              x={c.sector.centroid[0]}
-                              y={c.sector.centroid[1]}>{ c.item.name }</Text>
-                      </G>
-                  </G>
-              )
-      })
-    }
+    let slices = chart.curves.map( (c, i) => {
+      let fill = (c.item.color && Colors.string(c.item.color)) || this.color(i)
+      let stroke = typeof fill === 'string' ? fill : Colors.darkenColor(fill)
+      return (
+                <G key={ i } x={x - options.margin.left} y={y - options.margin.top}>
+                    <Path d={c.sector.path.print() } stroke={stroke} fill={fill} fillOpacity={1}  />
+                    <G x={options.margin.left} y={options.margin.top}>
+                      <Text fontFamily={textStyle.fontFamily}
+                            fontSize={textStyle.fontSize}
+                            fontWeight={textStyle.fontWeight}
+                            fontStyle={textStyle.fontStyle}
+                            fill={textStyle.fill}
+                            textAnchor="middle"
+                            x={c.sector.centroid[0]}
+                            y={c.sector.centroid[1]}>{ c.item.name }</Text>
+                    </G>
+                </G>
+            )
+    })
 
     let returnValue = <Svg width={options.width} height={options.height}>
             <G x={options.margin.left} y={options.margin.top}>
