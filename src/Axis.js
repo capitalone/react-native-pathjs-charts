@@ -114,8 +114,9 @@ export default class Axis extends Component {
     const textStyle = fontAdapt(options.label)
 
     const ticks =_.map(axis.ticks, function (c, i) {
-      const label = options.labelComponent !== undefined? React.cloneElement(options.labelComponent,{value:c}) : c
-      let gxy = horizontal ? [scale(c),chartArea.y.min]:[chartArea.x.min,scale(c)]
+      const label = options.labelFunction !== undefined? options.labelFunction.apply(this, [c]) : c
+      let scaleBase = isNaN(c) ? i : c
+      let gxy = horizontal ? [scale(scaleBase),chartArea.y.min]:[chartArea.x.min,scale(scaleBase)]
 
       let returnValue = <G key={i} x={gxy[0]} y={gxy[1]}>
 
@@ -124,14 +125,14 @@ export default class Axis extends Component {
                 }
 
                 {options.showLabels &&
-                  <Text x={xy[0]} y={xy[1]}
+                  <Text x={xy[0]} y={xy[1]} key={'textme' + i}
                         fontFamily={textStyle.fontFamily}
                         fontSize={textStyle.fontSize}
                         fontWeight={textStyle.fontWeight}
                         fontStyle={textStyle.fontStyle}
                         fill={textStyle.fill}
                         textAnchor={textAnchor}>
-                        {label.toString()}
+                        {label}
                   </Text>}
             </G>
 

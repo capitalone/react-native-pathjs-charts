@@ -1,9 +1,13 @@
 import React from 'react'
 
-export default function({ children }) {
+
+// const rnsvg = jest.genMockFromModule('react-native-svg');
+// module.exports = rnsvg;
+
+export default function(props) {
   return (
-    <view mockedComponent="svg-component">
-      {children}
+    <view mockedComponent="svg-component" {...props}>
+      {props.children}
     </view>
   )
 }
@@ -16,27 +20,33 @@ export const Rect = (props) => {
 
 export const Path = (props) => {
   return (
-    <view mockedComponent="svg-Path" {...props} />
+    <view mockedComponent="svg-Path" {...props} >
+      {props.children}
+    </view>
   )
 }
 
-export const G = ({ children }) => {
+export const G = (props) => {
   return (
-    <view mockedComponent="svg-G">
-      {children}
+    <view mockedComponent="svg-G" {...props}>
+      {props.children}
     </view>
   )
 }
 
 export const Svg = (props) => {
   return (
-    <view mockedComponent="svg-Svg" {...props} />
+    <view mockedComponent="svg-Svg" {...props} >
+      {props.children}
+    </view>
   )
 }
 
 export const Text = (props) => {
   return (
-    <view mockedComponent="svg-Text" {...props} />
+    <view mockedComponent="svg-Text" {...props} >
+      {props.children}
+    </view>
   )
 }
 

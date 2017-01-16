@@ -1,6 +1,6 @@
 import 'react-native'
 import React from 'react'
-import Pie from '../Pie'
+import Pie from '../../Pie'
 import renderer from 'react-test-renderer'
 import { diffJson } from 'diff'
 

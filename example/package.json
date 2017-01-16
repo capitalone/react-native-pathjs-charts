@@ -7,6 +7,7 @@
     "sync-rnpc": "rm -rf ./node_modules/react-native-pathjs-charts; sane '/usr/bin/rsync -v -a --exclude .git --exclude example --exclude node_modules ../ ./node_modules/react-native-pathjs-charts/' .. --glob='{**/*.json,**/*.js}'"
   },
   "dependencies": {
+    "moment": "^2.17.1",
     "react": "^15.4.1",
     "react-native": "^0.38.1",
     "react-native-pathjs-charts": "file:../",

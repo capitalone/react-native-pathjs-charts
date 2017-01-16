@@ -105,6 +105,16 @@ class Menu extends Component {
             style={styles.subitem}>
             Basic StockLine
           </Text>
+          <Text
+            onPress={() => this.props.onItemSelected('StockLineChartStaticTickLabels')}
+            style={styles.subitem}>
+            StockLine w/Static Tick Labels
+          </Text>
+          <Text
+            onPress={() => this.props.onItemSelected('StockLineChartDynamicTickLabels')}
+            style={styles.subitem}>
+            StockLine w/Dynamic Tick Labels
+          </Text>
         </View>
         {/*End StockLine Charts*/}
 
