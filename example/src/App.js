@@ -28,6 +28,8 @@ import PieChartBasic from './pie/PieChartBasic'
 import StockLineChartBasic from './stockline/StockLineChartBasic'
 
 import SmoothLineChartBasic from './smoothline/SmoothLineChartBasic'
+import SmoothLineChartRegions from './smoothline/SmoothLineChartRegions'
+import SmoothLineChartRegionsExtended from './smoothline/SmoothLineChartRegionsExtended'
 
 import ScatterplotChartBasic from './scatterplot/ScatterplotChartBasic'
 
@@ -82,6 +84,10 @@ class App extends Component {
         return <View style={styles.container}><StockLineChartBasic /></View>
       case 'SmoothLineChartBasic':
         return <View style={styles.container}><SmoothLineChartBasic /></View>
+      case 'SmoothLineChartRegions':
+        return <View style={styles.container}><SmoothLineChartRegions /></View>
+      case 'SmoothLineChartRegionsExtended':
+        return <View style={styles.container}><SmoothLineChartRegionsExtended /></View>
       case 'ScatterplotChartBasic':
         return <View style={styles.container}><ScatterplotChartBasic /></View>
       case 'RadarChartBasic':

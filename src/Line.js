@@ -15,8 +15,8 @@ See the License for the specific language governing permissions and limitations 
 
 import React,{Component} from 'react'
 import {Text as ReactText}  from 'react-native'
-import Svg,{ G, Path } from 'react-native-svg'
-import { Colors, Options, cyclic } from './util'
+import Svg,{ G, Path, Rect, Text } from 'react-native-svg'
+import { Colors, Options, cyclic, fontAdapt } from './util'
 import Axis from './Axis'
 import _ from 'lodash'
 
@@ -27,7 +27,7 @@ export default class LineChart extends Component {
     this.chartType = chartType
   }
 
-  getMaxAndMin(chart, key,scale) {
+  getMaxAndMin(chart, key, scale, chartMin, chartMax) {
     let maxValue
     let minValue
     _.each(chart.curves, function (serie) {
@@ -39,13 +39,16 @@ export default class LineChart extends Component {
       if (maxValue === undefined || max > maxValue) maxValue = max
       let min = _.min(values)
       if (minValue === undefined || min < minValue) minValue = min
+
+      maxValue = chartMax > maxValue ? chartMax : maxValue
+      minValue = chartMin < minValue ? chartMin : minValue
     })
 
     return {
       minValue: minValue,
       maxValue: maxValue,
-      min:scale(minValue),
-      max:scale(maxValue)
+      min: scale(minValue),
+      max: scale(maxValue)
     }
   }
 
@@ -74,20 +77,22 @@ export default class LineChart extends Component {
       yaccessor: accessor(this.props.yKey),
       width: options.chartWidth,
       height: options.chartHeight,
-      closed: false
+      closed: false,
+      min: options.min,
+      max: options.max
     })
 
     let chartArea = {
       x:this.getMaxAndMin(chart,this.props.xKey,chart.xscale),
-      y:this.getMaxAndMin(chart,this.props.yKey,chart.yscale),
+      y:this.getMaxAndMin(chart,this.props.yKey,chart.yscale,options.min,options.max),
       margin:options.margin
     }
 
-    let showAreas = typeof(this.props.options.showAreas) != 'undefined' ? this.props.options.showAreas : true;
+    let showAreas = typeof(this.props.options.showAreas) != 'undefined' ? this.props.options.showAreas : true
     let lines = _.map(chart.curves, function (c, i) {
       return <Path key={'lines' + i} d={ c.line.path.print() } stroke={ this.color(i) } fill="none"/>
     }.bind(this))
-    let areas = null;
+    let areas = null
 
     if(showAreas){
       areas = _.map(chart.curves, function (c, i) {
@@ -95,8 +100,64 @@ export default class LineChart extends Component {
       }.bind(this))
     }
 
+    let textStyle = fontAdapt(options.label)
+    let regions
+    if(this.props.regions != 'undefined') {
+      let styling = typeof(this.props.regionStyling) != 'undefined' ?
+        this.props.regionStyling : {}
+      let labelOffsetAllRegions = typeof(styling.labelOffset) != 'undefined' ?
+        styling.labelOffset : {}
+
+      regions = _.map(this.props.regions, function (c, i) {
+        let x, y, height, width, y1, y2, labelX, labelY
+
+        let labelOffset = typeof(c.labelOffset) != 'undefined' ?
+          c.labelOffset : {}
+        let labelOffsetLeft = typeof(labelOffsetAllRegions.left) != 'undefined'
+          ? (typeof(labelOffset.left) != 'undefined'
+              ?  labelOffset.left : labelOffsetAllRegions.left) : 20
+        let labelOffsetTop = typeof(labelOffsetAllRegions.top) != 'undefined'
+          ? (typeof(labelOffset.top) != 'undefined'
+              ?  labelOffset.top : labelOffsetAllRegions.top) : 0
+        let fillOpacity = typeof(styling.fillOpacity) != 'undefined'
+          ? (typeof(c.fillOpacity) != 'undefined'
+              ?  c.fillOpacity : styling.fillOpacity) : 0.5
+
+        y1 = chart.yscale(c.from)
+        y2 = chart.yscale(c.to)
+
+        x = 0
+        y = y1
+        height = (y2 - y1)
+        width = chartArea.x.max
+
+        labelX = labelOffsetLeft
+        labelY = y2 + labelOffsetTop
+
+        let regionLabel = typeof(c.label) != 'undefined' ? (
+          <Text fontFamily={textStyle.fontFamily}
+                fontSize={textStyle.fontSize}
+                fontWeight={textStyle.fontWeight}
+                fontStyle={textStyle.fontStyle}
+                fill={textStyle.fill}
+                textAnchor="middle"
+                x={labelX}
+                y={labelY}>{ c.label }</Text>
+        ) : null
+
+        return (
+          <G key={'region' + i}>
+            <Rect key={'region' + i} x={x} y={y} width={width} height={height}
+              fill={c.fill} fillOpacity={fillOpacity}/>
+            {regionLabel}
+          </G>
+        )
+      }.bind(this))
+    }
+
     let returnValue = <Svg width={options.width} height={options.height}>
                   <G x={options.margin.left} y={options.margin.top}>
+                        { regions }
                         { areas }
                         { lines }
                       <Axis key="x" scale={chart.xscale} options={options.axisX} chartArea={chartArea} />
