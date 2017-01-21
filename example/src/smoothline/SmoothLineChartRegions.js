@@ -20,7 +20,7 @@ import { View, Text, Navigator } from 'react-native';
 
 import { SmoothLine } from 'react-native-pathjs-charts'
 
-class SmoothLineChartBasic extends Component {
+class SmoothLineChartRegions extends Component {
   render() {
     let data = [
       [{
@@ -250,4 +250,4 @@ class SmoothLineChartBasic extends Component {
   }
 }
 
-export default SmoothLineChartBasic;
+export default SmoothLineChartRegions;
