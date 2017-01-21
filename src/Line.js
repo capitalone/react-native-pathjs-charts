@@ -88,9 +88,10 @@ export default class LineChart extends Component {
       margin:options.margin
     }
 
-    let showAreas = typeof(this.props.options.showAreas) != 'undefined' ? this.props.options.showAreas : true
+    let showAreas = typeof(this.props.options.showAreas) !== 'undefined' ? this.props.options.showAreas : true;
+    let strokeWidth = typeof(this.props.options.strokeWidth) !== 'undefined' ? this.props.options.strokeWidth : '1';
     let lines = _.map(chart.curves, function (c, i) {
-      return <Path key={'lines' + i} d={ c.line.path.print() } stroke={ this.color(i) } fill="none"/>
+      return <Path key={'lines' + i} d={ c.line.path.print() } stroke={ this.color(i) } strokeWidth={strokeWidth} fill="none"/>
     }.bind(this))
     let areas = null
 
