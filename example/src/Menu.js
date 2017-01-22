@@ -92,6 +92,11 @@ class Menu extends Component {
             style={styles.subitem}>
             Basic Pie
           </Text>
+          <Text
+            onPress={() => this.props.onItemSelected('DynamicPieChart')}
+            style={styles.subitem}>
+            Dynamic Pie
+          </Text>
         </View>
         {/*End Pie Charts*/}
 

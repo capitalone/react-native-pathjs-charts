@@ -16,10 +16,12 @@ See the License for the specific language governing permissions and limitations 
 'use strict'
 
 import React, { Component } from 'react';
-import { Text, StyleSheet, View, Navigator } from 'react-native'
+import { Text, StyleSheet, View, Navigator, TextInput } from 'react-native'
 import SideMenu from 'react-native-side-menu'
 
 import Menu from './Menu'
+
+import DynamicPieChart from './pie/DynamicPieChart'
 
 import BarChartColumnBasic from './bar/BarChartColumnBasic'
 
@@ -50,6 +52,8 @@ class App extends Component {
   state = {
     isOpen: false,
     selectedItem: 'Home',
+    val1: 'Val1',
+    val2: 'Val2'
   };
 
   toggle() {
@@ -78,6 +82,8 @@ class App extends Component {
         return <View style={styles.container}><BarChartColumnBasic /></View>
       case 'PieChartBasic':
         return <View style={styles.container}><PieChartBasic /></View>
+      case 'DynamicPieChart':
+        return <View style={styles.container}><DynamicPieChart /></View>
       case 'StockLineChartBasic':
         return <View style={styles.container}><StockLineChartBasic /></View>
       case 'SmoothLineChartBasic':
