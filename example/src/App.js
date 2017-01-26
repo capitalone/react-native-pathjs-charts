@@ -26,6 +26,8 @@ import BarChartColumnBasic from './bar/BarChartColumnBasic'
 import PieChartBasic from './pie/PieChartBasic'
 
 import StockLineChartBasic from './stockline/StockLineChartBasic'
+import StockLineChartStaticTickLabels from './stockline/StockLineChartStaticTickLabels'
+import StockLineChartDynamicTickLabels from './stockline/StockLineChartDynamicTickLabels'
 
 import SmoothLineChartBasic from './smoothline/SmoothLineChartBasic'
 
@@ -80,6 +82,10 @@ class App extends Component {
         return <View style={styles.container}><PieChartBasic /></View>
       case 'StockLineChartBasic':
         return <View style={styles.container}><StockLineChartBasic /></View>
+      case 'StockLineChartStaticTickLabels':
+        return <View style={styles.container}><StockLineChartStaticTickLabels /></View>
+      case 'StockLineChartDynamicTickLabels':
+        return <View style={styles.container}><StockLineChartDynamicTickLabels /></View>
       case 'SmoothLineChartBasic':
         return <View style={styles.container}><SmoothLineChartBasic /></View>
       case 'ScatterplotChartBasic':

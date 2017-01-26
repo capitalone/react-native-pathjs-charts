@@ -1,0 +1,273 @@
+exports[`test renders an example chart correctly 1`] = `
+<view
+  height={290}
+  mockedComponent="svg-component"
+  width={295}>
+  <view
+    mockedComponent="svg-G"
+    x={35}
+    y={10}>
+    <view
+      d="M NaN NaN L NaN NaN L NaN NaN L NaN NaN L NaN NaN L NaN NaN L NaN NaN L NaN NaN L NaN NaN Z "
+      fill="#3199de"
+      fillOpacity={0.5}
+      mockedComponent="svg-Path"
+      stroke="none" />
+    <view
+      d="M NaN NaN L NaN NaN L NaN NaN L NaN NaN L NaN NaN L NaN NaN L NaN NaN"
+      fill="none"
+      mockedComponent="svg-Path"
+      stroke="#3199de"
+      strokeWidth="1" />
+    <view
+      mockedComponent="svg-G">
+      <view
+        mockedComponent="svg-G"
+        x={-35}
+        y={-10}>
+        <view
+          d="M NaN NaN L NaN NaN Z "
+          fill="none"
+          mockedComponent="svg-Path"
+          stroke="#3E90F0"
+          strokeOpacity={0.5}
+          strokeWidth={3} />
+      </view>
+      <view
+        mockedComponent="svg-G"
+        x={NaN}
+        y={NaN}>
+        <view
+          cx="0"
+          cy="0"
+          fill="grey"
+          mockedComponent="svg-Circle"
+          r="2"
+          stroke="grey" />
+        <view
+          fill="#34495E"
+          fontFamily="Arial"
+          fontSize={8}
+          fontStyle="normal"
+          fontWeight="bold"
+          mockedComponent="svg-Text"
+          textAnchor="middle"
+          x={0}
+          y={5}>
+          name1
+        </view>
+      </view>
+      <view
+        mockedComponent="svg-G"
+        x={NaN}
+        y={NaN}>
+        <view
+          cx="0"
+          cy="0"
+          fill="grey"
+          mockedComponent="svg-Circle"
+          r="2"
+          stroke="grey" />
+        <view
+          fill="#34495E"
+          fontFamily="Arial"
+          fontSize={8}
+          fontStyle="normal"
+          fontWeight="bold"
+          mockedComponent="svg-Text"
+          textAnchor="middle"
+          x={0}
+          y={5}>
+          name2
+        </view>
+      </view>
+      <view
+        mockedComponent="svg-G"
+        x={NaN}
+        y={NaN}>
+        <view
+          cx="0"
+          cy="0"
+          fill="grey"
+          mockedComponent="svg-Circle"
+          r="2"
+          stroke="grey" />
+        <view
+          fill="#34495E"
+          fontFamily="Arial"
+          fontSize={8}
+          fontStyle="normal"
+          fontWeight="bold"
+          mockedComponent="svg-Text"
+          textAnchor="middle"
+          x={0}
+          y={5}>
+          name3
+        </view>
+      </view>
+      <view
+        mockedComponent="svg-G"
+        x={NaN}
+        y={NaN}>
+        <view
+          cx="0"
+          cy="0"
+          fill="grey"
+          mockedComponent="svg-Circle"
+          r="2"
+          stroke="grey" />
+        <view
+          fill="#34495E"
+          fontFamily="Arial"
+          fontSize={8}
+          fontStyle="normal"
+          fontWeight="bold"
+          mockedComponent="svg-Text"
+          textAnchor="middle"
+          x={0}
+          y={5}>
+          name4
+        </view>
+      </view>
+      <view
+        mockedComponent="svg-G"
+        x={NaN}
+        y={NaN}>
+        <view
+          cx="0"
+          cy="0"
+          fill="grey"
+          mockedComponent="svg-Circle"
+          r="2"
+          stroke="grey" />
+        <view
+          fill="#34495E"
+          fontFamily="Arial"
+          fontSize={8}
+          fontStyle="normal"
+          fontWeight="bold"
+          mockedComponent="svg-Text"
+          textAnchor="middle"
+          x={0}
+          y={5}>
+          name5
+        </view>
+      </view>
+      <view
+        mockedComponent="svg-G"
+        x={NaN}
+        y={NaN}>
+        <view
+          cx="0"
+          cy="0"
+          fill="grey"
+          mockedComponent="svg-Circle"
+          r="2"
+          stroke="grey" />
+        <view
+          fill="#34495E"
+          fontFamily="Arial"
+          fontSize={8}
+          fontStyle="normal"
+          fontWeight="bold"
+          mockedComponent="svg-Text"
+          textAnchor="middle"
+          x={0}
+          y={5}>
+          name6
+        </view>
+      </view>
+      <view
+        mockedComponent="svg-G"
+        x={NaN}
+        y={NaN}>
+        <view
+          cx="0"
+          cy="0"
+          fill="grey"
+          mockedComponent="svg-Circle"
+          r="2"
+          stroke="grey" />
+        <view
+          fill="#34495E"
+          fontFamily="Arial"
+          fontSize={8}
+          fontStyle="normal"
+          fontWeight="bold"
+          mockedComponent="svg-Text"
+          textAnchor="middle"
+          x={0}
+          y={5}>
+          name7
+        </view>
+      </view>
+      <view
+        mockedComponent="svg-G"
+        x={-35}
+        y={-10}>
+        <view
+          d="M NaN NaN L NaN NaN"
+          fill="none"
+          mockedComponent="svg-Path"
+          stroke="#3E90F0"
+          strokeOpacity={0.5} />
+        <view
+          d="M NaN NaN L NaN NaN"
+          fill="none"
+          mockedComponent="svg-Path"
+          stroke="#3E90F0"
+          strokeOpacity={0.5} />
+        <view
+          d="M NaN NaN L NaN NaN"
+          fill="none"
+          mockedComponent="svg-Path"
+          stroke="#3E90F0"
+          strokeOpacity={0.5} />
+        <view
+          d="M NaN NaN L NaN NaN"
+          fill="none"
+          mockedComponent="svg-Path"
+          stroke="#3E90F0"
+          strokeOpacity={0.5} />
+        <view
+          d="M NaN NaN L NaN NaN"
+          fill="none"
+          mockedComponent="svg-Path"
+          stroke="#3E90F0"
+          strokeOpacity={0.5} />
+        <view
+          d="M NaN NaN L NaN NaN"
+          fill="none"
+          mockedComponent="svg-Path"
+          stroke="#3E90F0"
+          strokeOpacity={0.5} />
+        <view
+          d="M NaN NaN L NaN NaN"
+          fill="none"
+          mockedComponent="svg-Path"
+          stroke="#3E90F0"
+          strokeOpacity={0.5} />
+      </view>
+    </view>
+    <view
+      mockedComponent="svg-G">
+      <view
+        mockedComponent="svg-G"
+        x={-35}
+        y={-10}>
+        <view
+          d="M NaN NaN L NaN NaN Z "
+          fill="none"
+          mockedComponent="svg-Path"
+          stroke="#3E90F0"
+          strokeOpacity={0.5}
+          strokeWidth={3} />
+      </view>
+      <view
+        mockedComponent="svg-G"
+        x={-35}
+        y={-10} />
+    </view>
+  </view>
+</view>
+`;

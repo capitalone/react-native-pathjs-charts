@@ -1,0 +1,62 @@
+exports[`test renders an example chart correctly 1`] = `
+<view
+  height={290}
+  mockedComponent="svg-component"
+  width={295}>
+  <view
+    mockedComponent="svg-G"
+    x={35}
+    y={10}>
+    <view
+      d="M NaN NaN L NaN NaN L NaN NaN L NaN NaN L NaN NaN L NaN NaN Z "
+      fill="#3199de"
+      fillOpacity={0.5}
+      mockedComponent="svg-Path"
+      stroke="none" />
+    <view
+      d="M NaN NaN L NaN NaN L NaN NaN L NaN NaN"
+      fill="none"
+      mockedComponent="svg-Path"
+      stroke="#3199de"
+      strokeWidth="1" />
+    <view
+      mockedComponent="svg-G">
+      <view
+        mockedComponent="svg-G"
+        x={-35}
+        y={-10}>
+        <view
+          d="M NaN NaN L NaN NaN Z "
+          fill="none"
+          mockedComponent="svg-Path"
+          stroke="#3E90F0"
+          strokeOpacity={0.5}
+          strokeWidth={3} />
+      </view>
+      <view
+        mockedComponent="svg-G"
+        x={-35}
+        y={-10} />
+    </view>
+    <view
+      mockedComponent="svg-G">
+      <view
+        mockedComponent="svg-G"
+        x={-35}
+        y={-10}>
+        <view
+          d="M NaN NaN L NaN NaN Z "
+          fill="none"
+          mockedComponent="svg-Path"
+          stroke="#3E90F0"
+          strokeOpacity={0.5}
+          strokeWidth={3} />
+      </view>
+      <view
+        mockedComponent="svg-G"
+        x={-35}
+        y={-10} />
+    </view>
+  </view>
+</view>
+`;
