@@ -39,3 +39,9 @@ export const Text = (props) => {
     <view mockedComponent="svg-Text" {...props} />
   )
 }
+
+export const Circle = (props) => {
+  return (
+    <view mockedComponent="svg-Circle" {...props} />
+  )
+}
