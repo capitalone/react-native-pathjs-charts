@@ -7,6 +7,7 @@ dependencies:
     - echo -e "$NPM_USER\n$NPM_PASS\n$NPM_EMAIL" | npm login
     - npm --version
     - node --version
+    - npm test -- --version
 
 test:
   override:
