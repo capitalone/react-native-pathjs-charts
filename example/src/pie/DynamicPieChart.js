@@ -28,15 +28,24 @@ const styles = StyleSheet.create({
     backgroundColor: '#f7f7f7',
   },
   chartContainer: {
-    flex: 1,
   },
-  sliderContainer: {
+  dynInputsContainer: {
     flex: 1,
+    flexDirection: 'row',
+    alignItems: 'flex-start',
+    justifyContent: 'center'
   },
-  slider: {
-    flex: 1,
+  dynInputs: {
+    alignItems: 'center',
+  },
+  dynTextInputLabel: {
+    width: 70
+  },
+  dynTextInput: {
     borderColor: 'gray',
-    borderWidth: 1
+    borderWidth: 1,
+    height: 50,
+    width: 30
   },
 });
 
@@ -89,18 +98,23 @@ class DynamicPieChartExample extends Component {
             options={options}
           />
         </View>
-        <View style={styles.sliderContainer}>
-          <Text>Option 1 {this.state.val1}</Text>
-          <TextInput
-            style={styles.slider}
-            onChangeText={(value) => this.setState({ val1: parseInt(value) || 0 })}
-          />
-
-          <Text>Option 2 {this.state.val2}</Text>
-          <TextInput
-            style={styles.slider}
-            onChangeText={(value) => this.setState({ val2: parseInt(value) || 0})}
-          />
+        <View style={styles.dynInputsContainer}>
+          <View style={styles.dynInputs}>
+            <Text style={styles.dynTextInputLabel}>Option 1</Text>
+            <TextInput
+              style={styles.dynTextInput}
+              multiline = {false}
+              onChangeText={(value) => this.setState({ val1: parseInt(value) || 0 })}
+            />
+          </View>
+          <View style={styles.dynInputs}>
+            <Text style={styles.dynTextInputLabel}>Option 2</Text>
+            <TextInput
+              style={styles.dynTextInput}
+              multiline = {false}
+              onChangeText={(value) => this.setState({ val2: parseInt(value) || 0})}
+            />
+          </View>
         </View>
       </View>
     );
