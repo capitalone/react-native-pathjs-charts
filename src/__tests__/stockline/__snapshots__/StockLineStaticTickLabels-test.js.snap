@@ -17,7 +17,8 @@ exports[`test renders an example chart correctly 1`] = `
       d="M NaN NaN L NaN NaN L NaN NaN L NaN NaN L NaN NaN L NaN NaN L NaN NaN"
       fill="none"
       mockedComponent="svg-Path"
-      stroke="#3199de" />
+      stroke="#3199de"
+      strokeWidth="1" />
     <view
       mockedComponent="svg-G">
       <view
@@ -40,7 +41,7 @@ exports[`test renders an example chart correctly 1`] = `
           cx="0"
           cy="0"
           fill="grey"
-          mockedComponent="svg-Rect"
+          mockedComponent="svg-Circle"
           r="2"
           stroke="grey" />
         <view
@@ -64,7 +65,7 @@ exports[`test renders an example chart correctly 1`] = `
           cx="0"
           cy="0"
           fill="grey"
-          mockedComponent="svg-Rect"
+          mockedComponent="svg-Circle"
           r="2"
           stroke="grey" />
         <view
@@ -88,7 +89,7 @@ exports[`test renders an example chart correctly 1`] = `
           cx="0"
           cy="0"
           fill="grey"
-          mockedComponent="svg-Rect"
+          mockedComponent="svg-Circle"
           r="2"
           stroke="grey" />
         <view
@@ -112,7 +113,7 @@ exports[`test renders an example chart correctly 1`] = `
           cx="0"
           cy="0"
           fill="grey"
-          mockedComponent="svg-Rect"
+          mockedComponent="svg-Circle"
           r="2"
           stroke="grey" />
         <view
@@ -136,7 +137,7 @@ exports[`test renders an example chart correctly 1`] = `
           cx="0"
           cy="0"
           fill="grey"
-          mockedComponent="svg-Rect"
+          mockedComponent="svg-Circle"
           r="2"
           stroke="grey" />
         <view
@@ -160,7 +161,7 @@ exports[`test renders an example chart correctly 1`] = `
           cx="0"
           cy="0"
           fill="grey"
-          mockedComponent="svg-Rect"
+          mockedComponent="svg-Circle"
           r="2"
           stroke="grey" />
         <view
@@ -184,7 +185,7 @@ exports[`test renders an example chart correctly 1`] = `
           cx="0"
           cy="0"
           fill="grey"
-          mockedComponent="svg-Rect"
+          mockedComponent="svg-Circle"
           r="2"
           stroke="grey" />
         <view

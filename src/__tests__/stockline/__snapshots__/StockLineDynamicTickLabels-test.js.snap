@@ -17,7 +17,8 @@ exports[`test renders an example chart correctly 1`] = `
       d="M NaN NaN L NaN NaN L NaN NaN L NaN NaN"
       fill="none"
       mockedComponent="svg-Path"
-      stroke="#3199de" />
+      stroke="#3199de"
+      strokeWidth="1" />
     <view
       mockedComponent="svg-G">
       <view

@@ -29,17 +29,20 @@ exports[`test renders an example chart correctly 1`] = `
       d="M NaN NaN L NaN NaN L NaN NaN L NaN NaN L NaN NaN L NaN NaN L NaN NaN L NaN NaN L NaN NaN L NaN NaN L NaN NaN L NaN NaN L NaN NaN L NaN NaN L NaN NaN L NaN NaN L NaN NaN L NaN NaN L NaN NaN"
       fill="none"
       mockedComponent="svg-Path"
-      stroke="#3199de" />
+      stroke="#3199de"
+      strokeWidth="1" />
     <view
       d="M NaN NaN L NaN NaN L NaN NaN L NaN NaN L NaN NaN L NaN NaN L NaN NaN L NaN NaN L NaN NaN L NaN NaN L NaN NaN L NaN NaN L NaN NaN L NaN NaN L NaN NaN L NaN NaN L NaN NaN L NaN NaN L NaN NaN"
       fill="none"
       mockedComponent="svg-Path"
-      stroke="#2980b9" />
+      stroke="#2980b9"
+      strokeWidth="1" />
     <view
       d="M NaN NaN L NaN NaN L NaN NaN L NaN NaN L NaN NaN L NaN NaN L NaN NaN L NaN NaN L NaN NaN L NaN NaN L NaN NaN L NaN NaN L NaN NaN L NaN NaN L NaN NaN L NaN NaN L NaN NaN L NaN NaN L NaN NaN"
       fill="none"
       mockedComponent="svg-Path"
-      stroke="#206694" />
+      stroke="#206694"
+      strokeWidth="1" />
     <view
       mockedComponent="svg-G">
       <view
