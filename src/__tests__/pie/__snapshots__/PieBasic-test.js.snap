@@ -1,10 +1,16 @@
 exports[`test renders using flattened properties correctly 1`] = `
 <view
-  mockedComponent="svg-component">
+  height={390}
+  mockedComponent="svg-component"
+  width={390}>
   <view
-    mockedComponent="svg-G">
+    mockedComponent="svg-G"
+    x={20}
+    y={20}>
     <view
-      mockedComponent="svg-G">
+      mockedComponent="svg-G"
+      x={155}
+      y={155}>
       <view
         d="M NaN NaN A 150 150 0 0 1 NaN NaN L NaN NaN A 10 10 0 0 0 NaN NaN Z "
         fill="#3199de"
@@ -12,7 +18,9 @@ exports[`test renders using flattened properties correctly 1`] = `
         mockedComponent="svg-Path"
         stroke="#3199de" />
       <view
-        mockedComponent="svg-G">
+        mockedComponent="svg-G"
+        x={20}
+        y={20}>
         <view
           fill="#ECF0F1"
           fontFamily="Arial"
@@ -28,7 +36,9 @@ exports[`test renders using flattened properties correctly 1`] = `
       </view>
     </view>
     <view
-      mockedComponent="svg-G">
+      mockedComponent="svg-G"
+      x={155}
+      y={155}>
       <view
         d="M NaN NaN A 150 150 0 0 1 NaN NaN L NaN NaN A 10 10 0 0 0 NaN NaN Z "
         fill="#2980b9"
@@ -36,7 +46,9 @@ exports[`test renders using flattened properties correctly 1`] = `
         mockedComponent="svg-Path"
         stroke="#2980b9" />
       <view
-        mockedComponent="svg-G">
+        mockedComponent="svg-G"
+        x={20}
+        y={20}>
         <view
           fill="#ECF0F1"
           fontFamily="Arial"
@@ -52,7 +64,9 @@ exports[`test renders using flattened properties correctly 1`] = `
       </view>
     </view>
     <view
-      mockedComponent="svg-G">
+      mockedComponent="svg-G"
+      x={155}
+      y={155}>
       <view
         d="M NaN NaN A 150 150 0 0 1 NaN NaN L NaN NaN A 10 10 0 0 0 NaN NaN Z "
         fill="#df9a14"
@@ -60,7 +74,9 @@ exports[`test renders using flattened properties correctly 1`] = `
         mockedComponent="svg-Path"
         stroke="#df9a14" />
       <view
-        mockedComponent="svg-G">
+        mockedComponent="svg-G"
+        x={20}
+        y={20}>
         <view
           fill="#ECF0F1"
           fontFamily="Arial"
@@ -76,7 +92,9 @@ exports[`test renders using flattened properties correctly 1`] = `
       </view>
     </view>
     <view
-      mockedComponent="svg-G">
+      mockedComponent="svg-G"
+      x={155}
+      y={155}>
       <view
         d="M NaN NaN A 150 150 0 0 1 NaN NaN L NaN NaN A 10 10 0 0 0 NaN NaN Z "
         fill="#2473a5"
@@ -84,7 +102,9 @@ exports[`test renders using flattened properties correctly 1`] = `
         mockedComponent="svg-Path"
         stroke="#2473a5" />
       <view
-        mockedComponent="svg-G">
+        mockedComponent="svg-G"
+        x={20}
+        y={20}>
         <view
           fill="#ECF0F1"
           fontFamily="Arial"
@@ -105,11 +125,17 @@ exports[`test renders using flattened properties correctly 1`] = `
 
 exports[`test renders using options property correctly 1`] = `
 <view
-  mockedComponent="svg-component">
+  height={390}
+  mockedComponent="svg-component"
+  width={390}>
   <view
-    mockedComponent="svg-G">
+    mockedComponent="svg-G"
+    x={20}
+    y={20}>
     <view
-      mockedComponent="svg-G">
+      mockedComponent="svg-G"
+      x={155}
+      y={155}>
       <view
         d="M NaN NaN A 150 150 0 0 1 NaN NaN L NaN NaN A 50 50 0 0 0 NaN NaN Z "
         fill="#3199de"
@@ -117,7 +143,9 @@ exports[`test renders using options property correctly 1`] = `
         mockedComponent="svg-Path"
         stroke="#3199de" />
       <view
-        mockedComponent="svg-G">
+        mockedComponent="svg-G"
+        x={20}
+        y={20}>
         <view
           fill="#ECF0F1"
           fontFamily="Arial"
@@ -133,7 +161,9 @@ exports[`test renders using options property correctly 1`] = `
       </view>
     </view>
     <view
-      mockedComponent="svg-G">
+      mockedComponent="svg-G"
+      x={155}
+      y={155}>
       <view
         d="M NaN NaN A 150 150 0 0 1 NaN NaN L NaN NaN A 50 50 0 0 0 NaN NaN Z "
         fill="#2980b9"
@@ -141,7 +171,9 @@ exports[`test renders using options property correctly 1`] = `
         mockedComponent="svg-Path"
         stroke="#2980b9" />
       <view
-        mockedComponent="svg-G">
+        mockedComponent="svg-G"
+        x={20}
+        y={20}>
         <view
           fill="#ECF0F1"
           fontFamily="Arial"
@@ -157,7 +189,9 @@ exports[`test renders using options property correctly 1`] = `
       </view>
     </view>
     <view
-      mockedComponent="svg-G">
+      mockedComponent="svg-G"
+      x={155}
+      y={155}>
       <view
         d="M NaN NaN A 150 150 0 0 1 NaN NaN L NaN NaN A 50 50 0 0 0 NaN NaN Z "
         fill="#df9a14"
@@ -165,7 +199,9 @@ exports[`test renders using options property correctly 1`] = `
         mockedComponent="svg-Path"
         stroke="#df9a14" />
       <view
-        mockedComponent="svg-G">
+        mockedComponent="svg-G"
+        x={20}
+        y={20}>
         <view
           fill="#ECF0F1"
           fontFamily="Arial"
@@ -181,7 +217,9 @@ exports[`test renders using options property correctly 1`] = `
       </view>
     </view>
     <view
-      mockedComponent="svg-G">
+      mockedComponent="svg-G"
+      x={155}
+      y={155}>
       <view
         d="M NaN NaN A 150 150 0 0 1 NaN NaN L NaN NaN A 50 50 0 0 0 NaN NaN Z "
         fill="#2473a5"
@@ -189,7 +227,9 @@ exports[`test renders using options property correctly 1`] = `
         mockedComponent="svg-Path"
         stroke="#2473a5" />
       <view
-        mockedComponent="svg-G">
+        mockedComponent="svg-G"
+        x={20}
+        y={20}>
         <view
           fill="#ECF0F1"
           fontFamily="Arial"
@@ -202,6 +242,48 @@ exports[`test renders using options property correctly 1`] = `
           y={NaN}>
           Alaska
         </view>
+      </view>
+    </view>
+  </view>
+</view>
+`;
+
+exports[`test renders with 1 data item correctly 1`] = `
+<view
+  height={390}
+  mockedComponent="svg-component"
+  width={390}>
+  <view
+    mockedComponent="svg-G"
+    x={20}
+    y={20}>
+    <view
+      mockedComponent="svg-G">
+      <view
+        cx={155}
+        cy={155}
+        fill="#3199de"
+        mockedComponent="svg-Circle"
+        r={150}
+        stroke="#277ab1" />
+      <view
+        cx={155}
+        cy={155}
+        fill="#fff"
+        mockedComponent="svg-Circle"
+        r={50}
+        stroke="#277ab1" />
+      <view
+        fill="#ECF0F1"
+        fontFamily="Arial"
+        fontSize={8}
+        fontStyle="normal"
+        fontWeight="bold"
+        mockedComponent="svg-Text"
+        textAnchor="middle"
+        x={155}
+        y={55}>
+        Washington
       </view>
     </view>
   </view>

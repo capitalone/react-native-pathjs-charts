@@ -1,6 +1,6 @@
 import 'react-native'
 import React from 'react'
-import Pie from '../Pie'
+import Pie from '../../Pie'
 import renderer from 'react-test-renderer'
 import { diffJson } from 'diff'
 
@@ -94,4 +94,13 @@ it('contains expected diff between flattened vs non-flattened option usage', () 
   expect(actualRemoveCount).toBe(expectedRemoveCount)
   expect(actualAddCount).toBe(expectedAddCount)
 
+})
+
+it('renders with 1 data item correctly', () => {
+  let data = [{"name": "Washington", "population": 7694980}]
+  let tree = renderer.create(
+    <Pie data={data}
+      options={options}/>
+  ).toJSON()
+  expect(tree).toMatchSnapshot()
 })
