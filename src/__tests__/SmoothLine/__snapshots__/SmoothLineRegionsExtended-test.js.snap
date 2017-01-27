@@ -12,11 +12,11 @@ exports[`test renders an example chart correctly 1`] = `
       <view
         fill="#c81212"
         fillOpacity={0.5}
-        height={NaN}
+        height={-46.57333333333332}
         mockedComponent="svg-Rect"
         width={NaN}
         x={0}
-        y={NaN} />
+        y={186.57333333333332} />
       <view
         fill={undefined}
         fontFamily={undefined}
@@ -26,7 +26,7 @@ exports[`test renders an example chart correctly 1`] = `
         mockedComponent="svg-Text"
         textAnchor="middle"
         x={25}
-        y={NaN}>
+        y={145}>
         Level1
       </view>
     </view>
@@ -35,11 +35,11 @@ exports[`test renders an example chart correctly 1`] = `
       <view
         fill="#2d8023"
         fillOpacity={0.5}
-        height={NaN}
+        height={-46.66666666666666}
         mockedComponent="svg-Rect"
         width={NaN}
         x={0}
-        y={NaN} />
+        y={140} />
       <view
         fill={undefined}
         fontFamily={undefined}
@@ -49,7 +49,7 @@ exports[`test renders an example chart correctly 1`] = `
         mockedComponent="svg-Text"
         textAnchor="middle"
         x={25}
-        y={NaN}>
+        y={98.33333333333334}>
         Level2
       </view>
     </view>
@@ -58,11 +58,11 @@ exports[`test renders an example chart correctly 1`] = `
       <view
         fill="#6a2380"
         fillOpacity={0.5}
-        height={NaN}
+        height={-46.666666666666686}
         mockedComponent="svg-Rect"
         width={NaN}
         x={0}
-        y={NaN} />
+        y={93.33333333333334} />
       <view
         fill={undefined}
         fontFamily={undefined}
@@ -72,7 +72,7 @@ exports[`test renders an example chart correctly 1`] = `
         mockedComponent="svg-Text"
         textAnchor="middle"
         x={25}
-        y={NaN}>
+        y={51.66666666666666}>
         Level3
       </view>
     </view>
@@ -81,11 +81,11 @@ exports[`test renders an example chart correctly 1`] = `
       <view
         fill="#807623"
         fillOpacity={0.5}
-        height={NaN}
+        height={-46.66666666666666}
         mockedComponent="svg-Rect"
         width={NaN}
         x={0}
-        y={NaN} />
+        y={46.66666666666666} />
       <view
         fill={undefined}
         fontFamily={undefined}
@@ -95,7 +95,7 @@ exports[`test renders an example chart correctly 1`] = `
         mockedComponent="svg-Text"
         textAnchor="middle"
         x={25}
-        y={NaN}>
+        y={5}>
         Level4
       </view>
     </view>
@@ -104,11 +104,11 @@ exports[`test renders an example chart correctly 1`] = `
       <view
         fill="#8fb9b3"
         fillOpacity={0.5}
-        height={NaN}
+        height={-46.57333333333335}
         mockedComponent="svg-Rect"
         width={NaN}
         x={0}
-        y={NaN} />
+        y={233.33333333333334} />
       <view
         fill={undefined}
         fontFamily={undefined}
@@ -118,7 +118,7 @@ exports[`test renders an example chart correctly 1`] = `
         mockedComponent="svg-Text"
         textAnchor="middle"
         x={25}
-        y={NaN}>
+        y={191.76}>
         Level-1
       </view>
     </view>
@@ -127,11 +127,11 @@ exports[`test renders an example chart correctly 1`] = `
       <view
         fill="#e2d7c3"
         fillOpacity={0.5}
-        height={NaN}
+        height={-46.57333333333332}
         mockedComponent="svg-Rect"
         width={NaN}
         x={0}
-        y={NaN} />
+        y={280} />
       <view
         fill={undefined}
         fontFamily={undefined}
@@ -141,18 +141,18 @@ exports[`test renders an example chart correctly 1`] = `
         mockedComponent="svg-Text"
         textAnchor="middle"
         x={25}
-        y={NaN}>
+        y={238.42666666666668}>
         Level-2
       </view>
     </view>
     <view
-      d="M NaN NaN C NaN NaN NaN NaN NaN NaN S NaN NaN NaN NaN S NaN NaN NaN NaN S NaN NaN NaN NaN S NaN NaN NaN NaN S NaN NaN NaN NaN S NaN NaN NaN NaN S NaN NaN NaN NaN S NaN NaN NaN NaN S NaN NaN NaN NaN S NaN NaN NaN NaN S NaN NaN NaN NaN S NaN NaN NaN NaN S NaN NaN NaN NaN S NaN NaN NaN NaN S NaN NaN NaN NaN S NaN NaN NaN NaN S NaN NaN NaN NaN S NaN NaN NaN NaN S NaN NaN NaN NaN L NaN NaN L NaN NaN Z "
+      d="M NaN NaN C NaN NaN NaN NaN NaN NaN S NaN NaN NaN NaN S NaN NaN NaN NaN S NaN NaN NaN NaN S NaN NaN NaN NaN S NaN NaN NaN NaN S NaN NaN NaN NaN S NaN NaN NaN NaN S NaN NaN NaN NaN S NaN NaN NaN NaN S NaN NaN NaN NaN S NaN NaN NaN NaN S NaN NaN NaN NaN S NaN NaN NaN NaN S NaN NaN NaN NaN S NaN NaN NaN NaN S NaN NaN NaN NaN S NaN NaN NaN NaN S NaN NaN NaN NaN S NaN NaN NaN NaN L NaN 280 L NaN 280 Z "
       fill="#3199de"
       fillOpacity={0.5}
       mockedComponent="svg-Path"
       stroke="none" />
     <view
-      d="M NaN NaN C NaN NaN NaN NaN NaN NaN S NaN NaN NaN NaN S NaN NaN NaN NaN S NaN NaN NaN NaN S NaN NaN NaN NaN S NaN NaN NaN NaN S NaN NaN NaN NaN S NaN NaN NaN NaN S NaN NaN NaN NaN S NaN NaN NaN NaN S NaN NaN NaN NaN S NaN NaN NaN NaN S NaN NaN NaN NaN S NaN NaN NaN NaN S NaN NaN NaN NaN S NaN NaN NaN NaN S NaN NaN NaN NaN S NaN NaN NaN NaN S NaN NaN NaN NaN S NaN NaN NaN NaN L NaN NaN L NaN NaN Z "
+      d="M NaN NaN C NaN NaN NaN NaN NaN NaN S NaN NaN NaN NaN S NaN NaN NaN NaN S NaN NaN NaN NaN S NaN NaN NaN NaN S NaN NaN NaN NaN S NaN NaN NaN NaN S NaN NaN NaN NaN S NaN NaN NaN NaN S NaN NaN NaN NaN S NaN NaN NaN NaN S NaN NaN NaN NaN S NaN NaN NaN NaN S NaN NaN NaN NaN S NaN NaN NaN NaN S NaN NaN NaN NaN S NaN NaN NaN NaN S NaN NaN NaN NaN S NaN NaN NaN NaN S NaN NaN NaN NaN L NaN 280 L NaN 280 Z "
       fill="#2980b9"
       fillOpacity={0.5}
       mockedComponent="svg-Path"
