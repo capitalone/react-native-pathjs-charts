@@ -114,6 +114,8 @@ export class Options {
     this.chartHeight = props.height || this.options.height || 400
     this.width = this.chartWidth + (this.margin.right || 0) +  (this.margin.left || 0)
     this.height = this.chartHeight + (this.margin.top || 0) + (this.margin.bottom || 0)
+    this.min = props.min || this.options.min
+    this.max = props.max || this.options.max
   }
   get legendPosition(){ return this.props.legendPosition || (this.props.options && this.props.options.legendPosition) || 'topLeft'}
   get axisX() {return this.props.axisX || (this.props.options && this.props.options.axisX) || {}}

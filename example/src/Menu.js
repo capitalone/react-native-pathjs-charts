@@ -128,6 +128,16 @@ class Menu extends Component {
             style={styles.subitem}>
             Basic SmoothLine
           </Text>
+          <Text
+            onPress={() => this.props.onItemSelected('SmoothLineChartRegions')}
+            style={styles.subitem}>
+            SmoothLine w/Region Bands
+          </Text>
+          <Text
+            onPress={() => this.props.onItemSelected('SmoothLineChartRegionsExtended')}
+            style={styles.subitem}>
+            Extended SmoothLine w/Region Bands
+          </Text>
         </View>
         {/*End SmoothLine Charts*/}
 

@@ -30,6 +30,8 @@ import StockLineChartStaticTickLabels from './stockline/StockLineChartStaticTick
 import StockLineChartDynamicTickLabels from './stockline/StockLineChartDynamicTickLabels'
 
 import SmoothLineChartBasic from './smoothline/SmoothLineChartBasic'
+import SmoothLineChartRegions from './smoothline/SmoothLineChartRegions'
+import SmoothLineChartRegionsExtended from './smoothline/SmoothLineChartRegionsExtended'
 
 import ScatterplotChartBasic from './scatterplot/ScatterplotChartBasic'
 
@@ -88,6 +90,10 @@ class App extends Component {
         return <View style={styles.container}><StockLineChartDynamicTickLabels /></View>
       case 'SmoothLineChartBasic':
         return <View style={styles.container}><SmoothLineChartBasic /></View>
+      case 'SmoothLineChartRegions':
+        return <View style={styles.container}><SmoothLineChartRegions /></View>
+      case 'SmoothLineChartRegionsExtended':
+        return <View style={styles.container}><SmoothLineChartRegionsExtended /></View>
       case 'ScatterplotChartBasic':
         return <View style={styles.container}><ScatterplotChartBasic /></View>
       case 'RadarChartBasic':
