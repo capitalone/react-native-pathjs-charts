@@ -117,7 +117,7 @@ export default class BarChart extends Component {
     let textStyle = fontAdapt(options.axisX.label)
 
     let lines = chart.curves.map(function (c, i) {
-      let color = this.color(i % 3)
+      let color = _.isArray(this.props.options.color) ? this.props.options.color[i] : this.color(i % 3)
       let stroke = Colors.darkenColor(color)
       return (
                 <G key={'lines' + i}>
