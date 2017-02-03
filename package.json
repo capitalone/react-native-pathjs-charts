@@ -38,8 +38,10 @@
   ],
   "dependencies": {
     "lodash": "^4.12.0",
-    "paths-js": "^0.4.5",
-    "react-native-svg": "~4.4.1"
+    "paths-js": "^0.4.5"
+  },
+  "peerDependencies": {
+    "react-native-svg": "4.4.x - 5.1.x"
   },
   "devDependencies": {
     "babel-jest": "*",
