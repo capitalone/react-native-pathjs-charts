@@ -54,6 +54,8 @@ export default class BarChart extends Component {
         }
       },
       axisY: {
+        min: false,
+        max: false,
         showAxis: true,
         showLines: true,
         showLabels: true,
@@ -78,8 +80,9 @@ export default class BarChart extends Component {
   }
 
   getMaxAndMin(values, scale) {
-    let maxValue = 0
-    let minValue = 0
+    const axisY = this.props.options.axisY
+		let maxValue = axisY.max || 0
+		let minValue = axisY.min || 0
 
     let max = _.max(values)
     if (max > maxValue) maxValue = max
@@ -106,7 +109,9 @@ export default class BarChart extends Component {
       gutter: this.props.options.gutter || 10,
       width: options.chartWidth,
       height: options.chartHeight,
-      accessor: accessor
+      accessor: accessor,
+      min: this.props.options.axisY.min || undefined,
+      max: this.props.options.axisY.max || undefined,
     })
 
     let values = chart.curves.map((curve) => accessor(curve.item))
