@@ -39,7 +39,7 @@
   "dependencies": {
     "lodash": "^4.12.0",
     "paths-js": "^0.4.5",
-    "react-native-svg": "~4.4.1"
+    "react-native-svg": "~4.5.0"
   },
   "devDependencies": {
     "babel-jest": "*",
@@ -48,7 +48,7 @@
     "jest": "^18.0.0",
     "jest-react-native": "*",
     "react": "~15.4.1",
-    "react-native": "~0.38.1",
+    "react-native": "~0.41.0",
     "react-test-renderer": "*"
   },
   "jest": {
