@@ -23,6 +23,7 @@ import { Colors, Options, fontAdapt, cyclic, color, identity } from './util'
 import _ from 'lodash'
 import Axis from './Axis'
 const Bar = require('paths-js/bar')
+import 'babel-polyfill'
 
 export default class BarChart extends Component {
 
