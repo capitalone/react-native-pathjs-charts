@@ -21,6 +21,7 @@ import {Text as ReactText}  from 'react-native'
 import Svg,{ G, Path, Line, Text} from 'react-native-svg'
 import { Options, identity, styleSvg, fontAdapt } from './util'
 const Radar = require('paths-js/radar')
+import 'babel-polyfill'
 
 function accessKeys(keys) {
   let a = {}

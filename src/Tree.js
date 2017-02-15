@@ -22,6 +22,7 @@ import Svg,{ Circle, G, Path, Text } from 'react-native-svg'
 import { Options, styleSvg, fontAdapt } from './util'
 import _ from 'lodash'
 const Tree = require('paths-js/tree')
+import 'babel-polyfill'
 
 function children(x) {
   if(x.collapsed) {

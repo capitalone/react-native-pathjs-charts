@@ -22,6 +22,7 @@ import Svg,{ Circle, G } from 'react-native-svg'
 import { Options, styleSvg } from './util'
 import Axis from './Axis'
 import _ from 'lodash'
+import 'babel-polyfill'
 
 const Stock = require('paths-js/stock')
 
