@@ -87,8 +87,9 @@ class AxisStruct {
       item: currentAxis,
       path: Pathjs().moveto(start).lineto(end).closepath(),
       ticks: ticks,
-      lines: ticks.map(c => {
-        const lineStart = {x: horizontal ? this.scale(c) + margin.left : xAxis.min + margin.left, y: horizontal ? yAxis.min + margin.top : this.scale(c) + margin.top}
+      lines: ticks.map((c,i) => {
+        let scaleBase = isNaN(c) ? i : c
+        const lineStart = {x: horizontal ? this.scale(scaleBase) + margin.left : xAxis.min + margin.left, y: horizontal ? yAxis.min + margin.top : this.scale(scaleBase) + margin.top}
         return Pathjs().moveto(lineStart).lineto(horizontal ? lineStart.x : xAxis.max + margin.left, horizontal ? yAxis.max + (margin.top - tailLength) : lineStart.y)
       },this)
     }
