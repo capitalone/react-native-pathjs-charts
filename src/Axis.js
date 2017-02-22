@@ -43,15 +43,23 @@ class AxisStruct {
       magMsd = 10.0
     else if (magMsd > 2.0)
       magMsd = 5.0
-        else if (magMsd > 1.0)
-          magMsd = 2.0
+    else if (magMsd > 1.0)
+      magMsd = 2.0
 
     return magMsd * magPow
   }
 
-  static getTickValues(axis, tickCount) {
+  static roundFloat(floatVal, decimalPlaces) {
+    return Math.round(parseFloat((floatVal * Math.pow(10, decimalPlaces)).toFixed(decimalPlaces))) / Math.pow(10, decimalPlaces)
+  }
+
+  static getTickValues(axis, tickCount, decimalPlaces) {
     const tickStep = AxisStruct.calcStepSize((axis.maxValue - axis.minValue),tickCount)
-    return _.range(axis.minValue, axis.maxValue + 1,tickStep)
+    let tickValues = _.range(axis.minValue, axis.maxValue + 1,tickStep)
+    tickValues = tickValues.map(tickValue => {
+      return AxisStruct.roundFloat(tickValue, decimalPlaces)
+    })
+    return tickValues
   }
 
   axis() {
@@ -61,7 +69,8 @@ class AxisStruct {
     const yAxis = this.chartArea.y
     const currentAxis = horizontal?xAxis:yAxis
     const tickInterval = this.options.tickCount || 10
-    const ticks = this.options.tickValues !== undefined && this.options.tickValues.length !== 0? _.map(this.options.tickValues,function(v){return v.value }):AxisStruct.getTickValues(currentAxis, tickInterval)
+    const decimalPlaces = this.options.decimalPlaces || 2
+    const ticks = this.options.tickValues !== undefined && this.options.tickValues.length !== 0? _.map(this.options.tickValues,function(v){return v.value }):AxisStruct.getTickValues(currentAxis, tickInterval, decimalPlaces)
     const fixed = this.options.zeroAxis?this.scale(0):horizontal?yAxis.min:xAxis.min
     const start = {x: horizontal?xAxis.min:fixed, y: horizontal?fixed:yAxis.min}
     const end = {x:horizontal?xAxis.max:fixed,y: horizontal?fixed:yAxis.max}
