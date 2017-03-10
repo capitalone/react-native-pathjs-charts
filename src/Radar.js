@@ -99,23 +99,28 @@ export default class RadarChart extends Component
       return (
               <G key={'label' + i}>
                   <Line x1={p[0]} y1={p[1]} x2={center[0]} y2={center[1]} stroke={colors.stroke} strokeOpacity={colors.strokeOpacity}/>
-                  <Text fontFamily={textStyle.fontFamily}
-                    fontSize={textStyle.fontSize}
-                    fontWeight={textStyle.fontWeight}
-                    fontStyle={textStyle.fontStyle}
-                    textAnchor="middle" x={Math.floor(p[0])} y={Math.floor(p[1])}>{keys[i]}</Text>
+                  <Text
+                      fontFamily={textStyle.fontFamily}
+                      fontSize={textStyle.fontSize}
+                      fontWeight={textStyle.fontWeight}
+                      fontStyle={textStyle.fontStyle}
+                      fill={textStyle.fill}
+                      textAnchor="middle" x={Math.floor(p[0])} y={Math.floor(p[1])}>{keys[i]}
+                  </Text>
               </G>
             )
     })
 
-    return (<Svg width={options.width} height={options.height}>
-                <G x={options.margin.left} y={options.margin.top}>
-                    {labels}
-                    <G x={options.margin.left * -1} y={options.margin.top * -1}>
-                        {rings}
-                        {curves}
-                    </G>
-                </G>
-            </Svg>)
+    return (
+      <Svg width={options.width} height={options.height}>
+          <G x={options.margin.left} y={options.margin.top}>
+              {labels}
+              <G x={options.margin.left * -1} y={options.margin.top * -1}>
+                  {rings}
+                  {curves}
+              </G>
+          </G>
+      </Svg>
+    );
   }
 }
