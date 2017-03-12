@@ -55,7 +55,8 @@ class AxisStruct {
 
   static getTickValues(axis, tickCount, decimalPlaces) {
     const tickStep = AxisStruct.calcStepSize((axis.maxValue - axis.minValue),tickCount)
-    let tickValues = _.range(axis.minValue, axis.maxValue + 1,tickStep)
+    const maxTick = axis.minValue + (tickCount * tickStep)
+    let tickValues = _.range(axis.minValue, maxTick, tickStep)
     tickValues = tickValues.map(tickValue => {
       return AxisStruct.roundFloat(tickValue, decimalPlaces)
     })
