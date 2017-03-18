@@ -132,23 +132,25 @@ export default class Axis extends Component {
       let scaleBase = isNaN(c) ? i : c
       let gxy = horizontal ? [scale(scaleBase),chartArea.y.min]:[chartArea.x.min,scale(scaleBase)]
 
-      let returnValue = <G key={i} x={gxy[0]} y={gxy[1]}>
-
-                {options.showTicks &&
-                  <Circle r="2" cx="0" cy="0" stroke="grey" fill="grey" />
-                }
-
-                {options.showLabels &&
-                  <Text x={xy[0]} y={xy[1]}
-                        fontFamily={textStyle.fontFamily}
-                        fontSize={textStyle.fontSize}
-                        fontWeight={textStyle.fontWeight}
-                        fontStyle={textStyle.fontStyle}
-                        fill={textStyle.fill}
-                        textAnchor={textAnchor}>
-                        {label}
-                  </Text>}
-            </G>
+      let returnValue
+      if (label !== undefined && label !== null) {
+        returnValue =
+          <G key={i} x={gxy[0]} y={gxy[1]}>
+              {options.showTicks &&
+                <Circle r="2" cx="0" cy="0" stroke="grey" fill="grey" />
+              }
+              {options.showLabels &&
+                <Text x={xy[0]} y={xy[1]}
+                      fontFamily={textStyle.fontFamily}
+                      fontSize={textStyle.fontSize}
+                      fontWeight={textStyle.fontWeight}
+                      fontStyle={textStyle.fontStyle}
+                      fill={textStyle.fill}
+                      textAnchor={textAnchor}>
+                      {label}
+                </Text>}
+          </G>
+      }
 
       return returnValue
     })
