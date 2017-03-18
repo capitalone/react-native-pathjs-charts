@@ -121,6 +121,7 @@ export default class BarChart extends Component {
                      margin:options.margin}
 
     let textStyle = fontAdapt(options.axisX.label)
+    let labelOffset = this.props.options.axisX.label.offset || 20
 
     let lines = chart.curves.map(function (c, i) {
       let color = this.color(i % 3)
@@ -129,11 +130,12 @@ export default class BarChart extends Component {
                 <G key={'lines' + i}>
                     <Path  d={ c.line.path.print() } stroke={stroke} fill={color}/>
                     {options.axisX.showLabels ?
-                        <G x={options.margin.left} y={options.margin.top}>
                         <Text fontFamily={textStyle.fontFamily}
-                        fontSize={textStyle.fontSize} fontWeight={textStyle.fontWeight} fontStyle={textStyle.fontStyle}
-                        fill={textStyle.fill} x={c.line.centroid[0]} y={chartArea.y.min} rotate={45} textAnchor="middle">{c.item.name}</Text></G>
-                        :null}
+                          fontSize={textStyle.fontSize} fontWeight={textStyle.fontWeight} fontStyle={textStyle.fontStyle}
+                          fill={textStyle.fill} x={c.line.centroid[0]} y={labelOffset + chartArea.y.min} rotate={45} textAnchor="middle">
+                          {c.item.name}
+                        </Text>
+                    : null}
                 </G>
             )
     }, this)
