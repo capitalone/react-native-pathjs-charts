@@ -125,6 +125,22 @@ export default class Axis extends Component {
     if (options.orient === 'left')  xy = [-5,-10]
     if (options.orient === 'right')  xy = [5,5]
 
+    if (typeof options.color !== 'string') {
+      options.color = '#3E90F0';
+    }
+
+    if (typeof options.gridColor !== 'stirng') {
+      options.gridColor = '#3E90F0';
+    }
+
+    if (typeof options.opacity !== 'number') {
+      options.opacity = 0.5;
+    }
+
+    if (typeof options.strokeWidth !== 'number') {
+      options.strokeWidth = 3;
+    }
+
     const textStyle = fontAdapt(options.label)
 
     const ticks =_.map(axis.ticks, function (c, i) {
@@ -158,7 +174,7 @@ export default class Axis extends Component {
 
     const gridLines = options.showLines ? _.map(axis.lines, function (c, i) {
       return (
-               <Path key={'gridLines' + i} d={c.print()} strokeOpacity={0.5} stroke="#3E90F0" fill="none"/>
+               <Path key={'gridLines' + i} d={c.print()} strokeOpacity={options.opacity} stroke={options.gridColor} fill="none"/>
             )
     }) : []
 
@@ -171,7 +187,7 @@ export default class Axis extends Component {
 
     let returnV = <G>
               <G x={offset.x} y={offset.y}>
-                {options.showAxis ? <Path d={axis.path.print()} strokeOpacity={0.5} stroke="#3E90F0" strokeWidth={3} fill="none"/> : null}
+                {options.showAxis ? <Path d={axis.path.print()} strokeOpacity={options.opacity} stroke={options.color} strokeWidth={options.strokeWidth} fill="none"/> : null}
               </G>
               {ticks}
               <G x={offset.x} y={offset.y}>
