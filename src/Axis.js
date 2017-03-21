@@ -126,19 +126,19 @@ export default class Axis extends Component {
     if (options.orient === 'right')  xy = [5,5]
 
     if (typeof options.color !== 'string') {
-      options.color = '#3E90F0';
+      options.color = '#3E90F0'
     }
 
-    if (typeof options.gridColor !== 'stirng') {
-      options.gridColor = '#3E90F0';
+    if (typeof options.gridColor !== 'string') {
+      options.gridColor = '#3E90F0'
     }
 
     if (typeof options.opacity !== 'number') {
-      options.opacity = 0.5;
+      options.opacity = 0.5
     }
 
     if (typeof options.strokeWidth !== 'number') {
-      options.strokeWidth = 3;
+      options.strokeWidth = 3
     }
 
     const textStyle = fontAdapt(options.label)
