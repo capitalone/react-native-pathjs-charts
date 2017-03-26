@@ -42,6 +42,7 @@ export default class RadarChart extends Component
       margin: {top: 20, left: 20, right: 20, bottom: 20},
       r: 300,
       max: 150,
+      rings: 3,
       fill: '#2980B9',
       stroke: '#2980B9',
       animate: {
@@ -76,7 +77,8 @@ export default class RadarChart extends Component
       r: this.props.options.r || radius,
       data: this.props.data,
       accessor: this.props.accessor || accessKeys(keys),
-      max: this.props.options.max
+      max: this.props.options.max,
+      rings: this.props.options.rings
     })
     const self = this
     const colors = styleSvg({}, self.props.options)
