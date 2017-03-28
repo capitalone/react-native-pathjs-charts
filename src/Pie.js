@@ -68,7 +68,11 @@ export default class PieChart extends Component {
 
   render() {
     const noDataMsg = this.props.noDataMessage || 'No data available'
-    if (this.props.data === undefined) return (<ReactText>{noDataMsg}</ReactText>)
+    let noDataView = (<ReactText>{noDataMsg}</ReactText>)
+    if(!Array.isArray(this.props.data)) return noDataView
+    let accessor = this.props.accessor || identity(this.props.accessorKey)
+    let data = this.props.data.filter((item) => accessor(item) > 0)
+    if(!data.length) return noDataView
 
     let options = new Options(this.props)
 
@@ -89,16 +93,16 @@ export default class PieChart extends Component {
       center: this.props.center || (this.props.options && this.props.options.center) || [0,0] ,
       r,
       R,
-      data: this.props.data,
-      accessor: this.props.accessor || identity(this.props.accessorKey)
+      data,
+      accessor
     })
 
     let textStyle = fontAdapt(options.label)
 
     let slices
 
-    if (this.props.data.length === 1) {
-      let item = this.props.data[0]
+    if (data.length === 1) {
+      let item = data[0]
       let outerFill = (item.color && Colors.string(item.color)) || this.color(0)
       let innerFill = this.props.monoItemInnerFillColor || '#fff'
       let stroke = typeof fill === 'string' ? outerFill : Colors.darkenColor(outerFill)
