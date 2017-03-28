@@ -41,7 +41,8 @@ export default class PieChart extends Component {
         fontFamily: 'Arial',
         fontSize: 14,
         bold: true,
-        color: '#ECF0F1'
+        color: '#ECF0F1',
+        show: true,
       }
     },
   }
@@ -67,7 +68,11 @@ export default class PieChart extends Component {
 
   render() {
     const noDataMsg = this.props.noDataMessage || 'No data available'
-    if (this.props.data === undefined) return (<ReactText>{noDataMsg}</ReactText>)
+    let noDataView = (<ReactText>{noDataMsg}</ReactText>)
+    if(!Array.isArray(this.props.data)) return noDataView
+    let accessor = this.props.accessor || identity(this.props.accessorKey)
+    let data = this.props.data.filter((item) => accessor(item) > 0)
+    if(!data.length) return noDataView
 
     let options = new Options(this.props)
 
@@ -90,8 +95,8 @@ export default class PieChart extends Component {
 
     let slices
 
-    if (this.props.data.length === 1) {
-      let item = this.props.data[0]
+    if (data.length === 1) {
+      let item = data[0]
       let outerFill = (item.color && Colors.string(item.color)) || this.color(0)
       let innerFill = this.props.monoItemInnerFillColor || '#fff'
       let stroke = typeof fill === 'string' ? outerFill : Colors.darkenColor(outerFill)
@@ -99,14 +104,14 @@ export default class PieChart extends Component {
         <G>
           <Circle r={R} cx={centerX} cy={centerY} stroke={stroke} fill={outerFill}/>
           <Circle r={r} cx={centerX} cy={centerY} stroke={stroke} fill={innerFill}/>
-          <Text fontFamily={textStyle.fontFamily}
-                fontSize={textStyle.fontSize}
-                fontWeight={textStyle.fontWeight}
-                fontStyle={textStyle.fontStyle}
-                fill={textStyle.fill}
-                textAnchor="middle"
-                x={centerX}
-                y={centerY - R + ((R-r)/2)}>{item.name}</Text>
+          {textStyle.show ? <Text fontFamily={textStyle.fontFamily}
+                                  fontSize={textStyle.fontSize}
+                                  fontWeight={textStyle.fontWeight}
+                                  fontStyle={textStyle.fontStyle}
+                                  fill={textStyle.fill}
+                                  textAnchor="middle"
+                                  x={centerX}
+                                  y={centerY - R + ((R-r)/2)}>{item.name}</Text> : null}
         </G>
       )
     } else {
@@ -114,36 +119,36 @@ export default class PieChart extends Component {
         center: [centerX, centerY],
         r,
         R,
-        data: this.props.data,
-        accessor: this.props.accessor || identity(this.props.accessorKey)
+        data,
+        accessor,
       })
 
       slices = chart.curves.map( (c, i) => {
         let fill = (c.item.color && Colors.string(c.item.color)) || this.color(i)
         let stroke = typeof fill === 'string' ? fill : Colors.darkenColor(fill)
         return (
-                  <G key={ i }>
-                      <Path d={c.sector.path.print() } stroke={stroke} fill={fill} fillOpacity={1}  />
-                      <G x={options.margin.left} y={options.margin.top}>
-                        <Text fontFamily={textStyle.fontFamily}
-                              fontSize={textStyle.fontSize}
-                              fontWeight={textStyle.fontWeight}
-                              fontStyle={textStyle.fontStyle}
-                              fill={textStyle.fill}
-                              textAnchor="middle"
-                              x={c.sector.centroid[0]}
-                              y={c.sector.centroid[1]}>{ c.item.name }</Text>
-                      </G>
-                  </G>
-              )
+          <G key={ i }>
+            <Path d={c.sector.path.print() } stroke={stroke} fill={fill} fillOpacity={1}  />
+            <G x={options.margin.left} y={options.margin.top}>
+              {textStyle.show ? <Text fontFamily={textStyle.fontFamily}
+                                      fontSize={textStyle.fontSize}
+                                      fontWeight={textStyle.fontWeight}
+                                      fontStyle={textStyle.fontStyle}
+                                      fill={textStyle.fill}
+                                      textAnchor="middle"
+                                      x={c.sector.centroid[0]}
+                                      y={c.sector.centroid[1]}>{ c.item.name }</Text> : null}
+            </G>
+          </G>
+        )
       })
     }
 
     let returnValue = <Svg width={options.width} height={options.height}>
-            <G x={options.margin.left} y={options.margin.top}>
-                { slices }
-            </G>
-          </Svg>
+      <G x={options.margin.left} y={options.margin.top}>
+        { slices }
+      </G>
+    </Svg>
 
     return returnValue
   }
