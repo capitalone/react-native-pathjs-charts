@@ -41,7 +41,8 @@ export default class PieChart extends Component {
         fontFamily: 'Arial',
         fontSize: 14,
         bold: true,
-        color: '#ECF0F1'
+        color: '#ECF0F1',
+        show: true,
       }
     },
   }
@@ -105,14 +106,14 @@ export default class PieChart extends Component {
         <G>
           <Circle r={R} cx={x} cy={y} stroke={stroke} fill={outerFill}/>
           <Circle r={r} cx={x} cy={y} stroke={stroke} fill={innerFill}/>
-          <Text fontFamily={textStyle.fontFamily}
+          {textStyle.show ? <Text fontFamily={textStyle.fontFamily}
                 fontSize={textStyle.fontSize}
                 fontWeight={textStyle.fontWeight}
                 fontStyle={textStyle.fontStyle}
                 fill={textStyle.fill}
                 textAnchor="middle"
                 x={x}
-                y={y - R + ((R-r)/2)}>{item.name}</Text>
+                y={y - R + ((R-r)/2)}>{item.name}</Text> : null}
         </G>
       )
     }
@@ -124,14 +125,14 @@ export default class PieChart extends Component {
                   <G key={ i } x={x} y={y}>
                       <Path d={c.sector.path.print() } stroke={stroke} fill={fill} fillOpacity={1}  />
                       <G x={options.margin.left} y={options.margin.top}>
-                        <Text fontFamily={textStyle.fontFamily}
+                        {textStyle.show ? <Text fontFamily={textStyle.fontFamily}
                               fontSize={textStyle.fontSize}
                               fontWeight={textStyle.fontWeight}
                               fontStyle={textStyle.fontStyle}
                               fill={textStyle.fill}
                               textAnchor="middle"
                               x={c.sector.centroid[0]}
-                              y={c.sector.centroid[1]}>{ c.item.name }</Text>
+                              y={c.sector.centroid[1]}>{ c.item.name }</Text> : null}
                       </G>
                   </G>
               )
