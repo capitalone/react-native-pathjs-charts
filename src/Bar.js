@@ -125,7 +125,8 @@ export default class BarChart extends Component {
 
     let lines = chart.curves.map(function (c, i) {
       let numDataGroups = this.props.data.length || 0
-      let color = this.color(i % numDataGroups)
+      let colorVariationVal = numDataGroups > 1 ? numDataGroups : 3
+      let color = this.color(i % colorVariationVal)
       let stroke = Colors.darkenColor(color)
       return (
                 <G key={'lines' + i}>
