@@ -124,7 +124,8 @@ export default class BarChart extends Component {
     let labelOffset = this.props.options.axisX.label.offset || 20
 
     let lines = chart.curves.map(function (c, i) {
-      let color = this.color(i % this.props.data.length)
+      let numDataGroups = this.props.data.length || 0
+      let color = this.color(i % numDataGroups)
       let stroke = Colors.darkenColor(color)
       return (
                 <G key={'lines' + i}>
