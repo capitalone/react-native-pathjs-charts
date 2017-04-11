@@ -71,8 +71,8 @@ export default class PieChart extends Component {
 
     let options = new Options(this.props)
 
-    let x = (options.chartWidth / 2) - options.margin.left
-    let y = (options.chartHeight / 2) - options.margin.top
+    let x = (options.chartWidth / 2) - (options.margin.left || 0)
+    let y = (options.chartHeight / 2) - (options.margin.top || 0)
 
     let radius = Math.min(x, y)
 
@@ -84,8 +84,10 @@ export default class PieChart extends Component {
     R = (R || (this.props.options && this.props.options.R))
     R = (R || radius)
 
+    let [centerX, centerY] = this.props.center || (this.props.options && this.props.options.center) || [x, y]
+
     let chart = Pie({
-      center: this.props.center || (this.props.options && this.props.options.center) || [0,0] ,
+      center: [centerX, centerY],
       r,
       R,
       data: this.props.data,
@@ -103,16 +105,16 @@ export default class PieChart extends Component {
       let stroke = typeof fill === 'string' ? outerFill : Colors.darkenColor(outerFill)
       slices = (
         <G>
-          <Circle r={R} cx={x} cy={y} stroke={stroke} fill={outerFill}/>
-          <Circle r={r} cx={x} cy={y} stroke={stroke} fill={innerFill}/>
+          <Circle r={R} cx={centerX} cy={centerY} stroke={stroke} fill={outerFill}/>
+          <Circle r={r} cx={centerX} cy={centerY} stroke={stroke} fill={innerFill}/>
           <Text fontFamily={textStyle.fontFamily}
                 fontSize={textStyle.fontSize}
                 fontWeight={textStyle.fontWeight}
                 fontStyle={textStyle.fontStyle}
                 fill={textStyle.fill}
                 textAnchor="middle"
-                x={x}
-                y={y - R + ((R-r)/2)}>{item.name}</Text>
+                x={centerX}
+                y={centerY - R + ((R-r)/2)}>{item.name}</Text>
         </G>
       )
     }
@@ -121,7 +123,7 @@ export default class PieChart extends Component {
         let fill = (c.item.color && Colors.string(c.item.color)) || this.color(i)
         let stroke = typeof fill === 'string' ? fill : Colors.darkenColor(fill)
         return (
-                  <G key={ i } x={x} y={y}>
+                  <G key={ i }>
                       <Path d={c.sector.path.print() } stroke={stroke} fill={fill} fillOpacity={1}  />
                       <G x={options.margin.left} y={options.margin.top}>
                         <Text fontFamily={textStyle.fontFamily}
