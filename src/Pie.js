@@ -86,14 +86,6 @@ export default class PieChart extends Component {
 
     let [centerX, centerY] = this.props.center || (this.props.options && this.props.options.center) || [x, y]
 
-    let chart = Pie({
-      center: [centerX, centerY],
-      r,
-      R,
-      data: this.props.data,
-      accessor: this.props.accessor || identity(this.props.accessorKey)
-    })
-
     let textStyle = fontAdapt(options.label)
 
     let slices
@@ -117,8 +109,15 @@ export default class PieChart extends Component {
                 y={centerY - R + ((R-r)/2)}>{item.name}</Text>
         </G>
       )
-    }
-    else {
+    } else {
+      let chart = Pie({
+        center: [centerX, centerY],
+        r,
+        R,
+        data: this.props.data,
+        accessor: this.props.accessor || identity(this.props.accessorKey)
+      })
+
       slices = chart.curves.map( (c, i) => {
         let fill = (c.item.color && Colors.string(c.item.color)) || this.color(i)
         let stroke = typeof fill === 'string' ? fill : Colors.darkenColor(fill)
