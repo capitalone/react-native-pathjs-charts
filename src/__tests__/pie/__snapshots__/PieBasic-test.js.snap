@@ -8,9 +8,7 @@ exports[`test renders using flattened properties correctly 1`] = `
     x={20}
     y={20}>
     <view
-      mockedComponent="svg-G"
-      x={155}
-      y={155}>
+      mockedComponent="svg-G">
       <view
         d="M NaN NaN A 150 150 0 0 1 NaN NaN L NaN NaN A 10 10 0 0 0 NaN NaN Z "
         fill="#3199de"
@@ -36,9 +34,7 @@ exports[`test renders using flattened properties correctly 1`] = `
       </view>
     </view>
     <view
-      mockedComponent="svg-G"
-      x={155}
-      y={155}>
+      mockedComponent="svg-G">
       <view
         d="M NaN NaN A 150 150 0 0 1 NaN NaN L NaN NaN A 10 10 0 0 0 NaN NaN Z "
         fill="#2980b9"
@@ -64,9 +60,7 @@ exports[`test renders using flattened properties correctly 1`] = `
       </view>
     </view>
     <view
-      mockedComponent="svg-G"
-      x={155}
-      y={155}>
+      mockedComponent="svg-G">
       <view
         d="M NaN NaN A 150 150 0 0 1 NaN NaN L NaN NaN A 10 10 0 0 0 NaN NaN Z "
         fill="#df9a14"
@@ -92,9 +86,7 @@ exports[`test renders using flattened properties correctly 1`] = `
       </view>
     </view>
     <view
-      mockedComponent="svg-G"
-      x={155}
-      y={155}>
+      mockedComponent="svg-G">
       <view
         d="M NaN NaN A 150 150 0 0 1 NaN NaN L NaN NaN A 10 10 0 0 0 NaN NaN Z "
         fill="#2473a5"
@@ -133,9 +125,7 @@ exports[`test renders using options property correctly 1`] = `
     x={20}
     y={20}>
     <view
-      mockedComponent="svg-G"
-      x={155}
-      y={155}>
+      mockedComponent="svg-G">
       <view
         d="M NaN NaN A 150 150 0 0 1 NaN NaN L NaN NaN A 50 50 0 0 0 NaN NaN Z "
         fill="#3199de"
@@ -161,9 +151,7 @@ exports[`test renders using options property correctly 1`] = `
       </view>
     </view>
     <view
-      mockedComponent="svg-G"
-      x={155}
-      y={155}>
+      mockedComponent="svg-G">
       <view
         d="M NaN NaN A 150 150 0 0 1 NaN NaN L NaN NaN A 50 50 0 0 0 NaN NaN Z "
         fill="#2980b9"
@@ -189,9 +177,7 @@ exports[`test renders using options property correctly 1`] = `
       </view>
     </view>
     <view
-      mockedComponent="svg-G"
-      x={155}
-      y={155}>
+      mockedComponent="svg-G">
       <view
         d="M NaN NaN A 150 150 0 0 1 NaN NaN L NaN NaN A 50 50 0 0 0 NaN NaN Z "
         fill="#df9a14"
@@ -217,9 +203,7 @@ exports[`test renders using options property correctly 1`] = `
       </view>
     </view>
     <view
-      mockedComponent="svg-G"
-      x={155}
-      y={155}>
+      mockedComponent="svg-G">
       <view
         d="M NaN NaN A 150 150 0 0 1 NaN NaN L NaN NaN A 50 50 0 0 0 NaN NaN Z "
         fill="#2473a5"
