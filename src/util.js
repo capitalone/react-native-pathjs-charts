@@ -45,6 +45,7 @@ export const fontAdapt = (fontProps) => {
   return {
     fontFamily: fontProps.fontFamily,
     fontSize: fontProps.fontSize,
+    rotate: fontProps.rotate || 0,
     fontWeight: fontProps.fontWeight ? 'bold' : 'normal',
     fontStyle: fontProps.fontStyle ? 'italic' : 'normal' ,
     fill: fill
