@@ -1,10 +1,10 @@
-![](https://github.com/capitalone/react-native-pathjs-charts/wiki/images/chart-screenshots.png)
+![]({{ site.baseurl }}{% link images/chart-screenshots.png %})
 
 Chart Types
-* [[Bar Charts|bar-charts]]
-* [[Pie Charts|pie-charts]]
-* [[Radar Charts|radar-charts]]
-* [[Scatterplot Charts|scatterplot-charts]]
-* [[SmoothLine Charts|smoothline-charts]]
-* [[StockLine Charts|stockline-charts]]
-* [[Tree Charts|tree-charts]]
+- [Bar Charts]({{ site.baseurl }}{% link bar/index.md %})
+- [Pie Charts]({{ site.baseurl }}{% link pie/index.md %})
+- [Radar Charts]({{ site.baseurl }}{% link radar/index.md %})
+- [Scatterplot Charts]({{ site.baseurl }}{% link scatterplot/index.md %})
+- [SmoothLine Charts]({{ site.baseurl }}{% link smoothline/index.md %})
+- [StockLine Charts]({{ site.baseurl }}{% link stockline/index.md %})
+- [Tree Charts]({{ site.baseurl }}{% link tree/index.md %})
