@@ -23,8 +23,6 @@ import { AppRegistry, Text, StyleSheet, View, Button } from 'react-native'
 import { StackNavigator} from 'react-navigation';
 import SideMenu from 'react-native-side-menu'
 
-// import Menu from './Menu'
-
 import BarChartColumnBasic from './bar/BarChartColumnBasic'
 
 import PieChartBasic from './pie/PieChartBasic'
