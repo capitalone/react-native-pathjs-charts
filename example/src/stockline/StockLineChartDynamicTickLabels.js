@@ -24,9 +24,6 @@ import { StockLine } from 'react-native-pathjs-charts'
 import moment from 'moment'
 
 class StockLineChartDynamicTickLabels extends Component {
-  static navigationOptions = ({ navigation }) => ({
-    title: `StockLine - Dynamic Labels`,
-  });
   render() {
     let data = [
       [{
@@ -67,7 +64,7 @@ class StockLineChartDynamicTickLabels extends Component {
         tickValues: [],
         labelFunction: ((v) => {
           let d = moment('2016-10-08 14:00','YYYY-MM-DD HH:mm')
-          return d.add((v * 2),'hours').format('MM/DD/YY h:mm A')
+          return d.add((v * 2),'hours').format('h:mm A')
         }),
         label: {
           fontFamily: 'Arial',
