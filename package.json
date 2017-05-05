@@ -50,9 +50,9 @@
     "jest-react-native": "*",
     "react": "16.0.0-alpha.6",
     "react-native": "0.44.0",
-    "react-test-renderer": "^15.5.4"
+    "react-test-renderer": "*"
   },
   "jest": {
-    "preset": "react-native"
+    "preset": "jest-react-native"
   }
 }
