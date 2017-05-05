@@ -19,11 +19,23 @@ SPDX-License-Identifier: Apache-2.0
 'use strict'
 
 import React, { Component } from 'react';
-import { View, Text, Navigator } from 'react-native';
+import { View, Text, StyleSheet } from 'react-native';
 
 import { Pie } from 'react-native-pathjs-charts'
 
+const styles = StyleSheet.create({
+  container: {
+    flex: 1,
+    justifyContent: 'center',
+    alignItems: 'center',
+    backgroundColor: '#f7f7f7',
+  },
+});
+
 class PieChartBasic extends Component {
+  static navigationOptions = ({ navigation }) => ({
+    title: `Pie - Basic`,
+  });
   render() {
     let data = [{
       "name": "Washington",
@@ -67,7 +79,7 @@ class PieChartBasic extends Component {
     }
 
     return (
-      <View>
+      <View style={styles.container}>
         <Pie data={data}
           options={options}
           accessorKey="population"
