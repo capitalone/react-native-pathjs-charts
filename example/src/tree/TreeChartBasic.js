@@ -24,6 +24,9 @@ import { View, Text, Navigator } from 'react-native';
 import { Tree } from 'react-native-pathjs-charts'
 
 class TreeChartBasic extends Component {
+  static navigationOptions = ({ navigation }) => ({
+    title: `Tree - Basic`,
+  });
   render() {
     let data = {
       "name": "Root",

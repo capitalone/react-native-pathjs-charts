@@ -19,11 +19,14 @@ SPDX-License-Identifier: Apache-2.0
 'use strict'
 
 import React, { Component } from 'react';
-import { View, Text, Navigator } from 'react-native';
+import { View, Text } from 'react-native';
 
 import { Radar } from 'react-native-pathjs-charts'
 
 class RadarChartBasic extends Component {
+  static navigationOptions = ({ navigation }) => ({
+    title: `Radar - Basic`,
+  });
   render() {
     let data = [{
       "speed": 74,
@@ -59,7 +62,7 @@ class RadarChartBasic extends Component {
         fill: '#34495E'
       }
     }
-    
+
     return (
       <View>
         <Radar data={data} options={options} />

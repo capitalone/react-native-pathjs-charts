@@ -19,11 +19,14 @@ SPDX-License-Identifier: Apache-2.0
 'use strict'
 
 import React, { Component } from 'react';
-import { View, Text, Navigator } from 'react-native';
+import { View, Text } from 'react-native';
 
 import { StockLine } from 'react-native-pathjs-charts'
 
 class StockLineChartStaticTickLabels extends Component {
+  static navigationOptions = ({ navigation }) => ({
+    title: `StockLine - Dynamic Labels`,
+  });
   render() {
     let data = [
       [{

@@ -19,11 +19,14 @@ SPDX-License-Identifier: Apache-2.0
 'use strict'
 
 import React, { Component } from 'react';
-import { View, Text, Navigator } from 'react-native';
+import { View, Text } from 'react-native';
 
 import { Bar } from 'react-native-pathjs-charts'
 
 class BarChartColumnBasic extends Component {
+  static navigationOptions = ({ navigation }) => ({
+    title: `Bar (Column) - Basic`,
+  });
   render() {
     let data = [
       [{
@@ -76,7 +79,8 @@ class BarChartColumnBasic extends Component {
           fontFamily: 'Arial',
           fontSize: 8,
           fontWeight: true,
-          fill: '#34495E'
+          fill: '#34495E',
+          rotate: 45
         }
       },
       axisY: {

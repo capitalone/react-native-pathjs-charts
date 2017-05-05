@@ -40,7 +40,7 @@
     "babel-polyfill": "^6.23.0",
     "lodash": "^4.12.0",
     "paths-js": "^0.4.5",
-    "react-native-svg": "~4.5.0"
+    "react-native-svg": "~5.1.8"
   },
   "devDependencies": {
     "babel-jest": "*",
@@ -48,9 +48,8 @@
     "diff": "^3.1.0",
     "jest": "^18.0.0",
     "jest-react-native": "*",
-    "react": "~15.4.1",
-    "react-native": "~0.41.0",
-    "react-test-renderer": "*"
+    "react": "16.0.0-alpha.6",
+    "react-native": "0.44.0"
   },
   "jest": {
     "preset": "jest-react-native"

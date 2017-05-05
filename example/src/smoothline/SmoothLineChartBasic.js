@@ -19,11 +19,14 @@ SPDX-License-Identifier: Apache-2.0
 'use strict'
 
 import React, { Component } from 'react';
-import { View, Text, Navigator } from 'react-native';
+import { View, Text } from 'react-native';
 
 import { SmoothLine } from 'react-native-pathjs-charts'
 
 class SmoothLineChartBasic extends Component {
+  static navigationOptions = ({ navigation }) => ({
+    title: `SmoothLine - Basic`,
+  });
   render() {
     let data = [
       [{

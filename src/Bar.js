@@ -135,7 +135,9 @@ export default class BarChart extends Component {
                     {options.axisX.showLabels ?
                         <Text fontFamily={textStyle.fontFamily}
                           fontSize={textStyle.fontSize} fontWeight={textStyle.fontWeight} fontStyle={textStyle.fontStyle}
-                          fill={textStyle.fill} x={c.line.centroid[0]} y={labelOffset + chartArea.y.min} rotate={textStyle.rotate} textAnchor="middle">
+                          fill={textStyle.fill} x={c.line.centroid[0]} y={labelOffset + chartArea.y.min}
+                          originX={c.line.centroid[0]} originY={labelOffset + chartArea.y.min} rotate={textStyle.rotate}
+                          textAnchor="middle">
                           {c.item.name}
                         </Text>
                     : null}

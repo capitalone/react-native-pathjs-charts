@@ -19,11 +19,14 @@ SPDX-License-Identifier: Apache-2.0
 'use strict'
 
 import React, { Component } from 'react';
-import { View, Text, Navigator } from 'react-native';
+import { View, Text } from 'react-native';
 
 import { Pie } from 'react-native-pathjs-charts'
 
 class PieChartBasic extends Component {
+  static navigationOptions = ({ navigation }) => ({
+    title: `Pie - Basic`,
+  });
   render() {
     let data = [{
       "name": "Washington",
