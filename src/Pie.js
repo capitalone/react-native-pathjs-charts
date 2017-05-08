@@ -1,17 +1,16 @@
 /*
-Copyright 2016 Capital One Services, LLC
-Licensed under the Apache License, Version 2.0 (the "License");
-you may not use this file except in compliance with the License.
-You may obtain a copy of the License at
-    http://www.apache.org/licenses/LICENSE-2.0
-Unless required by applicable law or agreed to in writing, software
-distributed under the License is distributed on an "AS IS" BASIS,
-WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
-See the License for the specific language governing permissions and limitations under the License.
-
-SPDX-Copyright: Copyright (c) Capital One Services, LLC
-SPDX-License-Identifier: Apache-2.0
-*/
+ Copyright 2016 Capital One Services, LLC
+ Licensed under the Apache License, Version 2.0 (the "License");
+ you may not use this file except in compliance with the License.
+ You may obtain a copy of the License at
+ http://www.apache.org/licenses/LICENSE-2.0
+ Unless required by applicable law or agreed to in writing, software
+ distributed under the License is distributed on an "AS IS" BASIS,
+ WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ See the License for the specific language governing permissions and limitations under the License.
+ SPDX-Copyright: Copyright (c) Capital One Services, LLC
+ SPDX-License-Identifier: Apache-2.0
+ */
 
 import React, {Component} from 'react'
 import {Text as ReactText}  from 'react-native'
@@ -76,8 +75,8 @@ export default class PieChart extends Component {
 
     let options = new Options(this.props)
 
-    let x = (options.chartWidth / 2) - options.margin.left
-    let y = (options.chartHeight / 2) - options.margin.top
+    let x = (options.chartWidth / 2) - (options.margin.left || 0)
+    let y = (options.chartHeight / 2) - (options.margin.top || 0)
 
     let radius = Math.min(x, y)
 
@@ -89,13 +88,7 @@ export default class PieChart extends Component {
     R = (R || (this.props.options && this.props.options.R))
     R = (R || radius)
 
-    let chart = Pie({
-      center: this.props.center || (this.props.options && this.props.options.center) || [0,0] ,
-      r,
-      R,
-      data,
-      accessor
-    })
+    let [centerX, centerY] = this.props.center || (this.props.options && this.props.options.center) || [x, y]
 
     let textStyle = fontAdapt(options.label)
 
@@ -108,46 +101,53 @@ export default class PieChart extends Component {
       let stroke = typeof fill === 'string' ? outerFill : Colors.darkenColor(outerFill)
       slices = (
         <G>
-          <Circle r={R} cx={x} cy={y} stroke={stroke} fill={outerFill}/>
-          <Circle r={r} cx={x} cy={y} stroke={stroke} fill={innerFill}/>
+          <Circle r={R} cx={centerX} cy={centerY} stroke={stroke} fill={outerFill}/>
+          <Circle r={r} cx={centerX} cy={centerY} stroke={stroke} fill={innerFill}/>
           {textStyle.show ? <Text fontFamily={textStyle.fontFamily}
                 fontSize={textStyle.fontSize}
                 fontWeight={textStyle.fontWeight}
                 fontStyle={textStyle.fontStyle}
                 fill={textStyle.fill}
                 textAnchor="middle"
-                x={x}
-                y={y - R + ((R-r)/2)}>{item.name}</Text> : null}
+                x={centerX}
+                y={centerY - R + ((R-r)/2)}>{item.name}</Text> : null}
         </G>
       )
-    }
-    else {
+    } else {
+      let chart = Pie({
+        center: [centerX, centerY],
+        r,
+        R,
+        data,
+        accessor,
+      })
+
       slices = chart.curves.map( (c, i) => {
         let fill = (c.item.color && Colors.string(c.item.color)) || this.color(i)
         let stroke = typeof fill === 'string' ? fill : Colors.darkenColor(fill)
         return (
-                  <G key={ i } x={x} y={y}>
-                      <Path d={c.sector.path.print() } stroke={stroke} fill={fill} fillOpacity={1}  />
-                      <G x={options.margin.left} y={options.margin.top}>
-                        {textStyle.show ? <Text fontFamily={textStyle.fontFamily}
-                              fontSize={textStyle.fontSize}
-                              fontWeight={textStyle.fontWeight}
-                              fontStyle={textStyle.fontStyle}
-                              fill={textStyle.fill}
-                              textAnchor="middle"
-                              x={c.sector.centroid[0]}
-                              y={c.sector.centroid[1]}>{ c.item.name }</Text> : null}
-                      </G>
-                  </G>
-              )
+          <G key={ i }>
+            <Path d={c.sector.path.print() } stroke={stroke} fill={fill} fillOpacity={1}  />
+            <G x={options.margin.left} y={options.margin.top}>
+              {textStyle.show ? <Text fontFamily={textStyle.fontFamily}
+                    fontSize={textStyle.fontSize}
+                    fontWeight={textStyle.fontWeight}
+                    fontStyle={textStyle.fontStyle}
+                    fill={textStyle.fill}
+                    textAnchor="middle"
+                    x={c.sector.centroid[0]}
+                    y={c.sector.centroid[1]}>{ c.item.name }</Text> : null}
+            </G>
+          </G>
+        )
       })
     }
 
     let returnValue = <Svg width={options.width} height={options.height}>
-            <G x={options.margin.left} y={options.margin.top}>
-                { slices }
-            </G>
-          </Svg>
+      <G x={options.margin.left} y={options.margin.top}>
+        { slices }
+      </G>
+    </Svg>
 
     return returnValue
   }
