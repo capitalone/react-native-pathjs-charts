@@ -133,9 +133,6 @@ export default class BarChart extends Component {
     let textStyle = fontAdapt(options.axisX.label)
     let labelOffset = this.props.options.axisX.label.offset || 20
 
-    console.log('图表数据：' + JSON.stringify(chart.curves[0].line.path.print()));
-    console.log('图表数据：' + JSON.stringify(chart.curves[1].line.path.print()));
-
     let highlightColor = this.props.options.highlightColor == null ? '#999999':this.props.options.highlightColor
     let lines = chart.curves.map(function (c, i) {
       let numDataGroups = this.props.data.length || 0
