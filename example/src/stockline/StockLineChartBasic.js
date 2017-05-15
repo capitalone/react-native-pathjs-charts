@@ -205,6 +205,7 @@ class StockLineChartBasic extends Component {
       width: 250,
       height: 250,
       color: '#2980B9',
+      showAreas:0,
       margin: {
         top: 10,
         left: 35,

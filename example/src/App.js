@@ -19,7 +19,7 @@ SPDX-License-Identifier: Apache-2.0
 'use strict'
 
 import React, { Component } from 'react';
-import { Text, StyleSheet, View, Navigator } from 'react-native'
+import { NativeModules, Text, StyleSheet, View, Navigator } from 'react-native'
 import SideMenu from 'react-native-side-menu'
 
 import Menu from './Menu'
@@ -110,6 +110,11 @@ class App extends Component {
   };
 
   render() {
+
+
+    console.log('测试' + NativeModules.RNBridge.abc);
+
+
     const menu = <Menu onItemSelected={this.onMenuItemSelected.bind(this)}/>;
 
     return (
