@@ -28,6 +28,9 @@ export default class LineChart extends Component {
   constructor(props, chartType) {
     super(props)
     this.chartType = chartType
+    this.state = {
+      hover:-1,
+    }
   }
 
   getMaxAndMin(chart, key, scale, chartMin, chartMax) {
@@ -93,14 +96,30 @@ export default class LineChart extends Component {
 
     let showAreas = typeof(this.props.options.showAreas) !== 'undefined' ? this.props.options.showAreas : true;
     let strokeWidth = typeof(this.props.options.strokeWidth) !== 'undefined' ? this.props.options.strokeWidth : '1';
+
+    let highlightColor = this.props.options.highlightColor == null ? '#999999':this.props.options.highlightColor
     let lines = _.map(chart.curves, function (c, i) {
-      return <Path key={'lines' + i} d={ c.line.path.print() } stroke={ this.color(i) } strokeWidth={strokeWidth} fill="none"/>
+      return <Path
+              key={'lines' + i}
+              d={ c.line.path.print() }
+              stroke={ this.state.hover==i ? highlightColor:this.color(i) }
+              strokeWidth={strokeWidth}
+              fill="none"
+              onPressOut={ this._onPressItemOut.bind(this) }
+              onPressIn={ this._onPressItem.bind(this, i)}/>
     }.bind(this))
     let areas = null
 
     if(showAreas){
       areas = _.map(chart.curves, function (c, i) {
-        return <Path key={'areas' + i} d={ c.area.path.print() } fillOpacity={0.5} stroke="none" fill={ this.color(i) }/>
+        return <Path
+                key={'areas' + i}
+                d={ c.area.path.print() }
+                fillOpacity={0.5}
+                stroke="none"
+                fill={ this.state.hover==i ? highlightColor:this.color(i) }
+                onPressOut={ this._onPressItemOut.bind(this) }
+                onPressIn={ this._onPressItem.bind(this, i)}/>
       }.bind(this))
     }
 
@@ -170,5 +189,21 @@ export default class LineChart extends Component {
               </Svg>
 
     return returnValue
+  }
+
+  _onPressItemOut() {
+    this.setState({
+      hover:-1,
+    })
+  }
+
+  _onPressItem(index) {
+    this.setState({
+      hover:index,
+    }, () => {
+      if (this.props.chartCallback != null) {
+        this.props.chartCallback(index);
+      }
+    })
   }
 }

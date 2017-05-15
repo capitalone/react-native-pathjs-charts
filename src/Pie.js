@@ -46,6 +46,14 @@ export default class PieChart extends Component {
     },
   }
 
+  constructor(props) {
+    super(props);
+  
+    this.state = {
+      hover:-1,
+    };
+  }
+
   color(i) {
     let color = this.props.color || (this.props.options && this.props.options.color)
     if (Array.isArray(color)) {
@@ -89,6 +97,7 @@ export default class PieChart extends Component {
     let textStyle = fontAdapt(options.label)
 
     let slices
+    let highlightColor = this.props.options.highlightColor == null ? '#999999':this.props.options.highlightColor
 
     if (this.props.data.length === 1) {
       let item = this.props.data[0]
@@ -97,7 +106,14 @@ export default class PieChart extends Component {
       let stroke = typeof fill === 'string' ? outerFill : Colors.darkenColor(outerFill)
       slices = (
         <G>
-          <Circle r={R} cx={centerX} cy={centerY} stroke={stroke} fill={outerFill}/>
+          <Circle
+            r={R}
+            cx={centerX}
+            cy={centerY}
+            stroke={stroke}
+            fill={ this.state.hover==i ? highlightColor:outerFill}
+            onPressIn={ this._onPressItem.bind(this, 0) }
+            onPressOut={ this._onPressItemOut.bind(this) } />
           <Circle r={r} cx={centerX} cy={centerY} stroke={stroke} fill={innerFill}/>
           <Text fontFamily={textStyle.fontFamily}
                 fontSize={textStyle.fontSize}
@@ -123,7 +139,13 @@ export default class PieChart extends Component {
         let stroke = typeof fill === 'string' ? fill : Colors.darkenColor(fill)
         return (
                   <G key={ i }>
-                      <Path d={c.sector.path.print() } stroke={stroke} fill={fill} fillOpacity={1}  />
+                      <Path
+                        d={c.sector.path.print() }
+                        stroke={stroke}
+                        fill={ this.state.hover==i ? highlightColor:fill }
+                        fillOpacity={1}
+                        onPressIn={ this._onPressItem.bind(this, i) }
+                        onPressOut={ this._onPressItemOut.bind(this) }  />
                       <G x={options.margin.left} y={options.margin.top}>
                         <Text fontFamily={textStyle.fontFamily}
                               fontSize={textStyle.fontSize}
@@ -147,4 +169,21 @@ export default class PieChart extends Component {
 
     return returnValue
   }
+
+  _onPressItemOut() {
+    this.setState({
+        hover:-1,
+    });
+  }
+
+  _onPressItem(index) {
+    this.setState({
+        hover:index,
+    }, () => {
+      if (this.props.chartCallback != null) {
+        this.props.chartCallback(index);
+      }
+    });
+  }
+
 }

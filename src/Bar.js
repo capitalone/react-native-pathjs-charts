@@ -34,6 +34,7 @@ export default class BarChart extends Component {
       height: 600,
       margin: {top: 20, left: 20, bottom: 50, right: 20},
       color: '#2980B9',
+      highlightColor:'#666666',
       gutter: 20,
       animate: {
         type: 'oneByOne',
@@ -51,7 +52,8 @@ export default class BarChart extends Component {
           fontFamily: 'Arial',
           fontSize: 14,
           bold: true,
-          color: '#34495E'
+          color: '#34495E',
+          rotate: 45,
         }
       },
       axisY: {
@@ -71,6 +73,14 @@ export default class BarChart extends Component {
         }
       }
     }
+  }
+
+  constructor(props) {
+    super(props);
+  
+    this.state = {
+      hover:-1,
+    };
   }
 
   color(i) {
@@ -123,14 +133,24 @@ export default class BarChart extends Component {
     let textStyle = fontAdapt(options.axisX.label)
     let labelOffset = this.props.options.axisX.label.offset || 20
 
+    console.log('图表数据：' + JSON.stringify(chart.curves[0].line.path.print()));
+    console.log('图表数据：' + JSON.stringify(chart.curves[1].line.path.print()));
+
+    let highlightColor = this.props.options.highlightColor == null ? '#999999':this.props.options.highlightColor
     let lines = chart.curves.map(function (c, i) {
       let numDataGroups = this.props.data.length || 0
       let colorVariationVal = numDataGroups > 1 ? numDataGroups : 3
       let color = this.color(i % colorVariationVal)
       let stroke = Colors.darkenColor(color)
+
       return (
                 <G key={'lines' + i}>
-                    <Path  d={ c.line.path.print() } stroke={stroke} fill={color}/>
+                    <Path
+                      d={ c.line.path.print() }
+                      stroke={stroke}
+                      fill={ this.state.hover==i ? highlightColor:color }
+                      onPressIn={ this._onPressItem.bind(this, i, c.group, c.index) }
+                      onPressOut={ this._onPressItemOut.bind(this) } />
                     {options.axisX.showLabels ?
                         <Text fontFamily={textStyle.fontFamily}
                           fontSize={textStyle.fontSize} fontWeight={textStyle.fontWeight} fontStyle={textStyle.fontStyle}
@@ -149,4 +169,21 @@ export default class BarChart extends Component {
               </G>
             </Svg>)
   }
+
+  _onPressItemOut() {
+    this.setState({
+        hover:-1,
+    });
+  }
+
+  _onPressItem(index, group, rowIndex) {
+    this.setState({
+        hover:index,
+    }, () => {
+      if (this.props.chartCallback != null) {
+        this.props.chartCallback(group, rowIndex);
+      }
+    });
+  }
+
 }

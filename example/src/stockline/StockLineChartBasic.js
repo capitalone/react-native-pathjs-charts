@@ -19,11 +19,23 @@ SPDX-License-Identifier: Apache-2.0
 'use strict'
 
 import React, { Component } from 'react';
-import { View, Text, Navigator } from 'react-native';
+import { View, Text, StyleSheet } from 'react-native';
 
 import { StockLine } from 'react-native-pathjs-charts'
 
+const styles = StyleSheet.create({
+  container: {
+    flex: 1,
+    justifyContent: 'center',
+    alignItems: 'center',
+    backgroundColor: '#f7f7f7',
+  },
+});
+
 class StockLineChartBasic extends Component {
+  static navigationOptions = ({ navigation }) => ({
+    title: `StockLine - Basic`,
+  });
   render() {
     let data = [
       [{
@@ -249,7 +261,7 @@ class StockLineChartBasic extends Component {
     }
 
     return (
-      <View>
+      <View style={styles.container}>
         <StockLine data={data} options={options} xKey='x' yKey='y' />
       </View>
     )
