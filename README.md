@@ -25,7 +25,7 @@ npm install react-native-pathjs-charts --save
 react-native link react-native-svg
 ```
 
-For further information, see the [wiki](https://github.com/capitalone/react-native-pathjs-charts/wiki)
+For further information on usage, see the [docs](http://www.capitalone.io/react-native-pathjs-charts/)
 
 
 ## Current Features

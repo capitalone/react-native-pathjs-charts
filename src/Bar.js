@@ -51,7 +51,8 @@ export default class BarChart extends Component {
           fontFamily: 'Arial',
           fontSize: 14,
           bold: true,
-          color: '#34495E'
+          color: '#34495E',
+          rotate: 45,
         }
       },
       axisY: {
@@ -134,7 +135,9 @@ export default class BarChart extends Component {
                     {options.axisX.showLabels ?
                         <Text fontFamily={textStyle.fontFamily}
                           fontSize={textStyle.fontSize} fontWeight={textStyle.fontWeight} fontStyle={textStyle.fontStyle}
-                          fill={textStyle.fill} x={c.line.centroid[0]} y={labelOffset + chartArea.y.min} rotate={45} textAnchor="middle">
+                          fill={textStyle.fill} x={c.line.centroid[0]} y={labelOffset + chartArea.y.min}
+                          originX={c.line.centroid[0]} originY={labelOffset + chartArea.y.min} rotate={textStyle.rotate}
+                          textAnchor="middle">
                           {c.item.name}
                         </Text>
                     : null}

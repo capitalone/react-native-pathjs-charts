@@ -19,10 +19,13 @@ SPDX-License-Identifier: Apache-2.0
 'use strict'
 
 import React, { Component } from 'react';
+<<<<<<< HEAD
 import { NativeModules, Text, StyleSheet, View, Navigator } from 'react-native'
+=======
+import { AppRegistry, Text, StyleSheet, View, Button } from 'react-native'
+import { StackNavigator} from 'react-navigation';
+>>>>>>> upstream/master
 import SideMenu from 'react-native-side-menu'
-
-import Menu from './Menu'
 
 import BarChartColumnBasic from './bar/BarChartColumnBasic'
 
@@ -54,84 +57,78 @@ const styles = StyleSheet.create({
   },
 });
 
-class App extends Component {
-  state = {
-    isOpen: false,
-    selectedItem: 'Home',
+class HomeScreen extends React.Component {
+  static navigationOptions = {
+    title: 'RNPC Example App',
   };
-
-  toggle() {
-    this.setState({
-      isOpen: !this.state.isOpen,
-    });
-  };
-
-  updateMenuState(isOpen) {
-    this.setState({ isOpen, });
-  };
-
-  onMenuItemSelected = (item) => {
-    this.setState({
-      isOpen: false,
-      selectedItem: item,
-    });
-    this.refs.navigator.replace({name:item})
-  };
-
-  renderScene(route, navigator) {
-    //For some annoying reason, the view has to be here instead of around
-    //navigator for correct display, something to figure out a fix for later
-    switch (route.name) {
-      case 'BarChartColumnBasic':
-        return <View style={styles.container}><BarChartColumnBasic /></View>
-      case 'PieChartBasic':
-        return <View style={styles.container}><PieChartBasic /></View>
-      case 'StockLineChartBasic':
-        return <View style={styles.container}><StockLineChartBasic /></View>
-      case 'StockLineChartStaticTickLabels':
-        return <View style={styles.container}><StockLineChartStaticTickLabels /></View>
-      case 'StockLineChartDynamicTickLabels':
-        return <View style={styles.container}><StockLineChartDynamicTickLabels /></View>
-      case 'SmoothLineChartBasic':
-        return <View style={styles.container}><SmoothLineChartBasic /></View>
-      case 'SmoothLineChartRegions':
-        return <View style={styles.container}><SmoothLineChartRegions /></View>
-      case 'SmoothLineChartRegionsExtended':
-        return <View style={styles.container}><SmoothLineChartRegionsExtended /></View>
-      case 'ScatterplotChartBasic':
-        return <View style={styles.container}><ScatterplotChartBasic /></View>
-      case 'RadarChartBasic':
-        return <View style={styles.container}><RadarChartBasic /></View>
-      case 'TreeChartBasic':
-        return <View style={styles.container}><TreeChartBasic /></View>
-      default:
-        return <View style={styles.container}><Home /></View>
-    }
-  };
-
   render() {
-
-
-    console.log('测试' + NativeModules.RNBridge.abc);
-
-
-    const menu = <Menu onItemSelected={this.onMenuItemSelected.bind(this)}/>;
-
+    const { navigate } = this.props.navigation;
     return (
-      <SideMenu
-        menu={menu}
-        isOpen={this.state.isOpen}
-        onChange={(isOpen) => this.updateMenuState(isOpen)}
-        bounceBackOnOverdraw={false}>
-          <Navigator
-            style={{flex:1}}
-            initialRoute={{name:'Home'}}
-            renderScene={this.renderScene}
-            ref="navigator"
-          />
-      </SideMenu>
+      <View>
+        <Button
+          style={styles.container}
+          onPress={() => navigate('BarChartColumnBasic')}
+          title="Bar (Column) - Basic"
+        />
+        <Button
+          onPress={() => navigate('PieChartBasic')}
+          title="Pie - Basic"
+        />
+        <Button
+          onPress={() => navigate('StockLineChartBasic')}
+          title="StockLine - Basic"
+        />
+        <Button
+          onPress={() => navigate('StockLineChartStaticTickLabels')}
+          title="StockLine - Static Labels"
+        />
+        <Button
+          onPress={() => navigate('StockLineChartDynamicTickLabels')}
+          title="StockLine - Dynamic Labels"
+        />
+        <Button
+          onPress={() => navigate('SmoothLineChartBasic')}
+          title="SmoothLine - Basic"
+        />
+        <Button
+          onPress={() => navigate('SmoothLineChartRegions')}
+          title="SmoothLine - Regions"
+        />
+        <Button
+          onPress={() => navigate('SmoothLineChartRegionsExtended')}
+          title="SmoothLine - Regions Extended"
+        />
+        <Button
+          onPress={() => navigate('ScatterplotChartBasic')}
+          title="Scatterplot - Basic"
+        />
+        <Button
+          onPress={() => navigate('RadarChartBasic')}
+          title="Radar - Basic"
+        />
+        <Button
+          onPress={() => navigate('TreeChartBasic')}
+          title="Tree - Basic"
+        />
+      </View>
     );
   }
 }
 
+const App = StackNavigator({
+  Home: { screen: HomeScreen },
+  BarChartColumnBasic: { screen: BarChartColumnBasic },
+  PieChartBasic: { screen: PieChartBasic },
+  StockLineChartBasic: { screen: StockLineChartBasic },
+  StockLineChartStaticTickLabels: { screen: StockLineChartStaticTickLabels },
+  StockLineChartDynamicTickLabels: { screen: StockLineChartDynamicTickLabels },
+  SmoothLineChartBasic: { screen: SmoothLineChartBasic },
+  SmoothLineChartRegions: { screen: SmoothLineChartRegions },
+  SmoothLineChartRegionsExtended: { screen: SmoothLineChartRegionsExtended },
+  ScatterplotChartBasic: { screen: ScatterplotChartBasic },
+  RadarChartBasic: { screen: RadarChartBasic },
+  TreeChartBasic: { screen: TreeChartBasic },
+});
+
+AppRegistry.registerComponent('App', () => App);
 export default App;
