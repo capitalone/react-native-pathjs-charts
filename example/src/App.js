@@ -19,12 +19,9 @@ SPDX-License-Identifier: Apache-2.0
 'use strict'
 
 import React, { Component } from 'react';
-<<<<<<< HEAD
-import { NativeModules, Text, StyleSheet, View, Navigator } from 'react-native'
-=======
 import { AppRegistry, Text, StyleSheet, View, Button } from 'react-native'
 import { StackNavigator} from 'react-navigation';
->>>>>>> upstream/master
+
 import SideMenu from 'react-native-side-menu'
 
 import BarChartColumnBasic from './bar/BarChartColumnBasic'
