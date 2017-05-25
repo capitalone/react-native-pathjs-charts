@@ -141,6 +141,14 @@ export default class Axis extends Component {
       options.strokeWidth = 3
     }
 
+    if (typeof options.tickSize !== 'number') {
+      options.tickSize = 2
+    }
+
+    if (typeof options.tickColor !== 'string') {
+      options.tickColor = 'grey'
+    }
+
     const textStyle = fontAdapt(options.label)
 
     const ticks =_.map(axis.ticks, function (c, i) {
@@ -153,7 +161,7 @@ export default class Axis extends Component {
         returnValue =
           <G key={i} x={gxy[0]} y={gxy[1]}>
               {options.showTicks &&
-                <Circle r="2" cx="0" cy="0" stroke="grey" fill="grey" />
+                <Circle r={options.tickSize} cx="0" cy="0" stroke={options.tickColor} fill={options.tickColor} />
               }
               {options.showLabels &&
                 <Text x={xy[0]} y={xy[1]}
