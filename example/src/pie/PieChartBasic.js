@@ -37,7 +37,8 @@ class PieChartBasic extends Component {
     title: `Pie - Basic`,
   });
   render() {
-    let data = [{
+    let data = [
+    {
       "name": "Washington",
       "population": 7694980
     }, {
@@ -61,7 +62,7 @@ class PieChartBasic extends Component {
       },
       width: 350,
       height: 350,
-      color: '#2980B9',
+      color: '#ff0000',
       r: 50,
       R: 150,
       legendPosition: 'topLeft',

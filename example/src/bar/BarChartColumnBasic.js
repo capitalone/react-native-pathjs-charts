@@ -37,7 +37,7 @@ class BarChartColumnBasic extends Component {
     title: `Bar (Column) - Basic`,
   });
   render() {
-    let data = [
+    var data = [
       [{
         "v": 49,
         "name": "apple"
@@ -71,6 +71,7 @@ class BarChartColumnBasic extends Component {
         right: 20
       },
       color: '#2980B9',
+      highlightColor:'#999999',
       gutter: 20,
       animate: {
         type: 'oneByOne',
@@ -99,6 +100,7 @@ class BarChartColumnBasic extends Component {
         showTicks: true,
         zeroAxis: false,
         orient: 'left',
+        // max:80,
         label: {
           fontFamily: 'Arial',
           fontSize: 8,
