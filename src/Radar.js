@@ -107,6 +107,7 @@ export default class RadarChart extends Component
                       fontWeight={textStyle.fontWeight}
                       fontStyle={textStyle.fontStyle}
                       fill={textStyle.fill}
+                      onPress={textStyle.onPress}                      
                       textAnchor="middle" x={Math.floor(p[0])} y={Math.floor(p[1])}>{keys[i]}
                   </Text>
               </G>

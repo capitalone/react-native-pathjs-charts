@@ -68,7 +68,8 @@ class RadarChartBasic extends Component {
         fontFamily: 'Arial',
         fontSize: 14,
         fontWeight: true,
-        fill: '#34495E'
+        fill: '#34495E',
+        // onPress: this.clickAction,
       }
     }
 
