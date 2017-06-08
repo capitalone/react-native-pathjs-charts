@@ -36,6 +36,12 @@ class RadarChartBasic extends Component {
   static navigationOptions = ({ navigation }) => ({
     title: `Radar - Basic`,
   });
+
+  onLabelPress = (label, value) => {
+    alert(label + ':' + value);
+    console.log(label);
+  }
+
   render() {
     let data = [{
       "speed": 74,
@@ -69,7 +75,7 @@ class RadarChartBasic extends Component {
         fontSize: 14,
         fontWeight: true,
         fill: '#34495E',
-        // onPress: this.clickAction,
+        onLabelPress: this.onLabelPress
       }
     }
 

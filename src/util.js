@@ -49,7 +49,7 @@ export const fontAdapt = (fontProps) => {
     fontWeight: fontProps.fontWeight ? 'bold' : 'normal',
     fontStyle: fontProps.fontStyle ? 'italic' : 'normal' ,
     fill: fill,
-    onPress: fontProps.onPress
+    onLabelPress: fontProps.onLabelPress
   }
 }
 
