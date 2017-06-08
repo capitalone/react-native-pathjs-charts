@@ -39,7 +39,6 @@ class RadarChartBasic extends Component {
 
   onLabelPress = (label, value) => {
     alert(label + ':' + value);
-    console.log(label);
   }
 
   render() {
