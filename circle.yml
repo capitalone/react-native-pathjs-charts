@@ -13,8 +13,7 @@ dependencies:
 test:
   override:
     - npm test
-    - echo "Omitting tests temporarily"
-
+ 
 deployment:
   release:
     tag: /[0-9]+(\.[0-9]+)*/
