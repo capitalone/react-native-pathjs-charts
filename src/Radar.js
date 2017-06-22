@@ -34,6 +34,7 @@ function accessKeys(keys) {
 
 export default class RadarChart extends Component
 {
+
   static defaultProps = {
     options: {
       width: 600,
