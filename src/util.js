@@ -48,7 +48,8 @@ export const fontAdapt = (fontProps) => {
     rotate: fontProps.rotate || 0,
     fontWeight: fontProps.fontWeight ? 'bold' : 'normal',
     fontStyle: fontProps.fontStyle ? 'italic' : 'normal' ,
-    fill: fill
+    fill: fill,
+    onLabelPress: fontProps.onLabelPress
   }
 }
 

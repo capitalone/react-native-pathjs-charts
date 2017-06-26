@@ -72,6 +72,7 @@ export default class RadarChart extends Component
     const center = this.props.center || [x, y]
 
     const keys = Object.keys(this.props.data[0])
+    const keys_value = this.props.data[0];
     const chart = Radar({
       center: this.props.center || [x, y],
       r: this.props.options.r || radius,
@@ -98,6 +99,10 @@ export default class RadarChart extends Component
     const textStyle = fontAdapt(options.label)
 
     const labels = chart.rings[length - 1].path.points().map(function (p, i) {
+      function onLabelPress() {
+        textStyle.onLabelPress(keys[i], keys_value[`${keys[i]}`]);
+      }
+
       return (
               <G key={'label' + i}>
                   <Line x1={p[0]} y1={p[1]} x2={center[0]} y2={center[1]} stroke={colors.stroke} strokeOpacity={colors.strokeOpacity}/>
@@ -107,6 +112,7 @@ export default class RadarChart extends Component
                       fontWeight={textStyle.fontWeight}
                       fontStyle={textStyle.fontStyle}
                       fill={textStyle.fill}
+                      onPress={onLabelPress}
                       textAnchor="middle" x={Math.floor(p[0])} y={Math.floor(p[1])}>{keys[i]}
                   </Text>
               </G>
