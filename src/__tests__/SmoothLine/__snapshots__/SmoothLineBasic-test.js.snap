@@ -24,12 +24,16 @@ exports[`test renders an example chart correctly 1`] = `
       fill="none"
       mockedComponent="svg-Path"
       stroke="#3199de"
+      strokeDasharray={Array []}
+      strokeOpacity={1}
       strokeWidth="1" />
     <view
       d="M NaN NaN C NaN NaN NaN NaN NaN NaN S NaN NaN NaN NaN S NaN NaN NaN NaN S NaN NaN NaN NaN S NaN NaN NaN NaN S NaN NaN NaN NaN S NaN NaN NaN NaN S NaN NaN NaN NaN S NaN NaN NaN NaN S NaN NaN NaN NaN S NaN NaN NaN NaN S NaN NaN NaN NaN S NaN NaN NaN NaN S NaN NaN NaN NaN S NaN NaN NaN NaN S NaN NaN NaN NaN S NaN NaN NaN NaN S NaN NaN NaN NaN S NaN NaN NaN NaN S NaN NaN NaN NaN"
       fill="none"
       mockedComponent="svg-Path"
       stroke="#2980b9"
+      strokeDasharray={Array []}
+      strokeOpacity={1}
       strokeWidth="1" />
     <view
       mockedComponent="svg-G">
