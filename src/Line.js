@@ -18,7 +18,7 @@ SPDX-License-Identifier: Apache-2.0
 
 import React, { Component } from 'react';
 import { Text as ReactText } from 'react-native';
-import Svg, { G, Path, Rect, Text } from 'react-native-svg';
+import Svg, { G, Path, Rect, Text, Circle } from 'react-native-svg';
 import { Colors, Options, cyclic, fontAdapt } from './util';
 import Axis from './Axis';
 import _ from 'lodash';
@@ -126,6 +126,41 @@ export default class LineChart extends Component {
     );
     let areas = null;
 
+    let showPoints = typeof this.props.options.showPoints !== 'undefined'
+      ? this.props.options.showPoints
+      : false;
+    let points = !showPoints
+      ? []
+      : _.map(
+          chart.curves,
+          function(c, graphIndex) {
+            return _.map(
+              c.line.path.points(),
+              function(p, pointIndex) {
+                let render = null;
+                if (
+                  (typeof showPoints === 'function' && showPoints(graphIndex, pointIndex)) ||
+                  (typeof showPoints === 'boolean' && showPoints)
+                ) {
+                  return (
+                    <G key={'k' + pointIndex} x={p[0]} y={p[1]}>
+                      {typeof this.props.options.renderPoint === 'function'
+                        ? this.props.options.renderPoint()
+                        : <Circle
+                            fill={this.color(graphIndex)}
+                            cx={0}
+                            cy={0}
+                            r={options.pointRadius || 5}
+                            fillOpacity={1}
+                          />}
+                    </G>
+                  );
+                }
+              }.bind(this)
+            );
+          }.bind(this)
+        );
+
     if (showAreas) {
       areas = _.map(
         chart.curves,
@@ -223,6 +258,7 @@ export default class LineChart extends Component {
           {regions}
           {areas}
           {lines}
+          {points}
           <Axis key="x" scale={chart.xscale} options={options.axisX} chartArea={chartArea} />
           <Axis key="y" scale={chart.yscale} options={options.axisY} chartArea={chartArea} />
         </G>
