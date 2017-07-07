@@ -18,6 +18,8 @@ exports[`test renders an example chart correctly 1`] = `
       fill="none"
       mockedComponent="svg-Path"
       stroke="#3199de"
+      strokeDasharray={Array []}
+      strokeOpacity={1}
       strokeWidth="1" />
     <view
       mockedComponent="svg-G">
