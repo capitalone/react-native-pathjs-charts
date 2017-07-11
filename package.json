@@ -43,7 +43,6 @@
     "react-native-svg": "~5.3.0"
   },
   "devDependencies": {
-    "react-native": "0.45.1",
     "babel-jest": "*",
     "babel-preset-react-native": "^1.9.0",
     "diff": "^3.1.0",
@@ -51,6 +50,7 @@
     "jest-react-native": "*",
     "react": "16.0.0-alpha.12",
     "react-dom": "16.0.0-alpha.12",
+    "react-native": "0.45.1",
     "react-test-renderer": "16.0.0-alpha.12"
   },
   "jest": {
