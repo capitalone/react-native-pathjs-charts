@@ -1,8 +1,7 @@
 # Change Log
 
-## [Unreleased](https://github.com/capitalone/react-native-pathjs-charts/tree/HEAD)
-
-[Full Changelog](https://github.com/capitalone/react-native-pathjs-charts/compare/0.0.29...HEAD)
+## [v0.0.30](https://github.com/capitalone/react-native-pathjs-charts/tree/v0.0.30) (2017-07-12)
+[Full Changelog](https://github.com/capitalone/react-native-pathjs-charts/compare/v0.0.29...v0.0.30)
 
 **Closed issues:**
 
@@ -13,6 +12,9 @@
 
 - Fix the RN 0.46 and above incompatibility issues caused by React Native SVG 5.2 [\#170](https://github.com/capitalone/react-native-pathjs-charts/pull/170) ([kensongoo](https://github.com/kensongoo))
 - Add on press radar chart [\#164](https://github.com/capitalone/react-native-pathjs-charts/pull/164) ([Shagamii](https://github.com/Shagamii))
+
+## [v0.0.29](https://github.com/capitalone/react-native-pathjs-charts/tree/v0.0.29) (2017-06-16)
+[Full Changelog](https://github.com/capitalone/react-native-pathjs-charts/compare/0.0.29...v0.0.29)
 
 ## [0.0.29](https://github.com/capitalone/react-native-pathjs-charts/tree/0.0.29) (2017-06-16)
 [Full Changelog](https://github.com/capitalone/react-native-pathjs-charts/compare/0.0.28...0.0.29)
@@ -36,11 +38,17 @@
 - importing docs [\#150](https://github.com/capitalone/react-native-pathjs-charts/pull/150) ([katscott](https://github.com/katscott))
 
 ## [0.0.28](https://github.com/capitalone/react-native-pathjs-charts/tree/0.0.28) (2017-05-05)
-[Full Changelog](https://github.com/capitalone/react-native-pathjs-charts/compare/0.0.27...0.0.28)
+[Full Changelog](https://github.com/capitalone/react-native-pathjs-charts/compare/v0.0.28...0.0.28)
 
 **Merged pull requests:**
 
 - Update to latest react, react-native, and react-native-svg versions [\#149](https://github.com/capitalone/react-native-pathjs-charts/pull/149) ([marzolfb](https://github.com/marzolfb))
+
+## [v0.0.28](https://github.com/capitalone/react-native-pathjs-charts/tree/v0.0.28) (2017-05-05)
+[Full Changelog](https://github.com/capitalone/react-native-pathjs-charts/compare/0.0.27...v0.0.28)
+
+**Merged pull requests:**
+
 - Add rotation bar chart label [\#144](https://github.com/capitalone/react-native-pathjs-charts/pull/144) ([superandrew213](https://github.com/superandrew213))
 
 ## [0.0.27](https://github.com/capitalone/react-native-pathjs-charts/tree/0.0.27) (2017-04-19)
