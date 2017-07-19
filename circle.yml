@@ -7,13 +7,13 @@ dependencies:
     - echo -e "$NPM_USER\n$NPM_PASS\n$NPM_EMAIL" | npm login
     - npm --version
     - node --version
+  post:
     - npm test -- --version
 
 test:
   override:
-    # - npm test
-    - echo "Omitting tests temporarily"
-
+    - npm test
+ 
 deployment:
   release:
     tag: /[0-9]+(\.[0-9]+)*/
