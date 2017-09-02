@@ -1,6 +1,6 @@
 # Change Log
 
-## [Unreleased](https://github.com/capitalone/react-native-pathjs-charts/tree/HEAD)
+## [0.0.31](https://github.com/capitalone/react-native-pathjs-charts/tree/HEAD)
 
 [Full Changelog](https://github.com/capitalone/react-native-pathjs-charts/compare/0.0.30...HEAD)
 
