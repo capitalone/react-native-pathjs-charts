@@ -9,7 +9,7 @@
   "dependencies": {
     "moment": "^2.17.1",
     "react": "16.0.0-alpha.12",
-    "react-native": "~0.46.1",
+    "react-native": "0.47.2",
     "react-native-pathjs-charts": "file:../",
     "react-native-side-menu": "^0.20.1",
     "react-navigation": "^1.0.0-beta.9"
