@@ -1,7 +1,21 @@
 # Change Log
 
-## [v0.0.30](https://github.com/capitalone/react-native-pathjs-charts/tree/v0.0.30) (2017-07-12)
-[Full Changelog](https://github.com/capitalone/react-native-pathjs-charts/compare/0.0.29...v0.0.30)
+## [0.0.31](https://github.com/capitalone/react-native-pathjs-charts/tree/HEAD)
+
+[Full Changelog](https://github.com/capitalone/react-native-pathjs-charts/compare/0.0.30...HEAD)
+
+**Closed issues:**
+
+- The sort method cannot be invoked on an Immutable data structure. [\#178](https://github.com/capitalone/react-native-pathjs-charts/issues/178)
+- Build failed in RN 0.45.1 \(iOS\) [\#169](https://github.com/capitalone/react-native-pathjs-charts/issues/169)
+
+**Merged pull requests:**
+
+- Upgrade to RN 0.47.2 [\#184](https://github.com/capitalone/react-native-pathjs-charts/pull/184) ([Minishlink](https://github.com/Minishlink))
+- Upgrade to .30 [\#171](https://github.com/capitalone/react-native-pathjs-charts/pull/171) ([marzolfb](https://github.com/marzolfb))
+
+## [0.0.30](https://github.com/capitalone/react-native-pathjs-charts/tree/0.0.30) (2017-07-12)
+[Full Changelog](https://github.com/capitalone/react-native-pathjs-charts/compare/0.0.29...0.0.30)
 
 **Closed issues:**
 
