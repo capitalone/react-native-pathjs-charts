@@ -30,6 +30,7 @@ import PieChartBasic from './pie/PieChartBasic'
 import StockLineChartBasic from './stockline/StockLineChartBasic'
 import StockLineChartStaticTickLabels from './stockline/StockLineChartStaticTickLabels'
 import StockLineChartDynamicTickLabels from './stockline/StockLineChartDynamicTickLabels'
+import StockLineChartDynamicLineRendering from './stockline/StockLineChartDynamicLineRendering'
 
 import SmoothLineChartBasic from './smoothline/SmoothLineChartBasic'
 import SmoothLineChartRegions from './smoothline/SmoothLineChartRegions'
@@ -83,6 +84,10 @@ class HomeScreen extends React.Component {
           title="StockLine - Dynamic Labels"
         />
         <Button
+          onPress={() => navigate('StockLineChartDynamicLineRendering')}
+          title="StockLine - Dynamic Line Rendering"
+        />
+        <Button
           onPress={() => navigate('SmoothLineChartBasic')}
           title="SmoothLine - Basic"
         />
@@ -118,6 +123,7 @@ const App = StackNavigator({
   StockLineChartBasic: { screen: StockLineChartBasic },
   StockLineChartStaticTickLabels: { screen: StockLineChartStaticTickLabels },
   StockLineChartDynamicTickLabels: { screen: StockLineChartDynamicTickLabels },
+  StockLineChartDynamicLineRendering: { screen: StockLineChartDynamicLineRendering },
   SmoothLineChartBasic: { screen: SmoothLineChartBasic },
   SmoothLineChartRegions: { screen: SmoothLineChartRegions },
   SmoothLineChartRegionsExtended: { screen: SmoothLineChartRegionsExtended },
