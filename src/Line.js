@@ -145,12 +145,12 @@ export default class LineChart extends Component {
                   return (
                     <G key={'k' + pointIndex} x={p[0]} y={p[1]}>
                       {typeof this.props.options.renderPoint === 'function'
-                        ? this.props.options.renderPoint()
+                        ? this.props.options.renderPoint(graphIndex, pointIndex)
                         : <Circle
                             fill={this.color(graphIndex)}
                             cx={0}
                             cy={0}
-                            r={options.pointRadius || 5}
+                            r={this.props.options.pointRadius || 5}
                             fillOpacity={1}
                           />}
                     </G>
