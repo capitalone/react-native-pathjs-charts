@@ -118,6 +118,11 @@ class Menu extends Component {
             style={styles.subitem}>
             StockLine w/Dynamic Tick Labels
           </Text>
+          <Text
+            onPress={() => this.props.onItemSelected('StockLineChartDynamicLineRendering')}
+            style={styles.subitem}>
+            StockLine w/Dynamic Line Rendering
+          </Text>
         </View>
         {/*End StockLine Charts*/}
 

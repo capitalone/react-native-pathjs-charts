@@ -20,6 +20,7 @@ SPDX-License-Identifier: Apache-2.0
 
 import React, { Component } from 'react';
 import { View, StyleSheet } from 'react-native';
+import { Text, Circle } from 'react-native-svg';
 
 import { StockLine } from 'react-native-pathjs-charts';
 
@@ -32,9 +33,9 @@ const styles = StyleSheet.create({
   },
 });
 
-class StockLineChartBasic extends Component {
+class StockLineChartDynamicLineRendering extends Component {
   static navigationOptions = ({ navigation }) => ({
-    title: `StockLine - Basic`,
+    title: `StockLine - Dynamic Line Rendering`,
   });
   render() {
     const data = [
@@ -80,21 +81,6 @@ class StockLineChartBasic extends Component {
       }, {
         "x": 13,
         "y": 22838
-      }, {
-        "x": 14,
-        "y": 32153
-      }, {
-        "x": 15,
-        "y": 56594
-      }, {
-        "x": 16,
-        "y": 76348
-      }, {
-        "x": 17,
-        "y": 46222
-      }, {
-        "x": 18,
-        "y": 59304
       }],
       [{
         "x": 0,
@@ -144,15 +130,6 @@ class StockLineChartBasic extends Component {
       }, {
         "x": 15,
         "y": 150356
-      }, {
-        "x": 16,
-        "y": 180360
-      }, {
-        "x": 17,
-        "y": 175697
-      }, {
-        "x": 18,
-        "y": 114967
       }],
       [{
         "x": 0,
@@ -213,7 +190,7 @@ class StockLineChartBasic extends Component {
         "y": 153227
       }]
     ];
-    const options = {
+    let options = {
       width: 250,
       height: 250,
       color: '#2980B9',
@@ -256,7 +233,32 @@ class StockLineChartBasic extends Component {
           fontWeight: true,
           fill: '#34495E'
         }
-      }
+      },
+      strokeWidth: 2,
+
+      showAreas: (curve: number, index: number) => index === 0,
+
+      showPoints: (graphIndex: number, pointIndex: number) =>
+        graphIndex === 1 && pointIndex === data[1].length - 1,
+      renderPoint: () => [
+        <Text
+          key="valueLegend"
+          fontFamily="Arial"
+          fontSize={14}
+          fontWeight="normal"
+          fill="#101010"
+          textAnchor="middle"
+          x={0}
+          y={20}
+        >
+          {data[1][data[1].length - 1].y}
+        </Text>,
+        <Circle key="light" fill='#34495E' cx={0} cy={0} r={10} fillOpacity={0.5} />,
+        <Circle key="full" fill='#34495E' cx={0} cy={0} r={7} fillOpacity={1} />,
+      ],
+
+      strokeDasharray: (curve: number, index: number) => (index === 2 ? [5] : []),
+      strokeOpacity: (curve: number, index: number) => (index === 2 ? 0.3 : 1),
     };
 
     return (
@@ -267,4 +269,4 @@ class StockLineChartBasic extends Component {
   }
 }
 
-export default StockLineChartBasic;
+export default StockLineChartDynamicLineRendering;
