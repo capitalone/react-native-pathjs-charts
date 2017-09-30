@@ -21,6 +21,7 @@ import { Text as ReactText } from 'react-native';
 import Svg, { G, Path, Rect, Text, Circle } from 'react-native-svg';
 import { Colors, Options, cyclic, fontAdapt } from './util';
 import Axis from './Axis';
+import GridAxis from './GridAxis';
 import _ from 'lodash';
 
 export default class LineChart extends Component {
@@ -255,12 +256,14 @@ export default class LineChart extends Component {
     let returnValue = (
       <Svg width={options.width} height={options.height}>
         <G x={options.margin.left} y={options.margin.top}>
+          <GridAxis key="grid-x" scale={chart.xscale} options={options.axisX} chartArea={chartArea} />
+          <GridAxis key="grid-y" scale={chart.yscale} options={options.axisY} chartArea={chartArea} />
           {regions}
           {areas}
           {lines}
           {points}
-          <Axis key="x" scale={chart.xscale} options={options.axisX} chartArea={chartArea} />
-          <Axis key="y" scale={chart.yscale} options={options.axisY} chartArea={chartArea} />
+          <Axis key="axis-x" scale={chart.xscale} options={options.axisX} chartArea={chartArea} />
+          <Axis key="axis-y" scale={chart.yscale} options={options.axisY} chartArea={chartArea} />
         </G>
       </Svg>
     );

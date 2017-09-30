@@ -22,7 +22,7 @@ import { fontAdapt } from './util'
 import _ from 'lodash'
 const Pathjs = require('paths-js/path')
 
-class AxisStruct {
+export class AxisStruct {
 
   constructor(scale, options, chartArea, horizontal) {
     this.scale = scale
@@ -129,10 +129,6 @@ export default class Axis extends Component {
       options.color = '#3E90F0'
     }
 
-    if (typeof options.gridColor !== 'string') {
-      options.gridColor = '#3E90F0'
-    }
-
     if (typeof options.opacity !== 'number') {
       options.opacity = 0.5
     }
@@ -179,13 +175,6 @@ export default class Axis extends Component {
       return returnValue
     })
 
-
-    const gridLines = options.showLines ? _.map(axis.lines, function (c, i) {
-      return (
-               <Path key={'gridLines' + i} d={c.print()} strokeOpacity={options.opacity} stroke={options.gridColor} fill="none"/>
-            )
-    }) : []
-
     let offset = {
       x: chartArea.margin.left * -1,
       y: chartArea.margin.top * -1
@@ -198,9 +187,6 @@ export default class Axis extends Component {
                 {options.showAxis ? <Path d={axis.path.print()} strokeOpacity={options.opacity} stroke={options.color} strokeWidth={options.strokeWidth} fill="none"/> : null}
               </G>
               {ticks}
-              <G x={offset.x} y={offset.y}>
-                {gridLines}
-              </G>
             </G>
 
     return returnV
