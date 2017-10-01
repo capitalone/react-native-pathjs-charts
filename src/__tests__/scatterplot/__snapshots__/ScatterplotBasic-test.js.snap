@@ -9,6 +9,14 @@ exports[`test renders an example chart correctly 1`] = `
     y={20}>
     <view
       mockedComponent="svg-G"
+      x={-40}
+      y={-20} />
+    <view
+      mockedComponent="svg-G"
+      x={-40}
+      y={-20} />
+    <view
+      mockedComponent="svg-G"
       x={NaN}
       y={NaN}>
       <view
@@ -637,10 +645,6 @@ exports[`test renders an example chart correctly 1`] = `
           strokeOpacity={0.5}
           strokeWidth={3} />
       </view>
-      <view
-        mockedComponent="svg-G"
-        x={-40}
-        y={-20} />
     </view>
     <view
       mockedComponent="svg-G">
@@ -656,10 +660,6 @@ exports[`test renders an example chart correctly 1`] = `
           strokeOpacity={0.5}
           strokeWidth={3} />
       </view>
-      <view
-        mockedComponent="svg-G"
-        x={-40}
-        y={-20} />
     </view>
   </view>
 </view>
