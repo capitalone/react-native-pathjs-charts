@@ -21,6 +21,7 @@ import {Text as ReactText}  from 'react-native'
 import Svg,{ Circle, G } from 'react-native-svg'
 import { Options, styleSvg } from './util'
 import Axis from './Axis'
+import GridAxis from './GridAxis'
 import _ from 'lodash'
 import 'babel-polyfill'
 
@@ -139,6 +140,8 @@ export default class Scatterplot extends Component {
 
     return (<Svg width={options.width} height={options.height}>
             <G x={options.margin.left} y={options.margin.top}>
+                <GridAxis scale={chart.xscale} options={options.axisX} chartArea={chartArea} />
+                <GridAxis scale={chart.yscale} options={options.axisY} chartArea={chartArea} />
                 { points }
                 <Axis scale={chart.xscale} options={options.axisX} chartArea={chartArea} />
                 <Axis scale={chart.yscale} options={options.axisY} chartArea={chartArea} />
