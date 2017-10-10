@@ -200,6 +200,7 @@ render() {
       showTicks: true,
       zeroAxis: false,
       orient: 'bottom',
+      position: 'top', //optional
       tickValues: [],
       label: {
         fontFamily: 'Arial',
@@ -215,6 +216,7 @@ render() {
       showTicks: true,
       zeroAxis: false,
       orient: 'left',
+      position: 'right', //optional
       tickValues: [],
       label: {
         fontFamily: 'Arial',
