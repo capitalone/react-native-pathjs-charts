@@ -111,12 +111,6 @@ export default class Axis extends Component {
   render() {
     const { chartArea, options, scale } = this.props
     const horizontal = options.orient ==='top' || options.orient ==='bottom'
-    const positionMargin = {x: 0, y: 0};
-
-    if (options.position) {
-      if (options.position === 'right') positionMargin.x += chartArea.x.max;
-      if (options.position === 'top') positionMargin.y += chartArea.y.max;
-    }
 
     const axis = new AxisStruct(scale,options,chartArea,horizontal).axis()
 
@@ -130,6 +124,13 @@ export default class Axis extends Component {
     if (options.orient === 'bottom') xy = [0,5]
     if (options.orient === 'left')  xy = [-5,-10]
     if (options.orient === 'right')  xy = [5,5]
+
+    const positionMargin = {x: 0, y: 0};
+    
+    if (options.position) {
+      if (options.position === 'right') positionMargin.x += (chartArea.x.max);
+      if (options.position === 'top') positionMargin.y -= (chartArea.y.min + xy[1]);
+    }
 
     if (typeof options.color !== 'string') {
       options.color = '#3E90F0'
