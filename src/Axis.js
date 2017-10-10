@@ -111,6 +111,12 @@ export default class Axis extends Component {
   render() {
     const { chartArea, options, scale } = this.props
     const horizontal = options.orient ==='top' || options.orient ==='bottom'
+    const positionMargin = {x: 0, y: 0};
+
+    if (options.position) {
+      if (options.position === 'right') positionMargin.x += chartArea.x.max;
+      if (options.position === 'top') positionMargin.y += chartArea.y.max;
+    }
 
     const axis = new AxisStruct(scale,options,chartArea,horizontal).axis()
 
@@ -155,7 +161,7 @@ export default class Axis extends Component {
       let returnValue
       if (label !== undefined && label !== null) {
         returnValue =
-          <G key={i} x={gxy[0]} y={gxy[1]}>
+          <G key={i} x={gxy[0] + positionMargin.x} y={gxy[1] + positionMargin.y}>
               {options.showTicks &&
                 <Circle r={options.tickSize} cx="0" cy="0" stroke={options.tickColor} fill={options.tickColor} />
               }
@@ -176,8 +182,8 @@ export default class Axis extends Component {
     })
 
     let offset = {
-      x: chartArea.margin.left * -1,
-      y: chartArea.margin.top * -1
+      x: chartArea.margin.left * -1 + positionMargin.x,
+      y: chartArea.margin.top * -1 + positionMargin.y
       // x: 0,
       // y: 0
     }
