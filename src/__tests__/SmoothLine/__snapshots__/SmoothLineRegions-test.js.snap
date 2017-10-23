@@ -8,6 +8,14 @@ exports[`test renders an example chart correctly 1`] = `
     x={45}
     y={20}>
     <view
+      mockedComponent="svg-G"
+      x={-45}
+      y={-20} />
+    <view
+      mockedComponent="svg-G"
+      x={-45}
+      y={-20} />
+    <view
       mockedComponent="svg-G">
       <view
         fill="#c81212"
@@ -162,12 +170,16 @@ exports[`test renders an example chart correctly 1`] = `
       fill="none"
       mockedComponent="svg-Path"
       stroke="#3199de"
+      strokeDasharray={Array []}
+      strokeOpacity={1}
       strokeWidth="1" />
     <view
       d="M NaN NaN C NaN NaN NaN NaN NaN NaN S NaN NaN NaN NaN S NaN NaN NaN NaN S NaN NaN NaN NaN S NaN NaN NaN NaN S NaN NaN NaN NaN S NaN NaN NaN NaN S NaN NaN NaN NaN S NaN NaN NaN NaN S NaN NaN NaN NaN S NaN NaN NaN NaN S NaN NaN NaN NaN S NaN NaN NaN NaN S NaN NaN NaN NaN S NaN NaN NaN NaN S NaN NaN NaN NaN S NaN NaN NaN NaN S NaN NaN NaN NaN S NaN NaN NaN NaN S NaN NaN NaN NaN"
       fill="none"
       mockedComponent="svg-Path"
       stroke="#2980b9"
+      strokeDasharray={Array []}
+      strokeOpacity={1}
       strokeWidth="1" />
     <view
       mockedComponent="svg-G">
@@ -183,10 +195,6 @@ exports[`test renders an example chart correctly 1`] = `
           strokeOpacity={0.5}
           strokeWidth={3} />
       </view>
-      <view
-        mockedComponent="svg-G"
-        x={-45}
-        y={-20} />
     </view>
     <view
       mockedComponent="svg-G">
@@ -202,10 +210,6 @@ exports[`test renders an example chart correctly 1`] = `
           strokeOpacity={0.5}
           strokeWidth={3} />
       </view>
-      <view
-        mockedComponent="svg-G"
-        x={-45}
-        y={-20} />
     </view>
   </view>
 </view>

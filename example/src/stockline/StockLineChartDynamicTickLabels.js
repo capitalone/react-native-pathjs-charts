@@ -16,12 +16,13 @@ SPDX-Copyright: Copyright (c) Capital One Services, LLC
 SPDX-License-Identifier: Apache-2.0
 */
 
-'use strict'
+'use strict';
 
-import React, { Component } from 'react'
-import { View, StyleSheet} from 'react-native'
-import { StockLine } from 'react-native-pathjs-charts'
-import moment from 'moment'
+import React, { Component } from 'react';
+import { View, StyleSheet } from 'react-native';
+
+import { StockLine } from 'react-native-pathjs-charts';
+import moment from 'moment';
 
 const styles = StyleSheet.create({
   container: {
@@ -37,7 +38,7 @@ class StockLineChartDynamicTickLabels extends Component {
     title: `StockLine - Dynamic Labels`,
   });
   render() {
-    let data = [
+    const data = [
       [{
         "x": 0,
         "y": 47782
@@ -52,7 +53,7 @@ class StockLineChartDynamicTickLabels extends Component {
         "y": 73413
       }]
     ]
-    let options = {
+    const options = {
       width: 250,
       height: 250,
       color: '#2980B9',
@@ -100,13 +101,13 @@ class StockLineChartDynamicTickLabels extends Component {
           fill: '#34495E'
         }
       }
-    }
+    };
 
     return (
       <View style={styles.container}>
         <StockLine data={data} options={options} xKey='x' yKey='y' />
       </View>
-    )
+    );
   }
 }
 

@@ -8,6 +8,14 @@ exports[`test renders an example chart correctly 1`] = `
     x={35}
     y={10}>
     <view
+      mockedComponent="svg-G"
+      x={-35}
+      y={-10} />
+    <view
+      mockedComponent="svg-G"
+      x={-35}
+      y={-10} />
+    <view
       d="M NaN NaN L NaN NaN L NaN NaN L NaN NaN L NaN NaN L NaN NaN L NaN NaN L NaN NaN L NaN NaN L NaN NaN L NaN NaN L NaN NaN L NaN NaN L NaN NaN L NaN NaN L NaN NaN L NaN NaN L NaN NaN L NaN NaN L NaN NaN L NaN NaN Z "
       fill="#3199de"
       fillOpacity={0.5}
@@ -30,18 +38,24 @@ exports[`test renders an example chart correctly 1`] = `
       fill="none"
       mockedComponent="svg-Path"
       stroke="#3199de"
+      strokeDasharray={Array []}
+      strokeOpacity={1}
       strokeWidth="1" />
     <view
       d="M NaN NaN L NaN NaN L NaN NaN L NaN NaN L NaN NaN L NaN NaN L NaN NaN L NaN NaN L NaN NaN L NaN NaN L NaN NaN L NaN NaN L NaN NaN L NaN NaN L NaN NaN L NaN NaN L NaN NaN L NaN NaN L NaN NaN"
       fill="none"
       mockedComponent="svg-Path"
       stroke="#2980b9"
+      strokeDasharray={Array []}
+      strokeOpacity={1}
       strokeWidth="1" />
     <view
       d="M NaN NaN L NaN NaN L NaN NaN L NaN NaN L NaN NaN L NaN NaN L NaN NaN L NaN NaN L NaN NaN L NaN NaN L NaN NaN L NaN NaN L NaN NaN L NaN NaN L NaN NaN L NaN NaN L NaN NaN L NaN NaN L NaN NaN"
       fill="none"
       mockedComponent="svg-Path"
       stroke="#206694"
+      strokeDasharray={Array []}
+      strokeOpacity={1}
       strokeWidth="1" />
     <view
       mockedComponent="svg-G">
@@ -57,10 +71,6 @@ exports[`test renders an example chart correctly 1`] = `
           strokeOpacity={0.5}
           strokeWidth={3} />
       </view>
-      <view
-        mockedComponent="svg-G"
-        x={-35}
-        y={-10} />
     </view>
     <view
       mockedComponent="svg-G">
@@ -76,10 +86,6 @@ exports[`test renders an example chart correctly 1`] = `
           strokeOpacity={0.5}
           strokeWidth={3} />
       </view>
-      <view
-        mockedComponent="svg-G"
-        x={-35}
-        y={-10} />
     </view>
   </view>
 </view>
