@@ -1,24 +1,31 @@
-exports[`test renders using flattened properties correctly 1`] = `
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`renders using flattened properties correctly 1`] = `
 <view
   height={390}
   mockedComponent="svg-component"
-  width={390}>
+  width={390}
+>
   <view
     mockedComponent="svg-G"
     x={20}
-    y={20}>
+    y={20}
+  >
     <view
-      mockedComponent="svg-G">
+      mockedComponent="svg-G"
+    >
       <view
         d="M NaN NaN A 150 150 0 0 1 NaN NaN L NaN NaN A 10 10 0 0 0 NaN NaN Z "
         fill="#3199de"
         fillOpacity={1}
         mockedComponent="svg-Path"
-        stroke="#3199de" />
+        stroke="#3199de"
+      />
       <view
         mockedComponent="svg-G"
         x={20}
-        y={20}>
+        y={20}
+      >
         <view
           fill="#ECF0F1"
           fontFamily="Arial"
@@ -28,23 +35,27 @@ exports[`test renders using flattened properties correctly 1`] = `
           mockedComponent="svg-Text"
           textAnchor="middle"
           x={NaN}
-          y={NaN}>
+          y={NaN}
+        >
           Washington
         </view>
       </view>
     </view>
     <view
-      mockedComponent="svg-G">
+      mockedComponent="svg-G"
+    >
       <view
         d="M NaN NaN A 150 150 0 0 1 NaN NaN L NaN NaN A 10 10 0 0 0 NaN NaN Z "
         fill="#2980b9"
         fillOpacity={1}
         mockedComponent="svg-Path"
-        stroke="#2980b9" />
+        stroke="#2980b9"
+      />
       <view
         mockedComponent="svg-G"
         x={20}
-        y={20}>
+        y={20}
+      >
         <view
           fill="#ECF0F1"
           fontFamily="Arial"
@@ -54,23 +65,27 @@ exports[`test renders using flattened properties correctly 1`] = `
           mockedComponent="svg-Text"
           textAnchor="middle"
           x={NaN}
-          y={NaN}>
+          y={NaN}
+        >
           Oregon
         </view>
       </view>
     </view>
     <view
-      mockedComponent="svg-G">
+      mockedComponent="svg-G"
+    >
       <view
         d="M NaN NaN A 150 150 0 0 1 NaN NaN L NaN NaN A 10 10 0 0 0 NaN NaN Z "
         fill="#df9a14"
         fillOpacity={1}
         mockedComponent="svg-Path"
-        stroke="#df9a14" />
+        stroke="#df9a14"
+      />
       <view
         mockedComponent="svg-G"
         x={20}
-        y={20}>
+        y={20}
+      >
         <view
           fill="#ECF0F1"
           fontFamily="Arial"
@@ -80,23 +95,27 @@ exports[`test renders using flattened properties correctly 1`] = `
           mockedComponent="svg-Text"
           textAnchor="middle"
           x={NaN}
-          y={NaN}>
+          y={NaN}
+        >
           Minnesota
         </view>
       </view>
     </view>
     <view
-      mockedComponent="svg-G">
+      mockedComponent="svg-G"
+    >
       <view
         d="M NaN NaN A 150 150 0 0 1 NaN NaN L NaN NaN A 10 10 0 0 0 NaN NaN Z "
         fill="#2473a5"
         fillOpacity={1}
         mockedComponent="svg-Path"
-        stroke="#2473a5" />
+        stroke="#2473a5"
+      />
       <view
         mockedComponent="svg-G"
         x={20}
-        y={20}>
+        y={20}
+      >
         <view
           fill="#ECF0F1"
           fontFamily="Arial"
@@ -106,7 +125,8 @@ exports[`test renders using flattened properties correctly 1`] = `
           mockedComponent="svg-Text"
           textAnchor="middle"
           x={NaN}
-          y={NaN}>
+          y={NaN}
+        >
           Alaska
         </view>
       </view>
@@ -115,27 +135,32 @@ exports[`test renders using flattened properties correctly 1`] = `
 </view>
 `;
 
-exports[`test renders using options property correctly 1`] = `
+exports[`renders using options property correctly 1`] = `
 <view
   height={390}
   mockedComponent="svg-component"
-  width={390}>
+  width={390}
+>
   <view
     mockedComponent="svg-G"
     x={20}
-    y={20}>
+    y={20}
+  >
     <view
-      mockedComponent="svg-G">
+      mockedComponent="svg-G"
+    >
       <view
         d="M NaN NaN A 150 150 0 0 1 NaN NaN L NaN NaN A 50 50 0 0 0 NaN NaN Z "
         fill="#3199de"
         fillOpacity={1}
         mockedComponent="svg-Path"
-        stroke="#3199de" />
+        stroke="#3199de"
+      />
       <view
         mockedComponent="svg-G"
         x={20}
-        y={20}>
+        y={20}
+      >
         <view
           fill="#ECF0F1"
           fontFamily="Arial"
@@ -145,23 +170,27 @@ exports[`test renders using options property correctly 1`] = `
           mockedComponent="svg-Text"
           textAnchor="middle"
           x={NaN}
-          y={NaN}>
+          y={NaN}
+        >
           Washington
         </view>
       </view>
     </view>
     <view
-      mockedComponent="svg-G">
+      mockedComponent="svg-G"
+    >
       <view
         d="M NaN NaN A 150 150 0 0 1 NaN NaN L NaN NaN A 50 50 0 0 0 NaN NaN Z "
         fill="#2980b9"
         fillOpacity={1}
         mockedComponent="svg-Path"
-        stroke="#2980b9" />
+        stroke="#2980b9"
+      />
       <view
         mockedComponent="svg-G"
         x={20}
-        y={20}>
+        y={20}
+      >
         <view
           fill="#ECF0F1"
           fontFamily="Arial"
@@ -171,23 +200,27 @@ exports[`test renders using options property correctly 1`] = `
           mockedComponent="svg-Text"
           textAnchor="middle"
           x={NaN}
-          y={NaN}>
+          y={NaN}
+        >
           Oregon
         </view>
       </view>
     </view>
     <view
-      mockedComponent="svg-G">
+      mockedComponent="svg-G"
+    >
       <view
         d="M NaN NaN A 150 150 0 0 1 NaN NaN L NaN NaN A 50 50 0 0 0 NaN NaN Z "
         fill="#df9a14"
         fillOpacity={1}
         mockedComponent="svg-Path"
-        stroke="#df9a14" />
+        stroke="#df9a14"
+      />
       <view
         mockedComponent="svg-G"
         x={20}
-        y={20}>
+        y={20}
+      >
         <view
           fill="#ECF0F1"
           fontFamily="Arial"
@@ -197,23 +230,27 @@ exports[`test renders using options property correctly 1`] = `
           mockedComponent="svg-Text"
           textAnchor="middle"
           x={NaN}
-          y={NaN}>
+          y={NaN}
+        >
           Minnesota
         </view>
       </view>
     </view>
     <view
-      mockedComponent="svg-G">
+      mockedComponent="svg-G"
+    >
       <view
         d="M NaN NaN A 150 150 0 0 1 NaN NaN L NaN NaN A 50 50 0 0 0 NaN NaN Z "
         fill="#2473a5"
         fillOpacity={1}
         mockedComponent="svg-Path"
-        stroke="#2473a5" />
+        stroke="#2473a5"
+      />
       <view
         mockedComponent="svg-G"
         x={20}
-        y={20}>
+        y={20}
+      >
         <view
           fill="#ECF0F1"
           fontFamily="Arial"
@@ -223,7 +260,8 @@ exports[`test renders using options property correctly 1`] = `
           mockedComponent="svg-Text"
           textAnchor="middle"
           x={NaN}
-          y={NaN}>
+          y={NaN}
+        >
           Alaska
         </view>
       </view>
@@ -232,31 +270,36 @@ exports[`test renders using options property correctly 1`] = `
 </view>
 `;
 
-exports[`test renders with 1 data item correctly 1`] = `
+exports[`renders with 1 data item correctly 1`] = `
 <view
   height={390}
   mockedComponent="svg-component"
-  width={390}>
+  width={390}
+>
   <view
     mockedComponent="svg-G"
     x={20}
-    y={20}>
+    y={20}
+  >
     <view
-      mockedComponent="svg-G">
+      mockedComponent="svg-G"
+    >
       <view
         cx={155}
         cy={155}
         fill="#3199de"
         mockedComponent="svg-Circle"
         r={150}
-        stroke="#277ab1" />
+        stroke="#277ab1"
+      />
       <view
         cx={155}
         cy={155}
         fill="#fff"
         mockedComponent="svg-Circle"
         r={50}
-        stroke="#277ab1" />
+        stroke="#277ab1"
+      />
       <view
         fill="#ECF0F1"
         fontFamily="Arial"
@@ -266,7 +309,8 @@ exports[`test renders with 1 data item correctly 1`] = `
         mockedComponent="svg-Text"
         textAnchor="middle"
         x={155}
-        y={55}>
+        y={55}
+      >
         Washington
       </view>
     </view>

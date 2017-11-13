@@ -1,14 +1,19 @@
-exports[`test renders an example chart correctly 1`] = `
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`renders an example chart correctly 1`] = `
 <view
   height={325}
   mockedComponent="svg-component"
-  width={345}>
+  width={345}
+>
   <view
     mockedComponent="svg-G"
     x={45}
-    y={20}>
+    y={20}
+  >
     <view
-      mockedComponent="svg-G">
+      mockedComponent="svg-G"
+    >
       <view
         fill="#c81212"
         fillOpacity={0.5}
@@ -16,7 +21,8 @@ exports[`test renders an example chart correctly 1`] = `
         mockedComponent="svg-Rect"
         width={NaN}
         x={0}
-        y={NaN} />
+        y={NaN}
+      />
       <view
         fill={undefined}
         fontFamily={undefined}
@@ -26,12 +32,14 @@ exports[`test renders an example chart correctly 1`] = `
         mockedComponent="svg-Text"
         textAnchor="middle"
         x={25}
-        y={NaN}>
+        y={NaN}
+      >
         Level1
       </view>
     </view>
     <view
-      mockedComponent="svg-G">
+      mockedComponent="svg-G"
+    >
       <view
         fill="#2d8023"
         fillOpacity={0.5}
@@ -39,7 +47,8 @@ exports[`test renders an example chart correctly 1`] = `
         mockedComponent="svg-Rect"
         width={NaN}
         x={0}
-        y={NaN} />
+        y={NaN}
+      />
       <view
         fill={undefined}
         fontFamily={undefined}
@@ -49,12 +58,14 @@ exports[`test renders an example chart correctly 1`] = `
         mockedComponent="svg-Text"
         textAnchor="middle"
         x={25}
-        y={NaN}>
+        y={NaN}
+      >
         Level2
       </view>
     </view>
     <view
-      mockedComponent="svg-G">
+      mockedComponent="svg-G"
+    >
       <view
         fill="#6a2380"
         fillOpacity={0.5}
@@ -62,7 +73,8 @@ exports[`test renders an example chart correctly 1`] = `
         mockedComponent="svg-Rect"
         width={NaN}
         x={0}
-        y={NaN} />
+        y={NaN}
+      />
       <view
         fill={undefined}
         fontFamily={undefined}
@@ -72,12 +84,14 @@ exports[`test renders an example chart correctly 1`] = `
         mockedComponent="svg-Text"
         textAnchor="middle"
         x={25}
-        y={NaN}>
+        y={NaN}
+      >
         Level3
       </view>
     </view>
     <view
-      mockedComponent="svg-G">
+      mockedComponent="svg-G"
+    >
       <view
         fill="#807623"
         fillOpacity={0.5}
@@ -85,7 +99,8 @@ exports[`test renders an example chart correctly 1`] = `
         mockedComponent="svg-Rect"
         width={NaN}
         x={0}
-        y={NaN} />
+        y={NaN}
+      />
       <view
         fill={undefined}
         fontFamily={undefined}
@@ -95,12 +110,14 @@ exports[`test renders an example chart correctly 1`] = `
         mockedComponent="svg-Text"
         textAnchor="middle"
         x={25}
-        y={NaN}>
+        y={NaN}
+      >
         Level4
       </view>
     </view>
     <view
-      mockedComponent="svg-G">
+      mockedComponent="svg-G"
+    >
       <view
         fill="#8fb9b3"
         fillOpacity={0.5}
@@ -108,7 +125,8 @@ exports[`test renders an example chart correctly 1`] = `
         mockedComponent="svg-Rect"
         width={NaN}
         x={0}
-        y={NaN} />
+        y={NaN}
+      />
       <view
         fill={undefined}
         fontFamily={undefined}
@@ -118,12 +136,14 @@ exports[`test renders an example chart correctly 1`] = `
         mockedComponent="svg-Text"
         textAnchor="middle"
         x={25}
-        y={NaN}>
+        y={NaN}
+      >
         Level-1
       </view>
     </view>
     <view
-      mockedComponent="svg-G">
+      mockedComponent="svg-G"
+    >
       <view
         fill="#e2d7c3"
         fillOpacity={0.5}
@@ -131,7 +151,8 @@ exports[`test renders an example chart correctly 1`] = `
         mockedComponent="svg-Rect"
         width={NaN}
         x={0}
-        y={NaN} />
+        y={NaN}
+      />
       <view
         fill={undefined}
         fontFamily={undefined}
@@ -141,7 +162,8 @@ exports[`test renders an example chart correctly 1`] = `
         mockedComponent="svg-Text"
         textAnchor="middle"
         x={25}
-        y={NaN}>
+        y={NaN}
+      >
         Level-2
       </view>
     </view>
@@ -150,13 +172,15 @@ exports[`test renders an example chart correctly 1`] = `
       fill="#3199de"
       fillOpacity={0.5}
       mockedComponent="svg-Path"
-      stroke="none" />
+      stroke="none"
+    />
     <view
       d="M NaN NaN C NaN NaN NaN NaN NaN NaN S NaN NaN NaN NaN S NaN NaN NaN NaN S NaN NaN NaN NaN S NaN NaN NaN NaN S NaN NaN NaN NaN S NaN NaN NaN NaN S NaN NaN NaN NaN S NaN NaN NaN NaN S NaN NaN NaN NaN S NaN NaN NaN NaN S NaN NaN NaN NaN S NaN NaN NaN NaN S NaN NaN NaN NaN S NaN NaN NaN NaN S NaN NaN NaN NaN S NaN NaN NaN NaN S NaN NaN NaN NaN S NaN NaN NaN NaN S NaN NaN NaN NaN L NaN NaN L NaN NaN Z "
       fill="#2980b9"
       fillOpacity={0.5}
       mockedComponent="svg-Path"
-      stroke="none" />
+      stroke="none"
+    />
     <view
       d="M NaN NaN C NaN NaN NaN NaN NaN NaN S NaN NaN NaN NaN S NaN NaN NaN NaN S NaN NaN NaN NaN S NaN NaN NaN NaN S NaN NaN NaN NaN S NaN NaN NaN NaN S NaN NaN NaN NaN S NaN NaN NaN NaN S NaN NaN NaN NaN S NaN NaN NaN NaN S NaN NaN NaN NaN S NaN NaN NaN NaN S NaN NaN NaN NaN S NaN NaN NaN NaN S NaN NaN NaN NaN S NaN NaN NaN NaN S NaN NaN NaN NaN S NaN NaN NaN NaN S NaN NaN NaN NaN"
       fill="none"
@@ -164,7 +188,8 @@ exports[`test renders an example chart correctly 1`] = `
       stroke="#3199de"
       strokeDasharray={Array []}
       strokeOpacity={1}
-      strokeWidth="1" />
+      strokeWidth="1"
+    />
     <view
       d="M NaN NaN C NaN NaN NaN NaN NaN NaN S NaN NaN NaN NaN S NaN NaN NaN NaN S NaN NaN NaN NaN S NaN NaN NaN NaN S NaN NaN NaN NaN S NaN NaN NaN NaN S NaN NaN NaN NaN S NaN NaN NaN NaN S NaN NaN NaN NaN S NaN NaN NaN NaN S NaN NaN NaN NaN S NaN NaN NaN NaN S NaN NaN NaN NaN S NaN NaN NaN NaN S NaN NaN NaN NaN S NaN NaN NaN NaN S NaN NaN NaN NaN S NaN NaN NaN NaN S NaN NaN NaN NaN"
       fill="none"
@@ -172,44 +197,53 @@ exports[`test renders an example chart correctly 1`] = `
       stroke="#2980b9"
       strokeDasharray={Array []}
       strokeOpacity={1}
-      strokeWidth="1" />
+      strokeWidth="1"
+    />
     <view
-      mockedComponent="svg-G">
+      mockedComponent="svg-G"
+    >
       <view
         mockedComponent="svg-G"
         x={-45}
-        y={-20}>
+        y={-20}
+      >
         <view
           d="M NaN NaN L NaN NaN Z "
           fill="none"
           mockedComponent="svg-Path"
           stroke="#3E90F0"
           strokeOpacity={0.5}
-          strokeWidth={3} />
+          strokeWidth={3}
+        />
       </view>
       <view
         mockedComponent="svg-G"
         x={-45}
-        y={-20} />
+        y={-20}
+      />
     </view>
     <view
-      mockedComponent="svg-G">
+      mockedComponent="svg-G"
+    >
       <view
         mockedComponent="svg-G"
         x={-45}
-        y={-20}>
+        y={-20}
+      >
         <view
           d="M NaN NaN L NaN NaN Z "
           fill="none"
           mockedComponent="svg-Path"
           stroke="#3E90F0"
           strokeOpacity={0.5}
-          strokeWidth={3} />
+          strokeWidth={3}
+        />
       </view>
       <view
         mockedComponent="svg-G"
         x={-45}
-        y={-20} />
+        y={-20}
+      />
     </view>
   </view>
 </view>
