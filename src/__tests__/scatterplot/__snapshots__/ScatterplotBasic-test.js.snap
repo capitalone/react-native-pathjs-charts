@@ -1,24 +1,31 @@
-exports[`test renders an example chart correctly 1`] = `
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`renders an example chart correctly 1`] = `
 <view
   height={340}
   mockedComponent="svg-component"
-  width={360}>
+  width={360}
+>
   <view
     mockedComponent="svg-G"
     x={40}
-    y={20}>
+    y={20}
+  >
     <view
       mockedComponent="svg-G"
       x={-40}
-      y={-20} />
+      y={-20}
+    />
     <view
       mockedComponent="svg-G"
       x={-40}
-      y={-20} />
+      y={-20}
+    />
     <view
       mockedComponent="svg-G"
       x={NaN}
-      y={NaN}>
+      y={NaN}
+    >
       <view
         cx={0}
         cy={0}
@@ -27,12 +34,14 @@ exports[`test renders an example chart correctly 1`] = `
         mockedComponent="svg-Circle"
         r={2}
         stroke="#3E90F0"
-        strokeOpacity={1} />
+        strokeOpacity={1}
+      />
     </view>
     <view
       mockedComponent="svg-G"
       x={NaN}
-      y={NaN}>
+      y={NaN}
+    >
       <view
         cx={0}
         cy={0}
@@ -41,12 +50,14 @@ exports[`test renders an example chart correctly 1`] = `
         mockedComponent="svg-Circle"
         r={2}
         stroke="#3E90F0"
-        strokeOpacity={1} />
+        strokeOpacity={1}
+      />
     </view>
     <view
       mockedComponent="svg-G"
       x={NaN}
-      y={NaN}>
+      y={NaN}
+    >
       <view
         cx={0}
         cy={0}
@@ -55,12 +66,14 @@ exports[`test renders an example chart correctly 1`] = `
         mockedComponent="svg-Circle"
         r={2}
         stroke="#3E90F0"
-        strokeOpacity={1} />
+        strokeOpacity={1}
+      />
     </view>
     <view
       mockedComponent="svg-G"
       x={NaN}
-      y={NaN}>
+      y={NaN}
+    >
       <view
         cx={0}
         cy={0}
@@ -69,12 +82,14 @@ exports[`test renders an example chart correctly 1`] = `
         mockedComponent="svg-Circle"
         r={2}
         stroke="#3E90F0"
-        strokeOpacity={1} />
+        strokeOpacity={1}
+      />
     </view>
     <view
       mockedComponent="svg-G"
       x={NaN}
-      y={NaN}>
+      y={NaN}
+    >
       <view
         cx={0}
         cy={0}
@@ -83,12 +98,14 @@ exports[`test renders an example chart correctly 1`] = `
         mockedComponent="svg-Circle"
         r={2}
         stroke="#3E90F0"
-        strokeOpacity={1} />
+        strokeOpacity={1}
+      />
     </view>
     <view
       mockedComponent="svg-G"
       x={NaN}
-      y={NaN}>
+      y={NaN}
+    >
       <view
         cx={0}
         cy={0}
@@ -97,12 +114,14 @@ exports[`test renders an example chart correctly 1`] = `
         mockedComponent="svg-Circle"
         r={2}
         stroke="#3E90F0"
-        strokeOpacity={1} />
+        strokeOpacity={1}
+      />
     </view>
     <view
       mockedComponent="svg-G"
       x={NaN}
-      y={NaN}>
+      y={NaN}
+    >
       <view
         cx={0}
         cy={0}
@@ -111,12 +130,14 @@ exports[`test renders an example chart correctly 1`] = `
         mockedComponent="svg-Circle"
         r={2}
         stroke="#3E90F0"
-        strokeOpacity={1} />
+        strokeOpacity={1}
+      />
     </view>
     <view
       mockedComponent="svg-G"
       x={NaN}
-      y={NaN}>
+      y={NaN}
+    >
       <view
         cx={0}
         cy={0}
@@ -125,12 +146,14 @@ exports[`test renders an example chart correctly 1`] = `
         mockedComponent="svg-Circle"
         r={2}
         stroke="#3E90F0"
-        strokeOpacity={1} />
+        strokeOpacity={1}
+      />
     </view>
     <view
       mockedComponent="svg-G"
       x={NaN}
-      y={NaN}>
+      y={NaN}
+    >
       <view
         cx={0}
         cy={0}
@@ -139,12 +162,14 @@ exports[`test renders an example chart correctly 1`] = `
         mockedComponent="svg-Circle"
         r={2}
         stroke="#3E90F0"
-        strokeOpacity={1} />
+        strokeOpacity={1}
+      />
     </view>
     <view
       mockedComponent="svg-G"
       x={NaN}
-      y={NaN}>
+      y={NaN}
+    >
       <view
         cx={0}
         cy={0}
@@ -153,12 +178,14 @@ exports[`test renders an example chart correctly 1`] = `
         mockedComponent="svg-Circle"
         r={2}
         stroke="#3E90F0"
-        strokeOpacity={1} />
+        strokeOpacity={1}
+      />
     </view>
     <view
       mockedComponent="svg-G"
       x={NaN}
-      y={NaN}>
+      y={NaN}
+    >
       <view
         cx={0}
         cy={0}
@@ -167,12 +194,14 @@ exports[`test renders an example chart correctly 1`] = `
         mockedComponent="svg-Circle"
         r={2}
         stroke="#3E90F0"
-        strokeOpacity={1} />
+        strokeOpacity={1}
+      />
     </view>
     <view
       mockedComponent="svg-G"
       x={NaN}
-      y={NaN}>
+      y={NaN}
+    >
       <view
         cx={0}
         cy={0}
@@ -181,12 +210,14 @@ exports[`test renders an example chart correctly 1`] = `
         mockedComponent="svg-Circle"
         r={2}
         stroke="#3E90F0"
-        strokeOpacity={1} />
+        strokeOpacity={1}
+      />
     </view>
     <view
       mockedComponent="svg-G"
       x={NaN}
-      y={NaN}>
+      y={NaN}
+    >
       <view
         cx={0}
         cy={0}
@@ -195,12 +226,14 @@ exports[`test renders an example chart correctly 1`] = `
         mockedComponent="svg-Circle"
         r={2}
         stroke="#3E90F0"
-        strokeOpacity={1} />
+        strokeOpacity={1}
+      />
     </view>
     <view
       mockedComponent="svg-G"
       x={NaN}
-      y={NaN}>
+      y={NaN}
+    >
       <view
         cx={0}
         cy={0}
@@ -209,12 +242,14 @@ exports[`test renders an example chart correctly 1`] = `
         mockedComponent="svg-Circle"
         r={2}
         stroke="#3E90F0"
-        strokeOpacity={1} />
+        strokeOpacity={1}
+      />
     </view>
     <view
       mockedComponent="svg-G"
       x={NaN}
-      y={NaN}>
+      y={NaN}
+    >
       <view
         cx={0}
         cy={0}
@@ -223,12 +258,14 @@ exports[`test renders an example chart correctly 1`] = `
         mockedComponent="svg-Circle"
         r={2}
         stroke="#3E90F0"
-        strokeOpacity={1} />
+        strokeOpacity={1}
+      />
     </view>
     <view
       mockedComponent="svg-G"
       x={NaN}
-      y={NaN}>
+      y={NaN}
+    >
       <view
         cx={0}
         cy={0}
@@ -237,12 +274,14 @@ exports[`test renders an example chart correctly 1`] = `
         mockedComponent="svg-Circle"
         r={2}
         stroke="#3E90F0"
-        strokeOpacity={1} />
+        strokeOpacity={1}
+      />
     </view>
     <view
       mockedComponent="svg-G"
       x={NaN}
-      y={NaN}>
+      y={NaN}
+    >
       <view
         cx={0}
         cy={0}
@@ -251,12 +290,14 @@ exports[`test renders an example chart correctly 1`] = `
         mockedComponent="svg-Circle"
         r={2}
         stroke="#3E90F0"
-        strokeOpacity={1} />
+        strokeOpacity={1}
+      />
     </view>
     <view
       mockedComponent="svg-G"
       x={NaN}
-      y={NaN}>
+      y={NaN}
+    >
       <view
         cx={0}
         cy={0}
@@ -265,12 +306,14 @@ exports[`test renders an example chart correctly 1`] = `
         mockedComponent="svg-Circle"
         r={2}
         stroke="#3E90F0"
-        strokeOpacity={1} />
+        strokeOpacity={1}
+      />
     </view>
     <view
       mockedComponent="svg-G"
       x={NaN}
-      y={NaN}>
+      y={NaN}
+    >
       <view
         cx={0}
         cy={0}
@@ -279,12 +322,14 @@ exports[`test renders an example chart correctly 1`] = `
         mockedComponent="svg-Circle"
         r={2}
         stroke="#3E90F0"
-        strokeOpacity={1} />
+        strokeOpacity={1}
+      />
     </view>
     <view
       mockedComponent="svg-G"
       x={NaN}
-      y={NaN}>
+      y={NaN}
+    >
       <view
         cx={0}
         cy={0}
@@ -293,12 +338,14 @@ exports[`test renders an example chart correctly 1`] = `
         mockedComponent="svg-Circle"
         r={2}
         stroke="#3E90F0"
-        strokeOpacity={1} />
+        strokeOpacity={1}
+      />
     </view>
     <view
       mockedComponent="svg-G"
       x={NaN}
-      y={NaN}>
+      y={NaN}
+    >
       <view
         cx={0}
         cy={0}
@@ -307,12 +354,14 @@ exports[`test renders an example chart correctly 1`] = `
         mockedComponent="svg-Circle"
         r={2}
         stroke="#3E90F0"
-        strokeOpacity={1} />
+        strokeOpacity={1}
+      />
     </view>
     <view
       mockedComponent="svg-G"
       x={NaN}
-      y={NaN}>
+      y={NaN}
+    >
       <view
         cx={0}
         cy={0}
@@ -321,12 +370,14 @@ exports[`test renders an example chart correctly 1`] = `
         mockedComponent="svg-Circle"
         r={2}
         stroke="#3E90F0"
-        strokeOpacity={1} />
+        strokeOpacity={1}
+      />
     </view>
     <view
       mockedComponent="svg-G"
       x={NaN}
-      y={NaN}>
+      y={NaN}
+    >
       <view
         cx={0}
         cy={0}
@@ -335,12 +386,14 @@ exports[`test renders an example chart correctly 1`] = `
         mockedComponent="svg-Circle"
         r={2}
         stroke="#3E90F0"
-        strokeOpacity={1} />
+        strokeOpacity={1}
+      />
     </view>
     <view
       mockedComponent="svg-G"
       x={NaN}
-      y={NaN}>
+      y={NaN}
+    >
       <view
         cx={0}
         cy={0}
@@ -349,12 +402,14 @@ exports[`test renders an example chart correctly 1`] = `
         mockedComponent="svg-Circle"
         r={2}
         stroke="#3E90F0"
-        strokeOpacity={1} />
+        strokeOpacity={1}
+      />
     </view>
     <view
       mockedComponent="svg-G"
       x={NaN}
-      y={NaN}>
+      y={NaN}
+    >
       <view
         cx={0}
         cy={0}
@@ -363,12 +418,14 @@ exports[`test renders an example chart correctly 1`] = `
         mockedComponent="svg-Circle"
         r={2}
         stroke="#3E90F0"
-        strokeOpacity={1} />
+        strokeOpacity={1}
+      />
     </view>
     <view
       mockedComponent="svg-G"
       x={NaN}
-      y={NaN}>
+      y={NaN}
+    >
       <view
         cx={0}
         cy={0}
@@ -377,12 +434,14 @@ exports[`test renders an example chart correctly 1`] = `
         mockedComponent="svg-Circle"
         r={2}
         stroke="#3E90F0"
-        strokeOpacity={1} />
+        strokeOpacity={1}
+      />
     </view>
     <view
       mockedComponent="svg-G"
       x={NaN}
-      y={NaN}>
+      y={NaN}
+    >
       <view
         cx={0}
         cy={0}
@@ -391,12 +450,14 @@ exports[`test renders an example chart correctly 1`] = `
         mockedComponent="svg-Circle"
         r={2}
         stroke="#3E90F0"
-        strokeOpacity={1} />
+        strokeOpacity={1}
+      />
     </view>
     <view
       mockedComponent="svg-G"
       x={NaN}
-      y={NaN}>
+      y={NaN}
+    >
       <view
         cx={0}
         cy={0}
@@ -405,12 +466,14 @@ exports[`test renders an example chart correctly 1`] = `
         mockedComponent="svg-Circle"
         r={2}
         stroke="#3E90F0"
-        strokeOpacity={1} />
+        strokeOpacity={1}
+      />
     </view>
     <view
       mockedComponent="svg-G"
       x={NaN}
-      y={NaN}>
+      y={NaN}
+    >
       <view
         cx={0}
         cy={0}
@@ -419,12 +482,14 @@ exports[`test renders an example chart correctly 1`] = `
         mockedComponent="svg-Circle"
         r={2}
         stroke="#3E90F0"
-        strokeOpacity={1} />
+        strokeOpacity={1}
+      />
     </view>
     <view
       mockedComponent="svg-G"
       x={NaN}
-      y={NaN}>
+      y={NaN}
+    >
       <view
         cx={0}
         cy={0}
@@ -433,12 +498,14 @@ exports[`test renders an example chart correctly 1`] = `
         mockedComponent="svg-Circle"
         r={2}
         stroke="#3E90F0"
-        strokeOpacity={1} />
+        strokeOpacity={1}
+      />
     </view>
     <view
       mockedComponent="svg-G"
       x={NaN}
-      y={NaN}>
+      y={NaN}
+    >
       <view
         cx={0}
         cy={0}
@@ -447,12 +514,14 @@ exports[`test renders an example chart correctly 1`] = `
         mockedComponent="svg-Circle"
         r={2}
         stroke="#3E90F0"
-        strokeOpacity={1} />
+        strokeOpacity={1}
+      />
     </view>
     <view
       mockedComponent="svg-G"
       x={NaN}
-      y={NaN}>
+      y={NaN}
+    >
       <view
         cx={0}
         cy={0}
@@ -461,12 +530,14 @@ exports[`test renders an example chart correctly 1`] = `
         mockedComponent="svg-Circle"
         r={2}
         stroke="#3E90F0"
-        strokeOpacity={1} />
+        strokeOpacity={1}
+      />
     </view>
     <view
       mockedComponent="svg-G"
       x={NaN}
-      y={NaN}>
+      y={NaN}
+    >
       <view
         cx={0}
         cy={0}
@@ -475,12 +546,14 @@ exports[`test renders an example chart correctly 1`] = `
         mockedComponent="svg-Circle"
         r={2}
         stroke="#3E90F0"
-        strokeOpacity={1} />
+        strokeOpacity={1}
+      />
     </view>
     <view
       mockedComponent="svg-G"
       x={NaN}
-      y={NaN}>
+      y={NaN}
+    >
       <view
         cx={0}
         cy={0}
@@ -489,12 +562,14 @@ exports[`test renders an example chart correctly 1`] = `
         mockedComponent="svg-Circle"
         r={2}
         stroke="#3E90F0"
-        strokeOpacity={1} />
+        strokeOpacity={1}
+      />
     </view>
     <view
       mockedComponent="svg-G"
       x={NaN}
-      y={NaN}>
+      y={NaN}
+    >
       <view
         cx={0}
         cy={0}
@@ -503,12 +578,14 @@ exports[`test renders an example chart correctly 1`] = `
         mockedComponent="svg-Circle"
         r={2}
         stroke="#3E90F0"
-        strokeOpacity={1} />
+        strokeOpacity={1}
+      />
     </view>
     <view
       mockedComponent="svg-G"
       x={NaN}
-      y={NaN}>
+      y={NaN}
+    >
       <view
         cx={0}
         cy={0}
@@ -517,12 +594,14 @@ exports[`test renders an example chart correctly 1`] = `
         mockedComponent="svg-Circle"
         r={2}
         stroke="#3E90F0"
-        strokeOpacity={1} />
+        strokeOpacity={1}
+      />
     </view>
     <view
       mockedComponent="svg-G"
       x={NaN}
-      y={NaN}>
+      y={NaN}
+    >
       <view
         cx={0}
         cy={0}
@@ -531,12 +610,14 @@ exports[`test renders an example chart correctly 1`] = `
         mockedComponent="svg-Circle"
         r={2}
         stroke="#3E90F0"
-        strokeOpacity={1} />
+        strokeOpacity={1}
+      />
     </view>
     <view
       mockedComponent="svg-G"
       x={NaN}
-      y={NaN}>
+      y={NaN}
+    >
       <view
         cx={0}
         cy={0}
@@ -545,12 +626,14 @@ exports[`test renders an example chart correctly 1`] = `
         mockedComponent="svg-Circle"
         r={2}
         stroke="#3E90F0"
-        strokeOpacity={1} />
+        strokeOpacity={1}
+      />
     </view>
     <view
       mockedComponent="svg-G"
       x={NaN}
-      y={NaN}>
+      y={NaN}
+    >
       <view
         cx={0}
         cy={0}
@@ -559,12 +642,14 @@ exports[`test renders an example chart correctly 1`] = `
         mockedComponent="svg-Circle"
         r={2}
         stroke="#3E90F0"
-        strokeOpacity={1} />
+        strokeOpacity={1}
+      />
     </view>
     <view
       mockedComponent="svg-G"
       x={NaN}
-      y={NaN}>
+      y={NaN}
+    >
       <view
         cx={0}
         cy={0}
@@ -573,12 +658,14 @@ exports[`test renders an example chart correctly 1`] = `
         mockedComponent="svg-Circle"
         r={2}
         stroke="#3E90F0"
-        strokeOpacity={1} />
+        strokeOpacity={1}
+      />
     </view>
     <view
       mockedComponent="svg-G"
       x={NaN}
-      y={NaN}>
+      y={NaN}
+    >
       <view
         cx={0}
         cy={0}
@@ -587,12 +674,14 @@ exports[`test renders an example chart correctly 1`] = `
         mockedComponent="svg-Circle"
         r={2}
         stroke="#3E90F0"
-        strokeOpacity={1} />
+        strokeOpacity={1}
+      />
     </view>
     <view
       mockedComponent="svg-G"
       x={NaN}
-      y={NaN}>
+      y={NaN}
+    >
       <view
         cx={0}
         cy={0}
@@ -601,12 +690,14 @@ exports[`test renders an example chart correctly 1`] = `
         mockedComponent="svg-Circle"
         r={2}
         stroke="#3E90F0"
-        strokeOpacity={1} />
+        strokeOpacity={1}
+      />
     </view>
     <view
       mockedComponent="svg-G"
       x={NaN}
-      y={NaN}>
+      y={NaN}
+    >
       <view
         cx={0}
         cy={0}
@@ -615,12 +706,14 @@ exports[`test renders an example chart correctly 1`] = `
         mockedComponent="svg-Circle"
         r={2}
         stroke="#3E90F0"
-        strokeOpacity={1} />
+        strokeOpacity={1}
+      />
     </view>
     <view
       mockedComponent="svg-G"
       x={NaN}
-      y={NaN}>
+      y={NaN}
+    >
       <view
         cx={0}
         cy={0}
@@ -629,36 +722,43 @@ exports[`test renders an example chart correctly 1`] = `
         mockedComponent="svg-Circle"
         r={2}
         stroke="#3E90F0"
-        strokeOpacity={1} />
+        strokeOpacity={1}
+      />
     </view>
     <view
-      mockedComponent="svg-G">
+      mockedComponent="svg-G"
+    >
       <view
         mockedComponent="svg-G"
         x={-40}
-        y={-20}>
+        y={-20}
+      >
         <view
           d="M NaN NaN L NaN NaN Z "
           fill="none"
           mockedComponent="svg-Path"
           stroke="#3E90F0"
           strokeOpacity={0.5}
-          strokeWidth={3} />
+          strokeWidth={3}
+        />
       </view>
     </view>
     <view
-      mockedComponent="svg-G">
+      mockedComponent="svg-G"
+    >
       <view
         mockedComponent="svg-G"
         x={-40}
-        y={-20}>
+        y={-20}
+      >
         <view
           d="M NaN NaN L NaN NaN Z "
           fill="none"
           mockedComponent="svg-Path"
           stroke="#3E90F0"
           strokeOpacity={0.5}
-          strokeWidth={3} />
+          strokeWidth={3}
+        />
       </view>
     </view>
   </view>

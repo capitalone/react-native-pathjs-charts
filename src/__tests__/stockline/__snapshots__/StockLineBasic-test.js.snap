@@ -1,38 +1,47 @@
-exports[`test renders an example chart correctly 1`] = `
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`renders an example chart correctly 1`] = `
 <view
   height={290}
   mockedComponent="svg-component"
-  width={295}>
+  width={295}
+>
   <view
     mockedComponent="svg-G"
     x={35}
-    y={10}>
+    y={10}
+  >
     <view
       mockedComponent="svg-G"
       x={-35}
-      y={-10} />
+      y={-10}
+    />
     <view
       mockedComponent="svg-G"
       x={-35}
-      y={-10} />
+      y={-10}
+    />
     <view
       d="M NaN NaN L NaN NaN L NaN NaN L NaN NaN L NaN NaN L NaN NaN L NaN NaN L NaN NaN L NaN NaN L NaN NaN L NaN NaN L NaN NaN L NaN NaN L NaN NaN L NaN NaN L NaN NaN L NaN NaN L NaN NaN L NaN NaN L NaN NaN L NaN NaN Z "
       fill="#3199de"
       fillOpacity={0.5}
       mockedComponent="svg-Path"
-      stroke="none" />
+      stroke="none"
+    />
     <view
       d="M NaN NaN L NaN NaN L NaN NaN L NaN NaN L NaN NaN L NaN NaN L NaN NaN L NaN NaN L NaN NaN L NaN NaN L NaN NaN L NaN NaN L NaN NaN L NaN NaN L NaN NaN L NaN NaN L NaN NaN L NaN NaN L NaN NaN L NaN NaN L NaN NaN Z "
       fill="#2980b9"
       fillOpacity={0.5}
       mockedComponent="svg-Path"
-      stroke="none" />
+      stroke="none"
+    />
     <view
       d="M NaN NaN L NaN NaN L NaN NaN L NaN NaN L NaN NaN L NaN NaN L NaN NaN L NaN NaN L NaN NaN L NaN NaN L NaN NaN L NaN NaN L NaN NaN L NaN NaN L NaN NaN L NaN NaN L NaN NaN L NaN NaN L NaN NaN L NaN NaN L NaN NaN Z "
       fill="#206694"
       fillOpacity={0.5}
       mockedComponent="svg-Path"
-      stroke="none" />
+      stroke="none"
+    />
     <view
       d="M NaN NaN L NaN NaN L NaN NaN L NaN NaN L NaN NaN L NaN NaN L NaN NaN L NaN NaN L NaN NaN L NaN NaN L NaN NaN L NaN NaN L NaN NaN L NaN NaN L NaN NaN L NaN NaN L NaN NaN L NaN NaN L NaN NaN"
       fill="none"
@@ -40,7 +49,8 @@ exports[`test renders an example chart correctly 1`] = `
       stroke="#3199de"
       strokeDasharray={Array []}
       strokeOpacity={1}
-      strokeWidth="1" />
+      strokeWidth="1"
+    />
     <view
       d="M NaN NaN L NaN NaN L NaN NaN L NaN NaN L NaN NaN L NaN NaN L NaN NaN L NaN NaN L NaN NaN L NaN NaN L NaN NaN L NaN NaN L NaN NaN L NaN NaN L NaN NaN L NaN NaN L NaN NaN L NaN NaN L NaN NaN"
       fill="none"
@@ -48,7 +58,8 @@ exports[`test renders an example chart correctly 1`] = `
       stroke="#2980b9"
       strokeDasharray={Array []}
       strokeOpacity={1}
-      strokeWidth="1" />
+      strokeWidth="1"
+    />
     <view
       d="M NaN NaN L NaN NaN L NaN NaN L NaN NaN L NaN NaN L NaN NaN L NaN NaN L NaN NaN L NaN NaN L NaN NaN L NaN NaN L NaN NaN L NaN NaN L NaN NaN L NaN NaN L NaN NaN L NaN NaN L NaN NaN L NaN NaN"
       fill="none"
@@ -56,35 +67,42 @@ exports[`test renders an example chart correctly 1`] = `
       stroke="#206694"
       strokeDasharray={Array []}
       strokeOpacity={1}
-      strokeWidth="1" />
+      strokeWidth="1"
+    />
     <view
-      mockedComponent="svg-G">
+      mockedComponent="svg-G"
+    >
       <view
         mockedComponent="svg-G"
         x={-35}
-        y={-10}>
+        y={-10}
+      >
         <view
           d="M NaN NaN L NaN NaN Z "
           fill="none"
           mockedComponent="svg-Path"
           stroke="#3E90F0"
           strokeOpacity={0.5}
-          strokeWidth={3} />
+          strokeWidth={3}
+        />
       </view>
     </view>
     <view
-      mockedComponent="svg-G">
+      mockedComponent="svg-G"
+    >
       <view
         mockedComponent="svg-G"
         x={-35}
-        y={-10}>
+        y={-10}
+      >
         <view
           d="M NaN NaN L NaN NaN Z "
           fill="none"
           mockedComponent="svg-Path"
           stroke="#3E90F0"
           strokeOpacity={0.5}
-          strokeWidth={3} />
+          strokeWidth={3}
+        />
       </view>
     </view>
   </view>

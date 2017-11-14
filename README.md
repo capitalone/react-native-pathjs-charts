@@ -2,11 +2,6 @@ react-native-pathjs-charts
 =======================
 
 [![npm version](https://badge.fury.io/js/react-native-pathjs-charts.svg)](https://badge.fury.io/js/react-native-pathjs-charts)
-[![](https://img.shields.io/badge/react--native--svg-4.5.0-blue.svg)](https://www.npmjs.com/package/react-native-svg)
-[![](https://img.shields.io/badge/react--native-0.41-orange.svg)](https://facebook.github.io/react-native/)
-[![](https://img.shields.io/badge/android--ff69b4.svg)](http://developer.android.com/sdk/index.html)
-[![](https://img.shields.io/badge/ios--red.svg)](https://developer.apple.com/xcode/)
-[![](https://img.shields.io/badge/license-Apache%202.0-blue.svg)](http://www.apache.org/licenses/LICENSE-2.0)
 
 This library is a cross-platform (iOS/Android) library of charts/graphs using [react-native-svg](https://github.com/magicismight/react-native-svg) and [paths-js](https://github.com/andreaferretti/paths-js) based on the excellent work done by Roman Samec in the [react-pathjs-chart](https://github.com/rsamec/react-pathjs-chart) library. The project is an early attempt at providing a ubiquitous solution for charts & graphs for React Native that offer a unified view across devices.
 

@@ -1,8 +1,24 @@
 # Change Log
 
-## [0.0.31](https://github.com/capitalone/react-native-pathjs-charts/tree/HEAD)
+## [0.0.32](https://github.com/capitalone/react-native-pathjs-charts/tree/HEAD)
 
-[Full Changelog](https://github.com/capitalone/react-native-pathjs-charts/compare/0.0.30...HEAD)
+[Full Changelog](https://github.com/capitalone/react-native-pathjs-charts/compare/0.0.31...HEAD)
+
+**Closed issues:**
+
+- Library causes app to crash when using await AsyncStorage.getItem\(STORAGE\_KEY\); [\#202](https://github.com/capitalone/react-native-pathjs-charts/issues/202)
+- How do I change the color of the grid? [\#191](https://github.com/capitalone/react-native-pathjs-charts/issues/191)
+- Changing default gray background to transparent [\#185](https://github.com/capitalone/react-native-pathjs-charts/issues/185)
+- gridColor applied to wrong axis [\#179](https://github.com/capitalone/react-native-pathjs-charts/issues/179)
+
+**Merged pull requests:**
+
+- Fix grid axis appearing on top of the lines [\#197](https://github.com/capitalone/react-native-pathjs-charts/pull/197) ([Minishlink](https://github.com/Minishlink))
+- Fix default pointRadius and add parameters to renderPoint [\#196](https://github.com/capitalone/react-native-pathjs-charts/pull/196) ([Minishlink](https://github.com/Minishlink))
+- Feature/improve smoothline chart [\#183](https://github.com/capitalone/react-native-pathjs-charts/pull/183) ([AmauryLiet](https://github.com/AmauryLiet))
+
+## [0.0.31](https://github.com/capitalone/react-native-pathjs-charts/tree/0.0.31) (2017-09-02)
+[Full Changelog](https://github.com/capitalone/react-native-pathjs-charts/compare/0.0.30...0.0.31)
 
 **Closed issues:**
 
@@ -11,6 +27,7 @@
 
 **Merged pull requests:**
 
+- New release for .31 [\#187](https://github.com/capitalone/react-native-pathjs-charts/pull/187) ([marzolfb](https://github.com/marzolfb))
 - Upgrade to RN 0.47.2 [\#184](https://github.com/capitalone/react-native-pathjs-charts/pull/184) ([Minishlink](https://github.com/Minishlink))
 - Upgrade to .30 [\#171](https://github.com/capitalone/react-native-pathjs-charts/pull/171) ([marzolfb](https://github.com/marzolfb))
 
