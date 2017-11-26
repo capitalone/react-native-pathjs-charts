@@ -24,7 +24,6 @@ import _ from 'lodash'
 import Axis from './Axis'
 import GridAxis from './GridAxis'
 const Bar = require('paths-js/bar')
-import 'babel-polyfill'
 
 export default class BarChart extends Component {
 

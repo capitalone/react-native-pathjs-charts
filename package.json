@@ -37,7 +37,6 @@
     }
   ],
   "dependencies": {
-    "babel-polyfill": "^6.23.0",
     "lodash": "^4.12.0",
     "paths-js": "^0.4.5",
     "react-native-svg": "~5.5.1"
