@@ -63,7 +63,12 @@ export default class StockLineChart extends LineChart {
           bold: true,
           color: '#34495E'
         }
-      }
+      },
+      cursorLine: {
+        stroke: "white",
+        strokeWidth: "1"
+      },
+      interaction: false
     }
   }
 }

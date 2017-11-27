@@ -17,8 +17,8 @@ SPDX-License-Identifier: Apache-2.0
 */
 
 import React, { Component } from 'react';
-import { Text as ReactText } from 'react-native';
-import Svg, { G, Path, Rect, Text, Circle } from 'react-native-svg';
+import { Text as ReactText, View, PanResponder } from 'react-native';
+import Svg, { G, Path, Rect, Text, Circle, Line } from 'react-native-svg';
 import { Colors, Options, cyclic, fontAdapt } from './util';
 import Axis from './Axis';
 import GridAxis from './GridAxis';
@@ -28,6 +28,85 @@ export default class LineChart extends Component {
   constructor(props, chartType) {
     super(props);
     this.chartType = chartType;
+    this.state = { userPressing: false};
+  }
+
+  _calcDataPoint(evt) {
+    let posX = evt.nativeEvent.locationX;
+    let posY = evt.nativeEvent.locationY;
+    posX -= this.props.options.margin.left;
+    posY -= this.props.options.margin.top;
+
+    let chartWidth = this.props.options.width;
+
+    posX = Math.max(posX, 0);
+    posX = Math.min(posX, chartWidth);
+    // map the datapoint index with the gesture:
+    let curPos = Math.min(posX / chartWidth, 1);
+
+    // create a 'focus' line
+    let curPosX = posX;
+    this.curPos = curPos;
+    this.setState({curPos});
+    this.setState({curPosX});
+    this.setState({chartStartY: 0});
+    this.setState({chartEndY: this.props.options.height});
+  }
+
+  componentWillMount() {
+    this._panResponder = {};
+    if (!this.props.options.interaction) {return;}
+    this._panResponder = PanResponder.create({
+      // Ask to be the responder:
+      onStartShouldSetPanResponder: (evt, gestureState) => true,
+      onStartShouldSetPanResponderCapture: (evt, gestureState) => true,
+      onMoveShouldSetPanResponder: (evt, gestureState) => true,
+      onMoveShouldSetPanResponderCapture: (evt, gestureState) => true,
+
+      onPanResponderGrant: (evt, gestureState) => {
+
+        this.setState({userPressing: true});
+        this._calcDataPoint(evt)
+
+        if (this.props.panHandlerStart) {
+          this.props.panHandlerStart(this.curPos);
+        }
+      },
+
+      onPanResponderMove: (evt, gestureState) => {
+
+        this._calcDataPoint(evt);
+        if (this.props.panHandlerMove) {
+          this.props.panHandlerMove(this.curPos);
+        }
+      },
+
+      onPanResponderRelease: (evt, gestureState) => {
+
+        this._calcDataPoint(evt);
+        if (this.props.panHandlerEnd) {
+          this.props.panHandlerEnd(this.curPos);
+        }
+
+        this.setState({userPressing: false});
+      },
+
+      onPanResponderTerminationRequest: (evt, gestureState) => true,
+
+
+      onPanResponderTerminate: (evt, gestureState) => {
+
+        if (this.props.panHandlerEnd) {
+          this.props.panHandlerEnd(evt);
+        }
+
+        this.setState({userPressing: false});
+      },
+
+      onShouldBlockNativeResponder: (evt, gestureState) => {
+        return true;
+      },
+    });
   }
 
   getMaxAndMin(chart, key, scale, chartMin, chartMax) {
@@ -125,6 +204,31 @@ export default class LineChart extends Component {
         );
       }.bind(this)
     );
+
+    // gesture line here
+    let gestureLine = null;
+    let color = 'white';
+    let width = 1;
+    if (this.props.options.cursorLine ) {
+      if (this.props.options.cursorLine.stroke)
+        color = this.props.options.cursorLine.stroke;
+      if (this.props.options.cursorLine.strokeWidth) {
+        width =this.props.options.cursorLine.strokeWidth;
+      }
+    }
+    if (this.state.userPressing
+      && this.props.options.interaction) {
+      gestureLine = <Line
+        x1={this.state.curPosX}
+        y1={this.state.chartStartY}
+        x2={this.state.curPosX}
+        y2={this.state.chartEndY}
+        stroke={color}
+        strokeWidth={width}
+
+      />
+    }
+
     let areas = null;
 
     let showPoints = typeof this.props.options.showPoints !== 'undefined'
@@ -254,18 +358,21 @@ export default class LineChart extends Component {
     }
 
     let returnValue = (
-      <Svg width={options.width} height={options.height}>
-        <G x={options.margin.left} y={options.margin.top}>
-          <GridAxis key="grid-x" scale={chart.xscale} options={options.axisX} chartArea={chartArea} />
-          <GridAxis key="grid-y" scale={chart.yscale} options={options.axisY} chartArea={chartArea} />
-          {regions}
-          {areas}
-          {lines}
-          {points}
-          <Axis key="axis-x" scale={chart.xscale} options={options.axisX} chartArea={chartArea} />
-          <Axis key="axis-y" scale={chart.yscale} options={options.axisY} chartArea={chartArea} />
-        </G>
-      </Svg>
+      <View width={options.width} height={options.height} {...this._panResponder.panHandlers}>
+        <Svg width={options.width} height={options.height}>
+          <G x={options.margin.left} y={options.margin.top}>
+            <GridAxis key="grid-x" scale={chart.xscale} options={options.axisX} chartArea={chartArea} />
+            <GridAxis key="grid-y" scale={chart.yscale} options={options.axisY} chartArea={chartArea} />
+            {regions}
+            {areas}
+            {lines}
+            {points}
+            {gestureLine}
+            <Axis key="axis-x" scale={chart.xscale} options={options.axisX} chartArea={chartArea} />
+            <Axis key="axis-y" scale={chart.yscale} options={options.axisY} chartArea={chartArea} />
+          </G>
+        </Svg>
+      </View>
     );
 
     return returnValue;
