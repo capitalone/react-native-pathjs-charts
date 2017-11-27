@@ -23,7 +23,6 @@ import { Options, styleSvg } from './util'
 import Axis from './Axis'
 import GridAxis from './GridAxis'
 import _ from 'lodash'
-import 'babel-polyfill'
 
 const Stock = require('paths-js/stock')
 
