@@ -1,8 +1,21 @@
 # Change Log
 
-## [0.0.32](https://github.com/capitalone/react-native-pathjs-charts/tree/HEAD)
+## [0.0.33](https://github.com/capitalone/react-native-pathjs-charts/tree/0.0.33) (2017-11-29)
+[Full Changelog](https://github.com/capitalone/react-native-pathjs-charts/compare/0.0.32...0.0.33)
 
-[Full Changelog](https://github.com/capitalone/react-native-pathjs-charts/compare/0.0.31...HEAD)
+**Closed issues:**
+
+- more Invariant Violation: Element type is invalid: expected a string \(for built-in components\) or a class/function \(for composite components\) but got: object. [\#209](https://github.com/capitalone/react-native-pathjs-charts/issues/209)
+- Unhandled Promise rejection due to babel-polyfill [\#195](https://github.com/capitalone/react-native-pathjs-charts/issues/195)
+- After Installing Error : \_reactNative.AsyncStorage.getItem\(..\).then\(..\).done is not a function [\#173](https://github.com/capitalone/react-native-pathjs-charts/issues/173)
+
+**Merged pull requests:**
+
+- Removed babel-polyfill and substituted with narrower imports [\#211](https://github.com/capitalone/react-native-pathjs-charts/pull/211) ([marzolfb](https://github.com/marzolfb))
+- Upgrade to latest rn and rnsvg dependencies and general cleanup [\#210](https://github.com/capitalone/react-native-pathjs-charts/pull/210) ([marzolfb](https://github.com/marzolfb))
+
+## [0.0.32](https://github.com/capitalone/react-native-pathjs-charts/tree/0.0.32) (2017-11-13)
+[Full Changelog](https://github.com/capitalone/react-native-pathjs-charts/compare/0.0.31...0.0.32)
 
 **Closed issues:**
 
