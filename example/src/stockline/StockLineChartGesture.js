@@ -228,12 +228,12 @@ class StockLineChartBasic extends Component {
 
   _panHandlerStart(cursorPositionX) {
     this.setState({
-      selectedDataPointPosition: String(Math.floor(cursorPositionX * data[0].length))
+      selectedDataPointPosition: String(Math.floor(cursorPositionX * (data[0].length - 1)))
     });
   }
   _panHandlerMove(cursorPositionX) {
     this.setState({
-      selectedDataPointPosition: String(Math.floor(cursorPositionX * data[0].length))
+      selectedDataPointPosition: String(Math.floor(cursorPositionX * (data[0].length - 1)))
     });
   }
   _panHandlerEnd(cursorPositionX) {
