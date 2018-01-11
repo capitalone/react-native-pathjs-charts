@@ -96,8 +96,9 @@ export default class LineChart extends Component {
 
       onPanResponderTerminate: (evt, gestureState) => {
 
+        this._calcDataPoint(evt);
         if (this.props.panHandlerEnd) {
-          this.props.panHandlerEnd(evt);
+          this.props.panHandlerEnd(this.curPos);
         }
 
         this.setState({userPressing: false});
