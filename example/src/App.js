@@ -31,6 +31,7 @@ import StockLineChartBasic from './stockline/StockLineChartBasic'
 import StockLineChartStaticTickLabels from './stockline/StockLineChartStaticTickLabels'
 import StockLineChartDynamicTickLabels from './stockline/StockLineChartDynamicTickLabels'
 import StockLineChartDynamicLineRendering from './stockline/StockLineChartDynamicLineRendering'
+import StockLineChartGesture from './stockline/StockLineChartGesture'
 
 import SmoothLineChartBasic from './smoothline/SmoothLineChartBasic'
 import SmoothLineChartRegions from './smoothline/SmoothLineChartRegions'
@@ -87,6 +88,10 @@ class HomeScreen extends React.Component {
           title="StockLine - Dynamic Line Rendering"
         />
         <Button
+          onPress={() => navigate('StockLineChartGesture')}
+          title="StockLine - Gesture"
+        />
+        <Button
           onPress={() => navigate('SmoothLineChartBasic')}
           title="SmoothLine - Basic"
         />
@@ -123,6 +128,7 @@ const App = StackNavigator({
   StockLineChartStaticTickLabels: { screen: StockLineChartStaticTickLabels },
   StockLineChartDynamicTickLabels: { screen: StockLineChartDynamicTickLabels },
   StockLineChartDynamicLineRendering: { screen: StockLineChartDynamicLineRendering },
+  StockLineChartGesture: { screen: StockLineChartGesture },
   SmoothLineChartBasic: { screen: SmoothLineChartBasic },
   SmoothLineChartRegions: { screen: SmoothLineChartRegions },
   SmoothLineChartRegionsExtended: { screen: SmoothLineChartRegionsExtended },
