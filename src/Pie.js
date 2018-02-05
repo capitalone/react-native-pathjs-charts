@@ -13,12 +13,15 @@ SPDX-Copyright: Copyright (c) Capital One Services, LLC
 SPDX-License-Identifier: Apache-2.0
 */
 
+import extractProps from 'react-native-svg/lib/extract/extractProps';
 import React, {Component} from 'react'
-import {Text as ReactText}  from 'react-native'
+import {Text as ReactText, Animated}  from 'react-native'
 import Svg,{ G, Path, Text, Circle} from 'react-native-svg'
 import { Colors, Options, cyclic, identity, fontAdapt } from './util'
 import _ from 'lodash'
 const Pie = require('paths-js/pie')
+
+const ANIMATION_START_DELAY = 1000;
 
 export default class PieChart extends Component {
 
@@ -32,6 +35,7 @@ export default class PieChart extends Component {
       R: 200,
       legendPosition: 'topLeft',
       animate: {
+        enabled: false,
         type: 'oneByOne',
         duration: 200,
         fillTransition: 3
@@ -44,6 +48,19 @@ export default class PieChart extends Component {
       }
     },
   }
+
+  constructor(props){
+    super(props);
+
+    this._animationRefArray = {};
+    this._startAnimation = this._startAnimation.bind(this)
+    this._createAnimation = this._createAnimation.bind(this)
+    this._onAnimationFinished = this._onAnimationFinished.bind(this)
+    if (this._shouldAnim()) this._animationArray = new Array(props.data.length)
+    
+  }
+
+  _shouldAnim = () => this.props.animate.enabled && this.props.data.length > 1
 
   color(i) {
     let color = this.props.color || (this.props.options && this.props.options.color)
@@ -62,6 +79,46 @@ export default class PieChart extends Component {
 
   get defaultRange() {
     return _.map(Array(this.props.data && this.props.data.length),function(){return 0})
+  }
+
+  _onAnimationFinished(){
+    this._animationArray.forEach((anim) => anim.removeAllListeners())
+  }
+
+  _createAnimation(index, fill) {
+    const maxVal = this.props.data[index][this.props.accessorKey]
+    this._animationArray[index] = new Animated.Value(0)
+    this._animationArray[index].addListener(v => {
+        const sliceRef = this._animationRefArray[`SLICE${index}`]
+        if (sliceRef === undefined) return
+        if (sliceRef._finished) return;
+
+        const animValue = this._animationArray[index].interpolate({
+            inputRange: [0, 1],
+            outputRange: [0, 1],
+            extrapolate: 'clamp'
+        })
+
+        const props = {
+          fill: fill,
+          fillOpacity: animValue.__getValue()
+        }
+
+        const nativeProps = extractProps(props, sliceRef)
+        sliceRef.setNativeProps(nativeProps)
+        if (props.fillOpacity === 1) sliceRef._finished = true
+      });
+  }
+
+  _startAnimation(){
+    Animated.sequence(
+      this._animationArray.map(a =>
+        Animated.timing(a, {
+          toValue: 1,
+          duration: this.props.animate.duration
+        })
+      )
+    ).start(this._onAnimationFinished)
   }
 
   render() {
@@ -120,9 +177,14 @@ export default class PieChart extends Component {
       slices = chart.curves.map( (c, i) => {
         let fill = (c.item.color && Colors.string(c.item.color)) || this.color(i)
         let stroke = typeof fill === 'string' ? fill : Colors.darkenColor(fill)
+        const opacity = this._shouldAnim() ? 0 : 1
+        const finalStroke = this._shouldAnim() ? undefined : stroke
+
+        if (this._shouldAnim()) this._createAnimation(i, fill);
+
         return (
                   <G key={ i }>
-                      <Path d={c.sector.path.print() } stroke={stroke} fill={fill} fillOpacity={1}  />
+                      <Path  ref={ref => (this._animationRefArray[`SLICE${i}`] = ref)} fill={fill} fillOpacity={opacity} d={c.sector.path.print() } stroke={finalStroke} />
                       <G x={options.margin.left} y={options.margin.top}>
                         <Text fontFamily={textStyle.fontFamily}
                               fontSize={textStyle.fontSize}
@@ -137,6 +199,8 @@ export default class PieChart extends Component {
               )
       })
     }
+
+    if (this._shouldAnim()) setTimeout(this._startAnimation, ANIMATION_START_DELAY)
 
     let returnValue = <Svg width={options.width} height={options.height}>
             <G x={options.margin.left} y={options.margin.top}>
