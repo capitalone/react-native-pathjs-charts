@@ -1,4 +1,4 @@
-**Capital One has decided to focus on alternatives to react native and, therefore, we are considering next steps for our react-native-pathjs-charts project.  We built this project to help our engineers as well as users in the react native community.  Unfortunately, we are no longer able to fully support the project, and we will be archiving the project on February 28th, 2018. Feel free to fork the project and maintain your own version.**
+** Capital One built this project to help our engineers as well as users in the react native community. We have decided to focus on alternatives to react native, and, unfortunately, we are no longer able to fully support the project. We will be archiving the project on February 28th where it will be available in a read-only state.  Feel free to fork the project and maintain your own version. **
 
 
 react-native-pathjs-charts
