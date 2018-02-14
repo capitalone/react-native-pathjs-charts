@@ -60,7 +60,7 @@ export default class PieChart extends Component {
     
   }
 
-  _shouldAnim = () => this.props.animate.enabled && this.props.data.length > 1
+  _shouldAnim = () => this.props.options.animate.enabled && this.props.data.length > 1
 
   color(i) {
     let color = this.props.color || (this.props.options && this.props.options.color)
@@ -115,7 +115,7 @@ export default class PieChart extends Component {
       this._animationArray.map(a =>
         Animated.timing(a, {
           toValue: 1,
-          duration: this.props.animate.duration
+          duration: this.props.options.animate.duration
         })
       )
     ).start(this._onAnimationFinished)
