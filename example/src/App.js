@@ -26,6 +26,7 @@ import SideMenu from 'react-native-side-menu'
 import BarChartColumnBasic from './bar/BarChartColumnBasic'
 
 import PieChartBasic from './pie/PieChartBasic'
+import PieChartBasicAnimation from './pie/PieChartBasicAnimation'
 
 import StockLineChartBasic from './stockline/StockLineChartBasic'
 import StockLineChartStaticTickLabels from './stockline/StockLineChartStaticTickLabels'
@@ -70,6 +71,10 @@ class HomeScreen extends React.Component {
         <Button
           onPress={() => navigate('PieChartBasic')}
           title="Pie - Basic"
+        />
+        <Button
+          onPress={() => navigate('PieChartBasicAnimation')}
+          title="Pie - Basic Animation"
         />
         <Button
           onPress={() => navigate('StockLineChartBasic')}
@@ -124,6 +129,7 @@ const App = StackNavigator({
   Home: { screen: HomeScreen },
   BarChartColumnBasic: { screen: BarChartColumnBasic },
   PieChartBasic: { screen: PieChartBasic },
+  PieChartBasicAnimation: { screen: PieChartBasicAnimation },
   StockLineChartBasic: { screen: StockLineChartBasic },
   StockLineChartStaticTickLabels: { screen: StockLineChartStaticTickLabels },
   StockLineChartDynamicTickLabels: { screen: StockLineChartDynamicTickLabels },
