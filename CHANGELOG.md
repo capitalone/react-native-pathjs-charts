@@ -1,5 +1,19 @@
 # Change Log
 
+## [0.0.34](https://github.com/capitalone/react-native-pathjs-charts/tree/0.0.34) (2018-02-18)
+[Full Changelog](https://github.com/capitalone/react-native-pathjs-charts/compare/0.0.33...0.0.34)
+
+**Closed issues:**
+
+- How i make a PR? [\#226](https://github.com/capitalone/react-native-pathjs-charts/issues/226)
+
+**Merged pull requests:**
+
+- added pie animation [\#227](https://github.com/capitalone/react-native-pathjs-charts/pull/227) ([melkayam92](https://github.com/melkayam92))
+- Update test snapshots to match current state [\#222](https://github.com/capitalone/react-native-pathjs-charts/pull/222) ([marzolfb](https://github.com/marzolfb))
+- feature: add interaction on line chart. [\#221](https://github.com/capitalone/react-native-pathjs-charts/pull/221) ([soloviola](https://github.com/soloviola))
+- Upgrade to.33 [\#212](https://github.com/capitalone/react-native-pathjs-charts/pull/212) ([marzolfb](https://github.com/marzolfb))
+
 ## [0.0.33](https://github.com/capitalone/react-native-pathjs-charts/tree/0.0.33) (2017-11-29)
 [Full Changelog](https://github.com/capitalone/react-native-pathjs-charts/compare/0.0.32...0.0.33)
 
@@ -180,7 +194,10 @@
 - Fix \#62 - adding Babel polyfill to fix undefined not a function error [\#64](https://github.com/capitalone/react-native-pathjs-charts/pull/64) ([marzolfb](https://github.com/marzolfb))
 
 ## [0.0.24](https://github.com/capitalone/react-native-pathjs-charts/tree/0.0.24) (2017-01-27)
-[Full Changelog](https://github.com/capitalone/react-native-pathjs-charts/compare/0.0.23...0.0.24)
+[Full Changelog](https://github.com/capitalone/react-native-pathjs-charts/compare/v0.0.24...0.0.24)
+
+## [v0.0.24](https://github.com/capitalone/react-native-pathjs-charts/tree/v0.0.24) (2017-01-27)
+[Full Changelog](https://github.com/capitalone/react-native-pathjs-charts/compare/0.0.23...v0.0.24)
 
 **Implemented enhancements:**
 
