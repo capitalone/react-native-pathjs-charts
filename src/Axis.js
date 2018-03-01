@@ -125,6 +125,13 @@ export default class Axis extends Component {
     if (options.orient === 'left')  xy = [-5,-10]
     if (options.orient === 'right')  xy = [5,5]
 
+    const positionMargin = {x: 0, y: 0};
+    
+    if (options.position) {
+      if (options.position === 'right') positionMargin.x += (chartArea.x.max);
+      if (options.position === 'top') positionMargin.y -= (chartArea.y.min + xy[1]);
+    }
+
     if (typeof options.color !== 'string') {
       options.color = '#3E90F0'
     }
@@ -155,7 +162,7 @@ export default class Axis extends Component {
       let returnValue
       if (label !== undefined && label !== null) {
         returnValue =
-          <G key={i} x={gxy[0]} y={gxy[1]}>
+          <G key={i} x={gxy[0] + positionMargin.x} y={gxy[1] + positionMargin.y}>
               {options.showTicks &&
                 <Circle r={options.tickSize} cx="0" cy="0" stroke={options.tickColor} fill={options.tickColor} />
               }
@@ -176,8 +183,8 @@ export default class Axis extends Component {
     })
 
     let offset = {
-      x: chartArea.margin.left * -1,
-      y: chartArea.margin.top * -1
+      x: chartArea.margin.left * -1 + positionMargin.x,
+      y: chartArea.margin.top * -1 + positionMargin.y
       // x: 0,
       // y: 0
     }
